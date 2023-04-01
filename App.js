@@ -4,6 +4,7 @@ import { StyleSheet, View, ActivityIndicator, Image } from "react-native";
 import { SafeAreaProvider } from "react-native-safe-area-context";
 import { NavigationContainer } from "@react-navigation/native";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
+import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 
 import { useFonts } from "expo-font";
 import { Poppins_400Regular, Poppins_600SemiBold, Poppins_700Bold } from "@expo-google-fonts/poppins";
@@ -18,8 +19,11 @@ import SearchScreen from "./screens/SearchScreen";
 import ResultScreen from "./screens/ResultScreen";
 import DetailScreen from "./screens/DetailScreen";
 import MyListScreen from "./screens/MyListScreen";
+import ProfileScreen from "./screens/ProfileScreen";
+import MoreScreen from "./screens/MoreScreen";
 
 const Stack = createNativeStackNavigator();
+const Tab = createBottomTabNavigator();
 
 export default function App() {
 
@@ -41,23 +45,33 @@ export default function App() {
     <SafeAreaProvider>
       <ThemeProvider theme={framesTheme}>
         <NavigationContainer>
-          <Stack.Navigator
-            initialRouteName="Home"
-            screenOptions={{ 
-              headerTintColor: "#232323",
-
-             }}
-          >
-            <Stack.Screen
+          <Tab.Navigator initialRouteName="Home">
+            <Tab.Screen
               name="Home"
               component={HomeScreen}
-              options={{ 
-                title: "Home",
-
-               }}
             >
-            </Stack.Screen>
-          </Stack.Navigator>
+            </Tab.Screen>
+            <Tab.Screen
+              name="MyMovies"
+              component={MyListScreen}
+            >
+            </Tab.Screen>
+            <Tab.Screen
+              name="Profile"
+              component={ProfileScreen}
+            >
+            </Tab.Screen>
+            <Tab.Screen
+              name="Search"
+              component={SearchScreen}
+            >
+            </Tab.Screen>
+            <Tab.Screen
+              name="More"
+              component={}
+            >
+            </Tab.Screen>
+          </Tab.Navigator>
         </NavigationContainer>
       </ThemeProvider>
     </SafeAreaProvider>
