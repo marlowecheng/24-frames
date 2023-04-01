@@ -9,7 +9,8 @@ import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import { useFonts } from "expo-font";
 import { Poppins_400Regular, Poppins_600SemiBold, Poppins_700Bold } from "@expo-google-fonts/poppins";
 
-import Icon from "react-native-ionicons"
+import Icon from "react-native-ionicons";
+import Ionicons from "react-native-vector-icons/Ionicons"
 
 import { ThemeProvider } from "@rneui/themed";
 import { framesTheme } from "./themes/framesTheme";
@@ -65,11 +66,7 @@ export default function App() {
               component={HomeScreen}
               options={{ 
                 tabBarIcon: () => {
-                  return (
-                    <View>
-                      <Icon name="home" size={40}/>
-                    </View>
-                  );
+                  return <Ionicons name="home" size={40}/>;
                 },
               }}
             >
@@ -78,13 +75,10 @@ export default function App() {
               name="MyMovies"
               component={MyListScreen}
               options={{ 
+                title: "My Movies",
                 tabBarIcon: () => {
-                  return (
-                    <View>
-                      <Icon name="film" size={40}/>
-                    </View>
-                  )
-                }
+                  return <Ionicons name="film" size={40}/>
+                },
               }}
             >
             </Tab.Screen>
@@ -93,12 +87,8 @@ export default function App() {
               component={ProfileScreen}
               options={{ 
                 tabBarIcon: () => {
-                  return (
-                    <View>
-                      <Icon name="person" size={40}/>
-                    </View>
-                  )
-                }
+                  return <Ionicons name="person" size={40}/>
+                },
               }}
             >
             </Tab.Screen>
@@ -107,12 +97,8 @@ export default function App() {
               component={SearchScreen}
               options={{ 
                 tabBarIcon: () => {
-                  return (
-                    <View>
-                      <Icon name="search" size={40}/>
-                    </View>
-                  )
-                }
+                  return <Ionicons name="search" size={40}/>
+                },
               }}
             >
             </Tab.Screen>
@@ -121,8 +107,8 @@ export default function App() {
               component={MoreScreen}
               options={{ 
                 tabBarIcon: () => {
-                  return ( <Icon name="more" size={40}/> )
-                }
+                  return <Ionicons name="menu" size={40}/>
+                },
               }}
             >
             </Tab.Screen>
