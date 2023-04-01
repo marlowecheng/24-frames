@@ -68,7 +68,7 @@ export default function App() {
             </Tab.Screen>
             <Tab.Screen
               name="More"
-              component={}
+              component={MoreScreen}
             >
             </Tab.Screen>
           </Tab.Navigator>
