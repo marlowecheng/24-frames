@@ -1,5 +1,5 @@
 import * as React from "react";
-import { StyleSheet, View, ActivityIndicator, Image } from "react-native";
+import { StyleSheet, View, ActivityIndicator } from "react-native";
 
 import { SafeAreaProvider } from "react-native-safe-area-context";
 import { NavigationContainer } from "@react-navigation/native";
@@ -8,6 +8,8 @@ import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 
 import { useFonts } from "expo-font";
 import { Poppins_400Regular, Poppins_600SemiBold, Poppins_700Bold } from "@expo-google-fonts/poppins";
+
+import Icon from "react-native-ionicons"
 
 import { ThemeProvider } from "@rneui/themed";
 import { framesTheme } from "./themes/framesTheme";
@@ -53,33 +55,75 @@ export default function App() {
               },
               headerTintColor: "#232323",
               tabBarStyle: {
-                backgroundColor: "#F5EFDF"
+                backgroundColor: "#F5EFDF",
+                height: 80,
               },
             }}
           >
             <Tab.Screen
               name="Home"
               component={HomeScreen}
+              options={{ 
+                tabBarIcon: () => {
+                  return (
+                    <View>
+                      <Icon name="home" size={40}/>
+                    </View>
+                  );
+                },
+              }}
             >
             </Tab.Screen>
             <Tab.Screen
               name="MyMovies"
               component={MyListScreen}
+              options={{ 
+                tabBarIcon: () => {
+                  return (
+                    <View>
+                      <Icon name="film" size={40}/>
+                    </View>
+                  )
+                }
+              }}
             >
             </Tab.Screen>
             <Tab.Screen
               name="Profile"
               component={ProfileScreen}
+              options={{ 
+                tabBarIcon: () => {
+                  return (
+                    <View>
+                      <Icon name="person" size={40}/>
+                    </View>
+                  )
+                }
+              }}
             >
             </Tab.Screen>
             <Tab.Screen
               name="Search"
               component={SearchScreen}
+              options={{ 
+                tabBarIcon: () => {
+                  return (
+                    <View>
+                      <Icon name="search" size={40}/>
+                    </View>
+                  )
+                }
+              }}
             >
             </Tab.Screen>
             <Tab.Screen
               name="More"
               component={MoreScreen}
+              options={{ 
+                tabBarIcon: () => {
+                  return ( <Icon name="more" size={40}/> )
+                }
+              }}
             >
             </Tab.Screen>
           </Tab.Navigator>
