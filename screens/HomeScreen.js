@@ -5,7 +5,7 @@ export default function HomeScreen({ navigation }) {
 
 
     return (
-        <View>
+        <View style={styles.container}>
             <Text h1>
                 This is the Home screen.
             </Text>
@@ -14,6 +14,10 @@ export default function HomeScreen({ navigation }) {
 }
 
 const styles = StyleSheet.create({
+    container: {
+        flex: 1,
+        backgroundColor: "#F5EFDF",
+    },
     MovieList: {},
     GenreList: {},
 });

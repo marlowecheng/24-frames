@@ -3,7 +3,7 @@ import { createTheme } from "@rneui/themed";
 const themePalette = {
     DarkOrange:"#E95E0B",
     LightOrange:"#F3B646",
-    LightGrey:"#F5EFDF",
+    Beige:"#F5EFDF",
     LightBlue:"#56BFD9",
     DarkBlue:"#062C3F",
     White:"#FFFDFA",

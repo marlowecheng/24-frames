@@ -5,7 +5,7 @@ export default function MyListScreen({ navigation }) {
 
 
     return (
-        <View>
+        <View style={styles.container}>
             <Text h1>
                 This is the My List screen.
             </Text>
@@ -14,6 +14,10 @@ export default function MyListScreen({ navigation }) {
 }
 
 const styles = StyleSheet.create({
+    container: {
+        flex: 1,
+        backgroundColor: "#F5EFDF",
+    },
     MovieList: {},
     GenreList: {},
-});
+});;

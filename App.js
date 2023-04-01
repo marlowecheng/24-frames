@@ -45,7 +45,18 @@ export default function App() {
     <SafeAreaProvider>
       <ThemeProvider theme={framesTheme}>
         <NavigationContainer>
-          <Tab.Navigator initialRouteName="Home">
+          <Tab.Navigator 
+            initialRouteName="Home"
+            screenOptions={{ 
+              headerStyle: {
+                backgroundColor: "#F5EFDF"
+              },
+              headerTintColor: "#232323",
+              tabBarStyle: {
+                backgroundColor: "#F5EFDF"
+              },
+            }}
+          >
             <Tab.Screen
               name="Home"
               component={HomeScreen}
