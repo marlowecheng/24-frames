@@ -4,9 +4,8 @@ import { StyleSheet, View, FlatList, ActivityIndicator } from "react-native";
 import { Text } from "@rneui/themed";
 
 import MovieListItem from "../components/MovieListItem";
-
-// import { getAllGenres } from "../data/genre-data";
-// import { GenreListItem } from "../components/GenreListItem";
+import GenreListItem from "../components/GenreListItem";
+import { getAllGenres } from "../data/genre-data";
 
 export default function HomeScreen({ navigation }) {
 
@@ -33,23 +32,13 @@ export default function HomeScreen({ navigation }) {
         )
     }, []);
 
-    // const renderItem = ({ genre }) => (
-    //     <GenreListItem itemData={genre} navigationRef={navigation}/>
-    // );
-
     return (
         <View style={styles.container}>
             
             {displayDataContainer(error, isLoaded, dataResult, navigation)}
 
-            {/* <View>
-                <FlatList
-                    style={styles.GenreList}
-                    data={getAllGenres()}
-                    renderItem={renderItem}
-                    keyExtractor={genre => genre.id}
-                />
-            </View> */}
+            {displayGenreContainer(error, isLoaded, dataResult, navigation)}
+
         </View>
 
     );
@@ -101,6 +90,28 @@ function displayDataContainer(error, isLoaded, dataResult, navigation) {
     } 
 }
 
+function displayGenreContainer(navigation) {
+
+    const renderItem = ({ item }) => (
+        <GenreListItem itemData={item} navigationRef={navigation} />
+    );
+
+    return (
+        <View>
+            <FlatList
+                style={styles.GenreList}
+                data={getAllGenres()}
+                renderItem={renderItem}
+                keyExtractor={item => item.id}
+                horizontal={false}
+                showsHorizontalScrollIndicator={false}
+                showsVerticalScrollIndicator={false}
+                numColumns={2}
+            />
+        </View>
+    );
+}
+
 const styles = StyleSheet.create({
     loadingContainer: {
         flex: 1,
@@ -117,10 +128,12 @@ const styles = StyleSheet.create({
         height: "66%",
         alignSelf: "center",
         backgroundColor: "#F5EFDF",
+        marginBottom: 10,
     },
     GenreList: {
+        height: "33%",
         flexDirection: "row",
         flexWrap: "wrap",
-        width: "100%",
+        alignSelf: "center",
     },
 });

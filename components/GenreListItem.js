@@ -1,9 +1,11 @@
-
 import { StyleSheet, Image, View } from "react-native";
 import { ListItem, Text } from "@rneui/themed";
 import { useNavigation } from "@react-navigation/native";
+
 export default function GenreListItem({ itemData }) {
+
     const navigation = useNavigation();
+
     return (
         <ListItem 
         style={styles.listItem}
@@ -15,29 +17,33 @@ export default function GenreListItem({ itemData }) {
             <View style={styles.itemImg}>
                 <Image 
                     height={202}
-                    width={136}
-                    source={{ uri: itemData.image }}
+                    width={156}
+                    // source={{ uri: itemData.image }}
                 />
             </View>
             <View style={styles.textBox}>
-                <Text h3 style={styles.allCaps}>{itemData.name}</Text>
+                <Text h3>{itemData.name}</Text>
             </View>
         </ListItem>
     )
 }
 const styles = StyleSheet.create({
     listItem: {
+        width: 170,
         backgroundColor: "#F5EFDF",
-        width: "55%",
     },
     textBox: {
         position: "absolute",
+        top:0,
+        left:0,
+        right:0,
+        bottom:0,
         justifyContent: "center",
-        alignSelf: "center",
+        alignItems: "center",
     },
     itemImg: {
         raised: true,
-        elevation: 5,
+        elevation: 2,
         shadowColor: "#232323",
         borderRadius: 15,
         overflow: "hidden",

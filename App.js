@@ -9,7 +9,6 @@ import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import { useFonts } from "expo-font";
 import { Poppins_400Regular, Poppins_600SemiBold, Poppins_700Bold } from "@expo-google-fonts/poppins";
 
-import Icon from "react-native-ionicons";
 import Ionicons from "react-native-vector-icons/Ionicons"
 
 import { ThemeProvider } from "@rneui/themed";
@@ -56,9 +55,13 @@ export default function App() {
               },
               headerTintColor: "#232323",
               tabBarStyle: {
+                
                 backgroundColor: "#F5EFDF",
-                height: 80,
+                height: 70,
               },
+              tabBarIconStyle: {
+                color: "red",
+              }
             }}
           >
             <Tab.Screen
@@ -66,7 +69,7 @@ export default function App() {
               component={HomeScreen}
               options={{ 
                 tabBarIcon: () => {
-                  return <Ionicons name="home" size={40}/>;
+                  return <Ionicons name="home" size={40} color={"#062C3F"}/>;
                 },
               }}
             >
@@ -77,7 +80,7 @@ export default function App() {
               options={{ 
                 title: "My Movies",
                 tabBarIcon: () => {
-                  return <Ionicons name="film" size={40}/>
+                  return <Ionicons name="film" size={40} color={"#062C3F"}/>
                 },
               }}
             >
@@ -87,7 +90,7 @@ export default function App() {
               component={ProfileScreen}
               options={{ 
                 tabBarIcon: () => {
-                  return <Ionicons name="person" size={40}/>
+                  return <Ionicons name="person" size={40} color={"#062C3F"}/>
                 },
               }}
             >
@@ -97,7 +100,7 @@ export default function App() {
               component={SearchScreen}
               options={{ 
                 tabBarIcon: () => {
-                  return <Ionicons name="search" size={40}/>
+                  return <Ionicons name="search" size={40} color={"#062C3F"}/>
                 },
               }}
             >
@@ -107,7 +110,7 @@ export default function App() {
               component={MoreScreen}
               options={{ 
                 tabBarIcon: () => {
-                  return <Ionicons name="menu" size={40}/>
+                  return <Ionicons name="menu" size={40} color={"#062C3F"}/>
                 },
               }}
             >
