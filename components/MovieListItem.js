@@ -42,14 +42,14 @@ export default function MovieListItem({ itemData }) {
         >
             <View style={styles.itemImg}>
                 <Image 
-                    height={202}
-                    width={136}
+                    height={231}
+                    width={156}
                     source={{ uri: "http://image.tmdb.org/t/p/w154" + itemData.poster_path }}
                 />
             </View>
             <View style={styles.textBox}>
                 <Text h3 style={styles.allCaps}>{itemData.title}</Text>
-                <Text>{dataResult.tagline}</Text>
+                <Text style={styles.medPrint}>{dataResult.tagline}</Text>
                 <Text style={styles.smallPrint}>
                     {itemData.overview}</Text>
             </View>
@@ -72,6 +72,9 @@ const styles = StyleSheet.create({
         shadowColor: "#232323",
         borderRadius: 15,
         overflow: "hidden",
+    },
+    medPrint: {
+        fontSize: 12,
     },
     smallPrint: {
         fontSize: 8,

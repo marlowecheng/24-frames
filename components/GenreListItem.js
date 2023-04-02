@@ -16,8 +16,8 @@ export default function GenreListItem({ itemData }) {
         >
             <View style={styles.itemImg}>
                 <Image 
-                    height={202}
-                    width={156}
+                    height={231}
+                    width={179}
                     // source={{ uri: itemData.image }}
                 />
             </View>
@@ -29,7 +29,7 @@ export default function GenreListItem({ itemData }) {
 }
 const styles = StyleSheet.create({
     listItem: {
-        width: 170,
+        width: 203,
         backgroundColor: "#F5EFDF",
     },
     textBox: {

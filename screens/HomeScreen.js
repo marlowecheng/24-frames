@@ -1,6 +1,6 @@
 import React, {useState, useEffect } from "react";
 
-import { StyleSheet, View, FlatList, ActivityIndicator } from "react-native";
+import { StyleSheet, View, ScrollView, FlatList, ActivityIndicator } from "react-native";
 import { Text } from "@rneui/themed";
 
 import MovieListItem from "../components/MovieListItem";
@@ -33,13 +33,13 @@ export default function HomeScreen({ navigation }) {
     }, []);
 
     return (
-        <View style={styles.container}>
+        <ScrollView style={styles.container}>
             
             {displayDataContainer(error, isLoaded, dataResult, navigation)}
 
             {displayGenreContainer(error, isLoaded, dataResult, navigation)}
 
-        </View>
+        </ScrollView>
 
     );
 }
@@ -81,9 +81,10 @@ function displayDataContainer(error, isLoaded, dataResult, navigation) {
             <View>
                 <FlatList
                     style={styles.MovieList}
-                    data={dataResult.results}
+                    data={dataResult.results.slice(0,2)}
                     renderItem={renderItem}
                     keyExtractor={item => item.id}
+                    scrollEnabled={false}
                 />
             </View>
         );
@@ -107,6 +108,7 @@ function displayGenreContainer(navigation) {
                 showsHorizontalScrollIndicator={false}
                 showsVerticalScrollIndicator={false}
                 numColumns={2}
+                scrollEnabled={false}
             />
         </View>
     );
@@ -124,14 +126,14 @@ const styles = StyleSheet.create({
         backgroundColor: "#F5EFDF",
     },
     MovieList: {
-        width: "98%",
-        height: "66%",
+        width: 400,
+        height: 500,
         alignSelf: "center",
         backgroundColor: "#F5EFDF",
         marginBottom: 10,
     },
     GenreList: {
-        height: "33%",
+        width: 400,
         flexDirection: "row",
         flexWrap: "wrap",
         alignSelf: "center",
