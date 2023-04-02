@@ -33,23 +33,23 @@ export default function HomeScreen({ navigation }) {
         )
     }, []);
 
-    // const renderItem = ({ genre }) => (
-    //     <GenreListItem itemData={genre} navigationRef={navigation}/>
-    // );
+    const renderItem = ({ genre }) => (
+        <GenreListItem itemData={genre} navigationRef={navigation}/>
+    );
 
     return (
         <View style={styles.container}>
             
             {displayDataContainer(error, isLoaded, dataResult, navigation)}
 
-            {/* <View>
+            <View>
                 <FlatList
                     style={styles.GenreList}
                     data={getAllGenres()}
                     renderItem={renderItem}
                     keyExtractor={genre => genre.id}
                 />
-            </View> */}
+            </View>
         </View>
 
     );
