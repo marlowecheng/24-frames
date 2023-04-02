@@ -18,7 +18,7 @@ export default function GenreListItem({ itemData }) {
                 <Image 
                     height={202}
                     width={136}
-                    source={{ uri: itemData.image }}
+                    // source={{ uri: itemData.image }}
                 />
             </View>
             <View style={styles.textBox}>
