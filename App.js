@@ -9,7 +9,6 @@ import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import { useFonts } from "expo-font";
 import { Poppins_400Regular, Poppins_600SemiBold, Poppins_700Bold } from "@expo-google-fonts/poppins";
 
-import Icon from "react-native-ionicons";
 import Ionicons from "react-native-vector-icons/Ionicons"
 
 import { ThemeProvider } from "@rneui/themed";

@@ -51,13 +51,13 @@ export const framesTheme = createTheme({
                 fontFamily:"Poppins_700Bold",
                 fontWeight:"regular",
                 color:themePalette.Black,
-                fontSize:32,
+                fontSize:18,
             },
             h4Style: {
                 fontFamily:"Poppins_600SemiBold",
                 fontWeight:"regular",
                 color:themePalette.Black,
-                fontSize:18,
+                fontSize:16,
             },
             style: {
                 fontFamily:"Poppins_400Regular",
@@ -76,6 +76,12 @@ export const framesTheme = createTheme({
                 fontWeight:"regular",
                 color:themePalette.Black,
                 fontSize:14,
+            },
+            smallPrint: {
+                fontFamily:"Poppins_400Regular",
+                fontWeight:"regular",
+                color:themePalette.Black,
+                fontSize:8
             },
         },
     },
