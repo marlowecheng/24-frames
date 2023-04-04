@@ -6,6 +6,8 @@ export default function GenreListItem({ itemData }) {
 
     const navigation = useNavigation();
 
+    console.log(itemData.genreImage);
+
     return (
         <ListItem 
         style={styles.listItem}
@@ -16,9 +18,9 @@ export default function GenreListItem({ itemData }) {
         >
             <View style={styles.itemImg}>
                 <Image 
-                    height={231}
                     width={179}
-                    // source={{ uri: itemData.image }}
+                    height={231}
+                    source={itemData.genreImage}
                 />
             </View>
             <View style={styles.textBox}>
