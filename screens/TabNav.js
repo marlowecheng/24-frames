@@ -20,7 +20,7 @@ const Tab = createBottomTabNavigator();
 export default function TabNav() {
 
     return (
-          <Tab.Navigator 
+        <Tab.Navigator 
             initialRouteName="Home"
             screenOptions={{ 
               headerStyle: {
@@ -82,6 +82,6 @@ export default function TabNav() {
                 },
               }}
             />
-          </Tab.Navigator>
+        </Tab.Navigator>
     )
 }
