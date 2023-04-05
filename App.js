@@ -54,8 +54,12 @@ export default function App() {
               }}
             /> 
             <Stack.Screen
-              name="Create An Account"
+              name="SignUp"
               component={SignUpScreen}
+            />
+            <Stack.Screen
+              name="LogIn"
+              component={LoginScreen}
             />
             <Stack.Screen
               name="Onboarding1"
