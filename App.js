@@ -4,28 +4,24 @@ import { StyleSheet, View, ActivityIndicator } from "react-native";
 import { SafeAreaProvider } from "react-native-safe-area-context";
 import { NavigationContainer } from "@react-navigation/native";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
-import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 
 import { useFonts } from "expo-font";
 import { Poppins_400Regular, Poppins_600SemiBold, Poppins_700Bold } from "@expo-google-fonts/poppins";
 
-import Ionicons from "react-native-vector-icons/Ionicons"
-
 import { ThemeProvider } from "@rneui/themed";
 import { framesTheme } from "./themes/framesTheme";
 
-import HomeScreen from "./screens/HomeScreen";
+import WelcomeScreen from "./screens/WelcomeScreen";
+import OnboardingFirstScreen from "./screens/onboarding/OnboardingFirstScreen";
+import OnboardingSecondScreen from "./screens/onboarding/OnbopardingSecondScreen";
+import OnboardingThirdScreen from "./screens/onboarding/OnboardingThirdScreen";
+import OnboardingFourthScreen from "./screens/onboarding/OnboardingFourthScreen";
+import OnboardingFifthScreen from "./screens/onboarding/OnboardingFifthScreen";
 import LoginScreen from "./screens/LoginScreen";
 import SignUpScreen from "./screens/SignUpScreen";
-import SearchScreen from "./screens/SearchScreen";
-import ResultScreen from "./screens/ResultScreen";
-import DetailScreen from "./screens/DetailScreen";
-import MyListScreen from "./screens/MyListScreen";
-import ProfileScreen from "./screens/ProfileScreen";
-import MoreScreen from "./screens/MoreScreen";
+import TabNav from "./screens/TabNav";
 
 const Stack = createNativeStackNavigator();
-const Tab = createBottomTabNavigator();
 
 export default function App() {
 
@@ -47,80 +43,49 @@ export default function App() {
     <SafeAreaProvider>
       <ThemeProvider theme={framesTheme}>
         <NavigationContainer>
-          <Tab.Navigator 
-            initialRouteName="Home"
-            screenOptions={{ 
-              headerStyle: {
-                backgroundColor: "#F5EFDF"
-              },
-              headerTintColor: "#232323",
-              tabBarStyle: {
-                backgroundColor: "#F5EFDF",
-                height: 70,
-              },
-              tabBarIconStyle: {
-                color: "red",
-              }
-            }}
-          >
-            <Tab.Screen
-              name="Home"
-              component={HomeScreen}
-              options={{ 
-                tabBarIcon: () => {
-                  return <Ionicons name="home" size={40} color={"#062C3F"}/>;
-                },
+           <Stack.Navigator
+            initialRouteName="Welcome"
+           >
+            <Stack.Screen
+              name="Welcome"
+              component={WelcomeScreen}
+              options={{
+                headerShown: false,
               }}
-            >
-            </Tab.Screen>
-            <Tab.Screen
-              name="MyMovies"
-              component={MyListScreen}
-              options={{ 
-                title: "My Movies",
-                tabBarIcon: () => {
-                  return <Ionicons name="film" size={40} color={"#062C3F"}/>
-                },
-              }}
-            >
-            </Tab.Screen>
-            <Tab.Screen
-              name="Profile"
-              component={ProfileScreen}
-              options={{ 
-                tabBarIcon: () => {
-                  return <Ionicons name="person" size={40} color={"#062C3F"}/>
-                },
-              }}
-            >
-            </Tab.Screen>
-            <Tab.Screen
-              name="Search"
-              component={SearchScreen}
-              options={{ 
-                tabBarIcon: () => {
-                  return <Ionicons name="search" size={40} color={"#062C3F"}/>
-                },
-              }}
-            >
-            </Tab.Screen>
-            <Tab.Screen
-              name="More"
-              component={MoreScreen}
-              options={{ 
-                tabBarIcon: () => {
-                  return <Ionicons name="menu" size={40} color={"#062C3F"}/>
-                },
-              }}
-            >
-            </Tab.Screen>
-          </Tab.Navigator>
+            /> 
+            <Stack.Screen
+              name="Create An Account"
+              component={SignUpScreen}
+            />
+            <Stack.Screen
+              name="Onboarding1"
+              component={OnboardingFirstScreen}
+            /> 
+            <Stack.Screen
+              name="Onboarding2"
+              component={OnboardingSecondScreen}
+            /> 
+            <Stack.Screen
+              name="Onboarding3"
+              component={OnboardingThirdScreen}
+            /> 
+            <Stack.Screen
+              name="Onboarding4"
+              component={OnboardingFourthScreen}
+            /> 
+            <Stack.Screen
+              name="Onboarding5"
+              component={OnboardingFifthScreen}
+            /> 
+            <Stack.Screen
+              name="TabNavigator"
+              component={TabNav}
+            />
+           </Stack.Navigator>
         </NavigationContainer>
       </ThemeProvider>
     </SafeAreaProvider>
   )
-
-  
 }
 
 const styles = StyleSheet.create({

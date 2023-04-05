@@ -1,13 +1,13 @@
 import { StyleSheet, View, FlatList } from "react-native";
 import { Text } from "@rneui/themed";
 
-export default function LoginScreen({ navigation }) {
+export default function OnboardingFirstScreen({ navigation }) {
 
 
     return (
         <View style={styles.container}>
             <Text h1>
-                This is the Login screen.
+                This is the First Onboarding screen.
             </Text>
         </View>
     );

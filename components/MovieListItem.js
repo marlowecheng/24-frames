@@ -1,6 +1,6 @@
 import React, {useState, useEffect } from "react";
 
-import { StyleSheet, Image, View } from "react-native";
+import { StyleSheet, Image, View, Pressable } from "react-native";
 import { ListItem, Text } from "@rneui/themed";
 import { useNavigation } from "@react-navigation/native";
 // import { Dropdown } from "react-native-material-dropdown";
@@ -40,13 +40,16 @@ export default function MovieListItem({ itemData }) {
             padding:10,
          }}
         >
-            <View style={styles.itemImg}>
+            <Pressable style={styles.itemImg}
+                onPress={() => navigation.navigate("Detail", {
+                    movieId: itemData.id
+                })}>
                 <Image 
                     height={231}
                     width={156}
                     source={{ uri: "http://image.tmdb.org/t/p/w154" + itemData.poster_path }}
                 />
-            </View>
+            </Pressable>
             <View style={styles.textBox}>
                 <Text h3 style={styles.allCaps}>{itemData.title}</Text>
                 <Text style={styles.medPrint}>{dataResult.tagline}</Text>
