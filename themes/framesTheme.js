@@ -78,5 +78,8 @@ export const framesTheme = createTheme({
                 fontSize:14,
             },
         },
+        Input: {
+
+        },
     },
 });
