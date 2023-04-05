@@ -1,11 +1,6 @@
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
-import { SafeAreaProvider } from "react-native-safe-area-context";
-import { NavigationContainer } from "@react-navigation/native";
 
 import Ionicons from "react-native-vector-icons/Ionicons"
-
-import { ThemeProvider } from "@rneui/themed";
-import { framesTheme } from "../themes/framesTheme";
 
 import HomeScreen from "./HomeScreen";
 import SearchScreen from "./SearchScreen";
