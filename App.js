@@ -55,7 +55,6 @@ export default function App() {
               },
               headerTintColor: "#232323",
               tabBarStyle: {
-                
                 backgroundColor: "#F5EFDF",
                 height: 70,
               },
