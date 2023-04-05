@@ -6,8 +6,6 @@ export default function GenreListItem({ itemData }) {
 
     const navigation = useNavigation();
 
-    console.log(itemData.genreImage);
-
     return (
         <ListItem 
         style={styles.listItem}
