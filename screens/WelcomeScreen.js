@@ -15,6 +15,12 @@ export default function WelcomeScreen({ navigation }) {
                 onPress={() => navigation.navigate('TabNavigator')}
             >
             </Button>
+            <Button
+                title="Create an Account"
+                raised={true}
+                onPress={() => navigation.navigate('SignUp')}
+            >
+            </Button>
         </View>
     );
 }
