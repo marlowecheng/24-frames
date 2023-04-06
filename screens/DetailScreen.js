@@ -86,8 +86,10 @@ function displayDataContainer(error, isLoaded, dataResult, navigation) {
                         width={300}
                         source={{ uri: "http://image.tmdb.org/t/p/w500" + dataResult.poster_path }}
                     /> */}
-                    <Text h2>{dataResult.title}</Text>
+                    <Text h1>{dataResult.title}</Text>
+                    <Text style={styles.smallPrint}>{dataResult.release_date} {dataResult.runtime}</Text>
                     <Text h3>{dataResult.tagline}</Text>
+                    <Text></Text>
                     <Text>{dataResult.overview}</Text>
                 </View>
             </View>
@@ -105,5 +107,7 @@ const styles = StyleSheet.create({
         width: "96%",
         alignSelf: "center",
     },
-
+    smallPrint: {
+        fontSize: 10,
+    },
 });
