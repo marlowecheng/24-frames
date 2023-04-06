@@ -42,6 +42,11 @@ export default function DetailScreen({ route, navigation }) {
 
 function displayDataContainer(error, isLoaded, dataResult, navigation) {
 
+    var time = dataResult.runtime;
+
+    const runtimeHours = Math.floor(time /60);
+    const runtimeMins = time % 60;
+
     if (error) {
         // show error message   
         return (
@@ -86,11 +91,15 @@ function displayDataContainer(error, isLoaded, dataResult, navigation) {
                         width={300}
                         source={{ uri: "http://image.tmdb.org/t/p/w500" + dataResult.poster_path }}
                     /> */}
-                    <Text h1>{dataResult.title}</Text>
-                    <Text style={styles.smallPrint}>{dataResult.release_date} {dataResult.runtime}</Text>
-                    <Text h3>{dataResult.tagline}</Text>
-                    <Text></Text>
-                    <Text>{dataResult.overview}</Text>
+                    <View style={styles.titleWrap}>
+                        <Text h1>{dataResult.title}</Text>
+                        <Text style={styles.smallPrint}>{dataResult.release_date} {runtimeHours}h {runtimeMins}m</Text>
+                    </View>
+                    <View style={styles.blackBg}></View>
+                    <View style={styles.descriptionWrap}>
+                        <Text h4>Description</Text>
+                        <Text style={styles.smallPrint}>{dataResult.overview}</Text>
+                    </View>
                 </View>
             </View>
         );
@@ -104,10 +113,22 @@ const styles = StyleSheet.create({
         backgroundColor: "#F5EFDF",
     },
     contentWrap: {
-        width: "96%",
+        width: "100%",
+    },
+    titleWrap: {
+        width: "90%",
+        alignSelf: "center",
+    },
+    descriptionWrap: {
+        width: "75%",
         alignSelf: "center",
     },
     smallPrint: {
         fontSize: 10,
+    },
+    blackBg: {
+        width: "100%",
+        height: 260,
+        backgroundColor: "#232323",
     },
 });

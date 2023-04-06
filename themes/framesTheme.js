@@ -54,7 +54,7 @@ export const framesTheme = createTheme({
                 fontSize:18,
             },
             h4Style: {
-                fontFamily:"Poppins_600SemiBold",
+                fontFamily:"Poppins_700Bold",
                 fontWeight:"regular",
                 color:themePalette.Black,
                 fontSize:16,

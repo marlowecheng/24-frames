@@ -47,6 +47,19 @@ export default function App() {
         <NavigationContainer>
            <Stack.Navigator
             initialRouteName="Welcome"
+            screenOptions={{ 
+              headerStyle: {
+                backgroundColor: "#F5EFDF"
+              },
+              headerTintColor: "#232323",
+              tabBarStyle: {
+                backgroundColor: "#F5EFDF",
+                height: 70,
+              },
+              tabBarIconStyle: {
+                color: "red",
+              }
+            }}
            >
             <Stack.Screen
               name="Welcome"
