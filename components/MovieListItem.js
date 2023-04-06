@@ -40,7 +40,8 @@ export default function MovieListItem({ itemData }) {
             padding:10,
          }}
         >
-            <Pressable style={styles.itemImg}
+            <Pressable 
+                style={styles.itemImg}
                 onPress={() => navigation.navigate("Details", {
                     movieId: itemData.id
                 })}>

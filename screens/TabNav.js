@@ -7,6 +7,8 @@ import SearchScreen from "./SearchScreen";
 import MyListScreen from "./MyListScreen";
 import ProfileScreen from "./ProfileScreen";
 import MoreScreen from "./MoreScreen";
+import ResultScreen from "./ResultScreen";
+import DetailScreen from "./DetailScreen";
 
 const Tab = createBottomTabNavigator();
 
@@ -73,6 +75,21 @@ export default function TabNav() {
                 tabBarIcon: () => {
                   return <Ionicons name="menu" size={40} color={"#062C3F"}/>
                 },
+              }}
+            />
+            <Tab.Screen
+              name="Results"
+              component={ResultScreen}
+              options={{
+                tabBarButton: () => null,
+                title: "Genre"
+              }}
+            />
+            <Tab.Screen
+              name="Details"
+              component={DetailScreen}
+              options={{
+                tabBarButton: () => null,
               }}
             />
         </Tab.Navigator>

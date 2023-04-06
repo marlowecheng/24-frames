@@ -1,4 +1,4 @@
-import { StyleSheet, Image, View } from "react-native";
+import { StyleSheet, Image, View, Pressable } from "react-native";
 import { ListItem, Text } from "@rneui/themed";
 import { useNavigation } from "@react-navigation/native";
 
@@ -14,16 +14,21 @@ export default function GenreListItem({ itemData }) {
             padding:10,
          }}
         >
-            <View style={styles.itemImg}>
+            <Pressable 
+                style={styles.itemImg}
+                onPress={() => navigation.navigate("Results", {
+                    genreId: itemData.genreId,
+                    genreName: itemData.name
+                })}>
                 <Image 
                     width={179}
                     height={231}
                     source={itemData.genreImage}
                 />
-            </View>
-            <View style={styles.textBox}>
-                <Text h3>{itemData.name}</Text>
-            </View>
+                <View style={styles.textBox}>
+                    <Text h3>{itemData.name}</Text>
+                </View>
+            </Pressable>
         </ListItem>
     )
 }
