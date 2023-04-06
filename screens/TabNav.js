@@ -4,8 +4,6 @@ import Ionicons from "react-native-vector-icons/Ionicons"
 
 import HomeScreen from "./HomeScreen";
 import SearchScreen from "./SearchScreen";
-import ResultScreen from "./ResultScreen";
-import DetailScreen from "./DetailScreen";
 import MyListScreen from "./MyListScreen";
 import ProfileScreen from "./ProfileScreen";
 import MoreScreen from "./MoreScreen";

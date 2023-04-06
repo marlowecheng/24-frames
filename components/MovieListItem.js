@@ -41,7 +41,7 @@ export default function MovieListItem({ itemData }) {
          }}
         >
             <Pressable style={styles.itemImg}
-                onPress={() => navigation.navigate("Detail", {
+                onPress={() => navigation.navigate("Details", {
                     movieId: itemData.id
                 })}>
                 <Image 

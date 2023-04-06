@@ -19,6 +19,8 @@ import OnboardingFourthScreen from "./screens/onboarding/OnboardingFourthScreen"
 import OnboardingFifthScreen from "./screens/onboarding/OnboardingFifthScreen";
 import LoginScreen from "./screens/LoginScreen";
 import SignUpScreen from "./screens/SignUpScreen";
+import ResultScreen from "./screens/ResultScreen";
+import DetailScreen from "./screens/DetailScreen";
 import TabNav from "./screens/TabNav";
 
 const Stack = createNativeStackNavigator();
@@ -87,6 +89,14 @@ export default function App() {
               options={{
                 headerShown: false,
               }}
+            />
+            <Stack.Screen
+              name="Results"
+              component={ResultScreen}
+            />
+            <Stack.Screen
+              name="Details"
+              component={DetailScreen}
             />
            </Stack.Navigator>
         </NavigationContainer>
