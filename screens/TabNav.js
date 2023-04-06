@@ -89,6 +89,7 @@ export default function TabNav() {
               name="Details"
               component={DetailScreen}
               options={{
+                title: "",
                 tabBarButton: () => null,
               }}
             />
