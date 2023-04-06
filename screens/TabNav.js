@@ -82,7 +82,7 @@ export default function TabNav() {
               component={ResultScreen}
               options={{
                 tabBarButton: () => null,
-                title: "Genre"
+                title: "Genre Goes Here"
               }}
             />
             <Tab.Screen

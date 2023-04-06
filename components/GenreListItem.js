@@ -17,8 +17,7 @@ export default function GenreListItem({ itemData }) {
             <Pressable 
                 style={styles.itemImg}
                 onPress={() => navigation.navigate("Results", {
-                    genreId: itemData.genreId,
-                    genreName: itemData.name
+                    genreId: itemData.genreId
                 })}>
                 <Image 
                     width={179}
