@@ -1,3 +1,4 @@
+import * as React from "react";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 
 import Ionicons from "react-native-vector-icons/Ionicons"
@@ -85,14 +86,13 @@ export default function TabNav() {
                 title: "Genre Goes Here"
               }}
             />
-            <Tab.Screen
+            {/* <Tab.Screen
               name="Details"
               component={DetailScreen}
               options={{
-                title: "",
                 tabBarButton: () => null,
               }}
-            />
+            /> */}
         </Tab.Navigator>
     )
 }

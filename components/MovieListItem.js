@@ -59,8 +59,9 @@ export default function MovieListItem({ itemData }) {
             </View>
         </ListItem>
     )
-
 }
+
+
 
 const styles = StyleSheet.create({
 

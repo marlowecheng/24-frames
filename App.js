@@ -20,6 +20,7 @@ import OnboardingFifthScreen from "./screens/onboarding/OnboardingFifthScreen";
 import LoginScreen from "./screens/LoginScreen";
 import SignUpScreen from "./screens/SignUpScreen";
 import TabNav from "./screens/TabNav";
+import DetailScreen from "./screens/DetailScreen";
 
 const Stack = createNativeStackNavigator();
 
@@ -50,13 +51,6 @@ export default function App() {
                 backgroundColor: "#F5EFDF"
               },
               headerTintColor: "#232323",
-              tabBarStyle: {
-                backgroundColor: "#F5EFDF",
-                height: 70,
-              },
-              tabBarIconStyle: {
-                color: "red",
-              }
             }}
            >
             <Stack.Screen
@@ -99,6 +93,13 @@ export default function App() {
               component={TabNav}
               options={{
                 headerShown: false,
+              }}
+            />
+            <Stack.Screen
+              name="Details"
+              component={DetailScreen}
+              options={{
+                title: "",
               }}
             />
            </Stack.Navigator>

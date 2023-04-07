@@ -6,7 +6,7 @@ import { Text } from "@rneui/themed";
 export default function DetailScreen({ route, navigation }) {
 
     const { movieId } = route.params;
-
+    console.log(movieId);
     const [error, setError] = useState(null);
     const [isLoaded, setIsLoaded] = useState(false);
     const [dataResult, setDataResult] = useState([]);
