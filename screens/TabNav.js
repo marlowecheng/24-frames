@@ -78,14 +78,14 @@ export default function TabNav() {
                 },
               }}
             />
-            <Tab.Screen
+            {/* <Tab.Screen
               name="Results"
               component={ResultScreen}
               options={{
                 tabBarButton: () => null,
                 title: "Genre Goes Here"
               }}
-            />
+            /> */}
             {/* <Tab.Screen
               name="Details"
               component={DetailScreen}

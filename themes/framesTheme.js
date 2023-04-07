@@ -78,5 +78,13 @@ export const framesTheme = createTheme({
                 fontSize:14,
             },
         },
+        SearchBar: (searchBarProps) => ({
+            containerStyle: {
+                backgroundColor: themePalette.Beige,
+            },
+            inputContainerStyle: {
+                backgroundColor: themePalette.White,
+            }
+        }),
     },
 });

@@ -20,6 +20,7 @@ import OnboardingFifthScreen from "./screens/onboarding/OnboardingFifthScreen";
 import LoginScreen from "./screens/LoginScreen";
 import SignUpScreen from "./screens/SignUpScreen";
 import TabNav from "./screens/TabNav";
+import ResultScreen from "./screens/ResultScreen";
 import DetailScreen from "./screens/DetailScreen";
 
 const Stack = createNativeStackNavigator();
@@ -93,6 +94,13 @@ export default function App() {
               component={TabNav}
               options={{
                 headerShown: false,
+              }}
+            />
+            <Stack.Screen
+              name="Results"
+              component={ResultScreen}
+              options={{
+                title: "Genre Goes Here"
               }}
             />
             <Stack.Screen
