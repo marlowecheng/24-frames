@@ -96,7 +96,7 @@ export default function App() {
                 headerShown: false,
               }}
             />
-            <Stack.Screen
+            {/* <Stack.Screen
               name="Results"
               component={ResultScreen}
               options={{
@@ -109,7 +109,7 @@ export default function App() {
               options={{
                 title: "",
               }}
-            />
+            /> */}
            </Stack.Navigator>
         </NavigationContainer>
       </ThemeProvider>
