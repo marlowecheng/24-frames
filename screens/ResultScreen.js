@@ -1,7 +1,7 @@
 import React, {useState, useEffect } from "react";
 
 import { StyleSheet, View, FlatList, ActivityIndicator } from "react-native";
-import { Text } from "@rneui/themed";
+import { Text, SearchBar } from "@rneui/themed";
 
 import MovieListItem from "../components/MovieListItem";
 
@@ -40,6 +40,12 @@ export default function HomeScreen({ route, navigation }) {
 
     return (
         <View style={styles.container}>
+            <SearchBar
+                placeholder="Search Movies & People"
+                // onChangeText={updateSearch}
+                // value={search}
+                lightTheme="false"
+            />
             
             {displayDataContainer(error, isLoaded, dataResult, navigation)}
 
