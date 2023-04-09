@@ -1,26 +1,22 @@
+import * as React from "react";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
-import { SafeAreaProvider } from "react-native-safe-area-context";
-import { NavigationContainer } from "@react-navigation/native";
 
 import Ionicons from "react-native-vector-icons/Ionicons"
 
-import { ThemeProvider } from "@rneui/themed";
-import { framesTheme } from "../themes/framesTheme";
-
 import HomeScreen from "./HomeScreen";
 import SearchScreen from "./SearchScreen";
-import ResultScreen from "./ResultScreen";
-import DetailScreen from "./DetailScreen";
 import MyListScreen from "./MyListScreen";
 import ProfileScreen from "./ProfileScreen";
 import MoreScreen from "./MoreScreen";
+import ResultScreen from "./ResultScreen";
+import DetailScreen from "./DetailScreen";
 
 const Tab = createBottomTabNavigator();
 
 export default function TabNav() {
 
     return (
-          <Tab.Navigator 
+        <Tab.Navigator 
             initialRouteName="Home"
             screenOptions={{ 
               headerStyle: {
@@ -82,6 +78,21 @@ export default function TabNav() {
                 },
               }}
             />
-          </Tab.Navigator>
+            <Tab.Screen
+              name="Results"
+              component={ResultScreen}
+              options={{
+                tabBarButton: () => null,
+                title: "Genre Goes Here"
+              }}
+            /> 
+            <Tab.Screen
+              name="Details"
+              component={DetailScreen}
+              options={{
+                tabBarButton: () => null,
+              }}
+            />
+        </Tab.Navigator>
     )
 }

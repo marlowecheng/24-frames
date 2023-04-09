@@ -20,6 +20,8 @@ import OnboardingFifthScreen from "./screens/onboarding/OnboardingFifthScreen";
 import LoginScreen from "./screens/LoginScreen";
 import SignUpScreen from "./screens/SignUpScreen";
 import TabNav from "./screens/TabNav";
+import ResultScreen from "./screens/ResultScreen";
+import DetailScreen from "./screens/DetailScreen";
 
 const Stack = createNativeStackNavigator();
 
@@ -45,6 +47,12 @@ export default function App() {
         <NavigationContainer>
            <Stack.Navigator
             initialRouteName="Welcome"
+            screenOptions={{ 
+              headerStyle: {
+                backgroundColor: "#F5EFDF"
+              },
+              headerTintColor: "#232323",
+            }}
            >
             <Stack.Screen
               name="Welcome"
@@ -56,6 +64,10 @@ export default function App() {
             <Stack.Screen
               name="SignUp"
               component={SignUpScreen}
+            />
+            <Stack.Screen
+              name="LogIn"
+              component={LoginScreen}
             />
             <Stack.Screen
               name="Onboarding1"
@@ -80,6 +92,9 @@ export default function App() {
             <Stack.Screen
               name="TabNavigator"
               component={TabNav}
+              options={{
+                headerShown: false,
+              }}
             />
            </Stack.Navigator>
         </NavigationContainer>

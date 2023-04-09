@@ -1,15 +1,21 @@
 import React, { useState, useEffect } from "react";
 
-import { StyleSheet, View, ImageBackground, ScrollView, ActivityIndicator, Image } from "react-native";
-import {  } from "@rneui/themed";
+import { StyleSheet, View, ScrollView, ActivityIndicator, Image } from "react-native";
+import { Text } from "@rneui/themed";
 
 export default function DetailScreen({ route, navigation }) {
 
     const { movieId } = route.params;
-
+    console.log(movieId);
     const [error, setError] = useState(null);
     const [isLoaded, setIsLoaded] = useState(false);
     const [dataResult, setDataResult] = useState([]);
+
+    const [currId, setCurrId] = useState(null);
+
+    if(movieId !== currId){
+        setCurrId(movieId);
+    }
 
     useEffect(() => {
         fetch("https://api.themoviedb.org/3/movie/" + movieId + "?api_key=3636477fa6452fd3ef8c3fca44ea59ee")
@@ -26,7 +32,7 @@ export default function DetailScreen({ route, navigation }) {
                     setError(error);
                 }
             )
-    }, []);
+    }, [currId]);
       
     return (
         <View style={styles.container}>
@@ -41,6 +47,11 @@ export default function DetailScreen({ route, navigation }) {
 }
 
 function displayDataContainer(error, isLoaded, dataResult, navigation) {
+
+    var time = dataResult.runtime;
+
+    const runtimeHours = Math.floor(time /60);
+    const runtimeMins = time % 60;
 
     if (error) {
         // show error message   
@@ -80,15 +91,21 @@ function displayDataContainer(error, isLoaded, dataResult, navigation) {
                 <View
                     style={styles.contentWrap}
                     >
-                    <Image 
+                    {/* <Image 
                         style={styles.detailImg}
                         height={450}
                         width={300}
                         source={{ uri: "http://image.tmdb.org/t/p/w500" + dataResult.poster_path }}
-                    />
-                    <Text h2>{dataResult.title}</Text>
-                    <Text h3>{dataResult.tagline}</Text>
-                    <Text>{dataResult.overview}</Text>
+                    /> */}
+                    <View style={styles.titleWrap}>
+                        <Text h1>{dataResult.title}</Text>
+                        <Text style={styles.smallPrint}>{dataResult.release_date} {runtimeHours}h {runtimeMins}m</Text>
+                    </View>
+                    <View style={styles.blackBg}></View>
+                    <View style={styles.descriptionWrap}>
+                        <Text h4>Description</Text>
+                        <Text style={styles.smallPrint}>{dataResult.overview}</Text>
+                    </View>
                 </View>
             </View>
         );
@@ -99,60 +116,25 @@ function displayDataContainer(error, isLoaded, dataResult, navigation) {
 const styles = StyleSheet.create({
     container: {
         flex: 1,
-        backgroundColor: "transparent",
+        backgroundColor: "#F5EFDF",
     },
-
-    backgroundImage: {
-        flex: 1,
-        justifyContent: "center",
-        alignItems:"center",
-    },
-
     contentWrap: {
-        width:"84%",
-        justifyContent: "center",
-        alignSelf: "center",
-        paddingBottom: 25,
-    },
-
-    headingText: {
-        alignSelf: "center",
-    },
-    
-    clipList: {
-        width: "90%",
-        height: "90%",
-        alignSelf: "center",
-        backgroundColor: "transparent",
-        marginTop: 30,
-    },
-
-    listItem: {
-        width: "90%",
-        raised: true,
-        elevation: 3,
-        shadowColor: "#000",
-        borderRadius: 15,
-        borderWidth: 3,
-        borderColor: "#1D3557",
-        backgroundColor: "#457B9D",
-        marginBottom: 15,
-        overflow: "hidden",
-        marginTop: 25,
-        alignSelf: "center",
-    },
-
-    detailImg: {
-        alignSelf: "center",
-        marginTop: 30,
-        borderTopLeftRadius: 10,
-        borderTopRightRadius: 10,
-
-    },
-
-    scrollView: {
         width: "100%",
-        height: "100%",
     },
-
+    titleWrap: {
+        width: "90%",
+        alignSelf: "center",
+    },
+    descriptionWrap: {
+        width: "75%",
+        alignSelf: "center",
+    },
+    smallPrint: {
+        fontSize: 10,
+    },
+    blackBg: {
+        width: "100%",
+        height: 260,
+        backgroundColor: "#232323",
+    },
 });

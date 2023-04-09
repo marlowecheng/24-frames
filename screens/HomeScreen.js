@@ -1,7 +1,7 @@
 import React, {useState, useEffect } from "react";
 
 import { StyleSheet, View, ScrollView, FlatList, ActivityIndicator } from "react-native";
-import { Text } from "@rneui/themed";
+import { Text, SearchBar } from "@rneui/themed";
 
 import MovieListItem from "../components/MovieListItem";
 import GenreListItem from "../components/GenreListItem";
@@ -33,14 +33,21 @@ export default function HomeScreen({ navigation }) {
     }, []);
 
     return (
-        <ScrollView style={styles.container}>
+        <View style={styles.container}>
+            <SearchBar
+                placeholder="Search Movies & People"
+                // onChangeText={updateSearch}
+                // value={search}
+                lightTheme="false"
+            />
+            <ScrollView>
             
-            {displayDataContainer(error, isLoaded, dataResult, navigation)}
+                {displayDataContainer(error, isLoaded, dataResult, navigation)}
 
-            {displayGenreContainer(error, isLoaded, dataResult, navigation)}
+                {displayGenreContainer(error, isLoaded, dataResult, navigation)}
 
-        </ScrollView>
-
+            </ScrollView>
+        </View>
     );
 }
 
@@ -123,6 +130,7 @@ const styles = StyleSheet.create({
     },
     container: {
         flex: 1,
+        height: "90%",
         backgroundColor: "#F5EFDF",
     },
     MovieList: {

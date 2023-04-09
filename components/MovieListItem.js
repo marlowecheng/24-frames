@@ -40,8 +40,9 @@ export default function MovieListItem({ itemData }) {
             padding:10,
          }}
         >
-            <Pressable style={styles.itemImg}
-                onPress={() => navigation.navigate("Detail", {
+            <Pressable 
+                style={styles.itemImg}
+                onPress={() => navigation.navigate("Details", {
                     movieId: itemData.id
                 })}>
                 <Image 
@@ -58,8 +59,9 @@ export default function MovieListItem({ itemData }) {
             </View>
         </ListItem>
     )
-
 }
+
+
 
 const styles = StyleSheet.create({
 
