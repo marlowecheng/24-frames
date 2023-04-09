@@ -11,6 +11,12 @@ export default function DetailScreen({ route, navigation }) {
     const [isLoaded, setIsLoaded] = useState(false);
     const [dataResult, setDataResult] = useState([]);
 
+    const [currId, setCurrId] = useState(null);
+
+    if(movieId !== currId){
+        setCurrId(movieId);
+    }
+
     useEffect(() => {
         fetch("https://api.themoviedb.org/3/movie/" + movieId + "?api_key=3636477fa6452fd3ef8c3fca44ea59ee")
             .then(res => res.json())
@@ -26,7 +32,7 @@ export default function DetailScreen({ route, navigation }) {
                     setError(error);
                 }
             )
-    }, []);
+    }, [currId]);
       
     return (
         <View style={styles.container}>

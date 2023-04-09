@@ -96,20 +96,6 @@ export default function App() {
                 headerShown: false,
               }}
             />
-            {/* <Stack.Screen
-              name="Results"
-              component={ResultScreen}
-              options={{
-                title: "Genre Goes Here"
-              }}
-            />
-            <Stack.Screen
-              name="Details"
-              component={DetailScreen}
-              options={{
-                title: "",
-              }}
-            /> */}
            </Stack.Navigator>
         </NavigationContainer>
       </ThemeProvider>

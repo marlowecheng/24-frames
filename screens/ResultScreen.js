@@ -14,6 +14,12 @@ export default function HomeScreen({ route, navigation }) {
     const [isLoaded, setIsLoaded] = useState(false);
     const [dataResult, setDataResult] = useState([]);
 
+    const [currId, setCurrId] = useState(null);
+
+    if(genreId !== currId){
+        setCurrId(genreId);
+    }
+
     // add useEffect for the fetch process
     useEffect(() => {
       fetch("https://api.themoviedb.org/3/discover/movie?api_key=3636477fa6452fd3ef8c3fca44ea59ee&with_genres=" + genreId)
@@ -30,7 +36,7 @@ export default function HomeScreen({ route, navigation }) {
             setError(error);
           }
         )
-    }, []);
+    }, [currId]);
 
     return (
         <View style={styles.container}>
