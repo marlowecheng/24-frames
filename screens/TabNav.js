@@ -1,8 +1,8 @@
 import * as React from "react";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 
-import Ionicons from "react-native-vector-icons/Ionicons"
-import {} from '@mui/icons-material'
+import Ionicons from "react-native-vector-icons/Ionicons";
+import HomeIcon from "@mui/icons-material/Home";
 
 import HomeScreen from "./HomeScreen";
 import SearchScreen from "./SearchScreen";
@@ -39,6 +39,7 @@ export default function TabNav() {
               options={{ 
                 tabBarIcon: () => {
                   return <Ionicons name="home" size={40} color={"#062C3F"}/>;
+                  // return <HomeIcon/>;
                 },
               }}
             />

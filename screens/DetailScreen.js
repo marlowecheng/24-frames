@@ -6,7 +6,7 @@ import { Text } from "@rneui/themed";
 export default function DetailScreen({ route, navigation }) {
 
     const { movieId } = route.params;
-    console.log(movieId);
+    
     const [error, setError] = useState(null);
     const [isLoaded, setIsLoaded] = useState(false);
     const [dataResult, setDataResult] = useState([]);
@@ -102,9 +102,40 @@ function displayDataContainer(error, isLoaded, dataResult, navigation) {
                         <Text style={styles.smallPrint}>{dataResult.release_date} {runtimeHours}h {runtimeMins}m</Text>
                     </View>
                     <View style={styles.blackBg}></View>
+                    <View
+                        style={{
+                            marginTop: 15,
+                            borderBottomColor: 'black',
+                            borderBottomWidth: 0.25,
+                            width: "90%",
+                            alignSelf: "center",
+                        }}
+                    />
+                    <View
+                        style={{
+                            marginTop: 15,
+                            borderBottomColor: 'black',
+                            borderBottomWidth: 0.25,
+                            width: "90%",
+                            alignSelf: "center",
+                        }}
+                    />
                     <View style={styles.descriptionWrap}>
                         <Text h4>Description</Text>
                         <Text style={styles.smallPrint}>{dataResult.overview}</Text>
+                    </View>
+                    <View
+                        style={{
+                            marginTop: 15,
+                            borderBottomColor: 'black',
+                            borderBottomWidth: 0.25,
+                            width: "90%",
+                            alignSelf: "center",
+                        }}
+                    />
+                    <View style={styles.descriptionWrap}>
+                        <Text h4>User Reviews</Text>
+                        
                     </View>
                 </View>
             </View>
@@ -126,6 +157,7 @@ const styles = StyleSheet.create({
         alignSelf: "center",
     },
     descriptionWrap: {
+        marginTop: 15,
         width: "75%",
         alignSelf: "center",
     },

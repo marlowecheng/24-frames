@@ -20,8 +20,6 @@ import OnboardingFifthScreen from "./screens/onboarding/OnboardingFifthScreen";
 import LoginScreen from "./screens/LoginScreen";
 import SignUpScreen from "./screens/SignUpScreen";
 import TabNav from "./screens/TabNav";
-import ResultScreen from "./screens/ResultScreen";
-import DetailScreen from "./screens/DetailScreen";
 
 const Stack = createNativeStackNavigator();
 
