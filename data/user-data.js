@@ -2,8 +2,8 @@ export function getAllUsers(){
     return USERDATA;
 }
 
-export function getUserById(){
-    return USERDATA;
+export function getUserById(id){
+    return USERDATA.find(item => item.id === id);
 }
 
 export const USERDATA = [
