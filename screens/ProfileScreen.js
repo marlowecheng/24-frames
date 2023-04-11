@@ -1,14 +1,23 @@
-import { StyleSheet, View, FlatList } from "react-native";
+import { StyleSheet, View, FlatList, Image } from "react-native";
 import { Text } from "@rneui/themed";
 
-export default function ProfileScreen({ navigation }) {
+import { getUserById } from "../data/user-data";
+
+export default function ProfileScreen({ itemData, navigation }) {
 
 
     return (
         <View style={styles.container}>
-            <Text h1>
-                This is the Profile screen.
-            </Text>
+            <View
+                style={{ 
+                    marginRight: 15,
+                }}>
+                <Image
+                width={47}
+                height={47}
+                source={getUserById(1).userImage}
+                />
+            </View> 
         </View>
     );
 }
