@@ -78,10 +78,9 @@ export default function MovieListItem({ itemData }) {
                         marginTop: 5,
                         backgroundColor:"#F3B646",
                         justifyContent: 'center',
-                        alignItems: 'center',
                         alignSelf: 'center',
                         width:150,
-                        height: 34,
+                        height: 39,
                         borderRadius:8,
                         overflow:"hidden",
                     }}>
