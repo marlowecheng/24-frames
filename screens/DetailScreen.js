@@ -4,6 +4,8 @@ import { StyleSheet, View, ScrollView, ActivityIndicator, Image } from "react-na
 import { Text } from "@rneui/themed";
 import { Picker } from "@react-native-picker/picker";
 import StarRating from "react-native-star-rating-widget";
+import { TextInput } from "@react-native-material/core";
+import { Button } from "react-native-elements";
 
 export default function DetailScreen({ route, navigation }) {
 
@@ -235,7 +237,46 @@ function displayDataContainer(error, isLoaded, dataResult, navigation) {
                     />
                     <View style={styles.descriptionWrap}>
                         <Text h4>User Reviews</Text>
-                        
+                        <View style={styles.input}>
+                            <TextInput
+                                // onChangeText={}
+                                // value={}
+                                placeholder="Write your thoughts..."
+                                height={80}
+                            />
+                        </View>
+                        <View
+                        style={{ 
+                            flexDirection:"row",
+                            justifyContent:"flex-end",
+                            marginBottom: 10,
+                         }}    
+                        >
+                            <Button 
+                                title="Cancel"
+                                containerStyle={{ 
+                                    width: 57,
+                                    height: 24,
+                                    marginLeft: 10,
+                                    borderRadius: 8,
+                                }}
+                                buttonStyle={{ 
+                                    backgroundColor:"#062C3F",
+                                }}
+                            />
+                            <Button 
+                                title="Post"
+                                containerStyle={{ 
+                                    width: 57,
+                                    height: 24,
+                                    marginLeft: 10,
+                                    borderRadius: 8,
+                                }}
+                                buttonStyle={{ 
+                                    backgroundColor:"#062C3F",
+                                }}
+                            />
+                        </View>
                     </View>
                 </View>
             </View>
@@ -275,4 +316,20 @@ const styles = StyleSheet.create({
         height: 50,
         alignSelf:"center",
     },
+    input: {
+        borderRadius: 15,
+        borderColor: "#062C3F",
+        borderStyle: "solid",
+        borderWidth: 2,
+        height: 80,
+        marginTop: 5,
+        marginBottom: 10,
+        overflow: "hidden",
+    },
+    btn: {
+        width: 57,
+        height: 24,
+        borderRadius: 8,
+        marginLeft: 10,
+    }
 });
