@@ -2,6 +2,8 @@ import React, { useState, useEffect } from "react";
 
 import { StyleSheet, View, ScrollView, ActivityIndicator, Image } from "react-native";
 import { Text } from "@rneui/themed";
+import { Picker } from "@react-native-picker/picker";
+import StarRating from "react-native-star-rating-widget";
 
 export default function DetailScreen({ route, navigation }) {
 
@@ -49,6 +51,10 @@ export default function DetailScreen({ route, navigation }) {
 function displayDataContainer(error, isLoaded, dataResult, navigation) {
 
     var time = dataResult.runtime;
+
+    const [selectedList, setSelectedList] = useState();
+
+    const [rating, setRating] = useState(0);
 
     const runtimeHours = Math.floor(time /60);
     const runtimeMins = time % 60;
@@ -102,20 +108,114 @@ function displayDataContainer(error, isLoaded, dataResult, navigation) {
                         <Text style={styles.smallPrint}>{dataResult.release_date} {runtimeHours}h {runtimeMins}m</Text>
                     </View>
                     <View style={styles.blackBg}></View>
+                    <View 
+                        style={{ 
+                            marginTop: 10,
+                            flexDirection:"row",
+                            justifyContent:"center",
+                         }}>
+                        <StarRating
+                            rating={rating}
+                            onChange={setRating}
+                            color="#F3B646"
+                            starSize={14}
+                        />
+                        <Text
+                        style={{ 
+                            fontSize:10
+                        }}>4.52 • 200k ratings • 2.5k user reviews</Text>
+                    </View>
                     <View
                         style={{
                             marginTop: 15,
                             borderBottomColor: 'black',
-                            borderBottomWidth: 0.25,
+                            borderBottomWidth: 0.75,
                             width: "90%",
                             alignSelf: "center",
                         }}
                     />
                     <View
+                        style={{ 
+                            marginTop: 10,
+                            alignSelf: 'center',
+                            width:140,
+                        }}>
+                        <Text style={{ 
+                            fontSize: 10,
+                         }}>Add to:</Text>
+                    </View>
+                    <View
+                        style={{ 
+                            marginTop: 5,
+                            backgroundColor:"#F3B646",
+                            justifyContent: 'center',
+                            alignItems: 'center',
+                            alignSelf: 'center',
+                            width:150,
+                            height: 34,
+                            borderRadius:8,
+                            overflow:"hidden",
+                        }}>
+                        <Picker
+                            style={[styles.listPicker, {
+                            }]}
+                            itemStyle={{height: 50, transform:[{scaleX: 0.8},{scaleY: 0.8}]}}
+                            selectedValue={selectedList}
+                            onValueChange={(itemValue, itemIndex) => 
+                                setSelectedList(itemValue)
+                            }>
+                            <Picker.Item
+                                style={{ 
+                                    fontSize:10
+                                }}
+                                label="Pick a list."
+                                value="Pick"
+                            />
+                            <Picker.Item
+                                style={{ 
+                                    fontSize:10
+                                }}
+                                label="My Watch List"
+                                value="WatchList"
+                            />
+                            <Picker.Item
+                                style={{ 
+                                    fontSize:10
+                                }}
+                                label="My Favorites"
+                                value="Favorites"
+                            />
+                            <Picker.Item
+                                style={{ 
+                                    fontSize:10
+                                }}
+                                label="Watched"
+                                value="Watched"
+                            />
+                        </Picker>
+                    </View>
+                    <View 
+                        style={{ 
+                            marginTop: 10,
+                            flexDirection:"row",
+                            justifyContent:"center",
+                         }}>
+                        <Text
+                        style={{ 
+                            fontSize:10
+                        }}>Rate This Movie:</Text>
+                        <StarRating
+                            rating={rating}
+                            onChange={setRating}
+                            color="#232323"
+                            starSize={14}
+                        />
+                    </View>
+                    <View
                         style={{
                             marginTop: 15,
                             borderBottomColor: 'black',
-                            borderBottomWidth: 0.25,
+                            borderBottomWidth: 0.75,
                             width: "90%",
                             alignSelf: "center",
                         }}
@@ -128,7 +228,7 @@ function displayDataContainer(error, isLoaded, dataResult, navigation) {
                         style={{
                             marginTop: 15,
                             borderBottomColor: 'black',
-                            borderBottomWidth: 0.25,
+                            borderBottomWidth: 0.75,
                             width: "90%",
                             alignSelf: "center",
                         }}
@@ -168,5 +268,11 @@ const styles = StyleSheet.create({
         width: "100%",
         height: 260,
         backgroundColor: "#232323",
+    },
+    listPicker: {
+        borderRadius: 15,
+        width: 150,
+        height: 50,
+        alignSelf:"center",
     },
 });
