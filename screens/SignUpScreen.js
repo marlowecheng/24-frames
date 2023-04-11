@@ -1,16 +1,15 @@
 import { StyleSheet, View } from "react-native";
-import { useTheme, Text, Input, Button } from "@rneui/themed";
+import { Text, Input, Button } from "@rneui/themed";
 
 export default function SignUpScreen({ navigation }) {
-    const { framesTheme } = useTheme();
 
     return (
         <View style={styles.container}>
-            <View>
-                <Text>
+            <View style={styles.contentContainer}>
+                <Text style={styles.displayTitle}>
                     Sign up
                 </Text>
-                <Text >
+                <Text style={styles.subhead}>
                     Start your movie journey today.
                 </Text>
                 <View>
@@ -31,9 +30,7 @@ export default function SignUpScreen({ navigation }) {
                     placeholder="Password"
                     secureTextEntry={true}
                 />
-                <Button
-                    title="Sign Up"
-                />
+                
             </View>
                 
                 
@@ -46,6 +43,23 @@ const styles = StyleSheet.create({
     container: {
         flex: 1,
         backgroundColor: "#F5EFDF",
+        justifyContent: "center",
+        alignItems: "center",
     },
+    contentContainer: {
+        marginTop: 102,
+        width: '75%',
+        flex: 1,
+        flexDirection: 'column',
+    },
+    displayTitle: {
+        fontFamily:"Poppins_700Bold",
+        fontSize:32,
+    },
+    subhead: {
+        fontSize:14,
+        fontFamily:"Poppins_600SemiBold",
+        marginBottom: 42,
+    }
 
 });
