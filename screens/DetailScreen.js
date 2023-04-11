@@ -1,11 +1,14 @@
 import React, { useState, useEffect } from "react";
 
-import { StyleSheet, View, ScrollView, ActivityIndicator, Image } from "react-native";
+import { StyleSheet, View, ScrollView, ActivityIndicator, Image, FlatList } from "react-native";
 import { Text } from "@rneui/themed";
 import { Picker } from "@react-native-picker/picker";
 import StarRating from "react-native-star-rating-widget";
 import { TextInput } from "@react-native-material/core";
 import { Button } from "react-native-elements";
+
+import ReviewListItem from "../components/ReviewListItem";
+import { getAllReviews } from "../data/review-data";
 
 export default function DetailScreen({ route, navigation }) {
 
@@ -43,6 +46,8 @@ export default function DetailScreen({ route, navigation }) {
             <ScrollView style={styles.scrollView}>
   
                 {displayDataContainer(error, isLoaded, dataResult, navigation)}
+
+                {displayReviewContainer(error, isLoaded, dataResult, navigation)}
   
             </ScrollView>
         </View>
@@ -95,21 +100,24 @@ function displayDataContainer(error, isLoaded, dataResult, navigation) {
                 containerStyle={{ 
                     backgroundColor:"#457B9D",
                     padding:10,
-                }}>
+            }}>
                 <View
                     style={styles.contentWrap}
-                    >
-                    {/* <Image 
-                        style={styles.detailImg}
-                        height={450}
-                        width={300}
-                        source={{ uri: "http://image.tmdb.org/t/p/w500" + dataResult.poster_path }}
-                    /> */}
+                >
                     <View style={styles.titleWrap}>
                         <Text h1>{dataResult.title}</Text>
                         <Text style={styles.smallPrint}>{dataResult.release_date} {runtimeHours}h {runtimeMins}m</Text>
                     </View>
-                    <View style={styles.blackBg}></View>
+                    <View style={styles.blackBg}>
+                        <Image 
+                            style={styles.detailImg}
+                            height={260}
+                            width={173}
+                            source={{ uri: "http://image.tmdb.org/t/p/w500" + dataResult.poster_path }}
+                            alignSelf="center"
+                            justifyContent="center"
+                        />
+                    </View>
                     <View 
                         style={{ 
                             marginTop: 10,
@@ -128,13 +136,13 @@ function displayDataContainer(error, isLoaded, dataResult, navigation) {
                         }}>4.52 • 200k ratings • 2.5k user reviews</Text>
                     </View>
                     <View
-                        style={{
-                            marginTop: 15,
-                            borderBottomColor: 'black',
-                            borderBottomWidth: 0.75,
-                            width: "90%",
-                            alignSelf: "center",
-                        }}
+                    style={{
+                        marginTop: 15,
+                        borderBottomColor: 'black',
+                        borderBottomWidth: 0.75,
+                        width: "90%",
+                        alignSelf: "center",
+                    }}
                     />
                     <View
                         style={{ 
@@ -227,61 +235,94 @@ function displayDataContainer(error, isLoaded, dataResult, navigation) {
                         <Text style={styles.smallPrint}>{dataResult.overview}</Text>
                     </View>
                     <View
-                        style={{
-                            marginTop: 15,
-                            borderBottomColor: 'black',
-                            borderBottomWidth: 0.75,
-                            width: "90%",
-                            alignSelf: "center",
-                        }}
-                    />
-                    <View style={styles.descriptionWrap}>
-                        <Text h4>User Reviews</Text>
-                        <View style={styles.input}>
-                            <TextInput
-                                // onChangeText={}
-                                // value={}
-                                placeholder="Write your thoughts..."
-                                height={80}
-                            />
-                        </View>
+                    style={styles.contentWrap}
+                    >
                         <View
-                        style={{ 
-                            flexDirection:"row",
-                            justifyContent:"flex-end",
-                            marginBottom: 10,
-                         }}    
-                        >
-                            <Button 
-                                title="Cancel"
-                                containerStyle={{ 
-                                    width: 57,
-                                    height: 24,
-                                    marginLeft: 10,
-                                    borderRadius: 8,
-                                }}
-                                buttonStyle={{ 
-                                    backgroundColor:"#062C3F",
-                                }}
-                            />
-                            <Button 
-                                title="Post"
-                                containerStyle={{ 
-                                    width: 57,
-                                    height: 24,
-                                    marginLeft: 10,
-                                    borderRadius: 8,
-                                }}
-                                buttonStyle={{ 
-                                    backgroundColor:"#062C3F",
-                                }}
-                            />
+                            style={{
+                                marginTop: 15,
+                                borderBottomColor: 'black',
+                                borderBottomWidth: 0.75,
+                                width: "90%",
+                                alignSelf: "center",
+                            }}
+                        />
+                        <View style={styles.descriptionWrap}>
+                            <Text h4>User Reviews</Text>
+                            <View style={styles.input}>
+                                <TextInput
+                                    // onChangeText={}
+                                    // value={}
+                                    placeholder="Write your thoughts..."
+                                    height={80}
+                                />
+                            </View>
+                            <View
+                            style={{ 
+                                flexDirection:"row",
+                                justifyContent:"flex-end",
+                                marginBottom: 10,
+                             }}    
+                            >
+                                <Button 
+                                    title="Cancel"
+                                    containerStyle={{ 
+                                        width: 70,
+                                        height: 30,
+                                        marginLeft: 10,
+                                        borderRadius: 8,
+                                    }}
+                                    buttonStyle={{ 
+                                        backgroundColor:"#062C3F",
+                                    }}
+                                    titleStyle={{ 
+                                        fontSize: 10,
+                                    }}
+                                />
+                                <Button 
+                                    title="Post"
+                                    containerStyle={{ 
+                                        width: 70,
+                                        height: 30,
+                                        marginLeft: 10,
+                                        borderRadius: 8,
+                                    }}
+                                    buttonStyle={{ 
+                                        backgroundColor:"#062C3F",
+                                    }}
+                                    titleStyle={{ 
+                                        fontSize: 10,
+                                    }}
+                                />
+                            </View>
                         </View>
                     </View>
                 </View>
             </View>
         );
     } 
+}
+
+function displayReviewContainer(navigation) {
+
+    const renderItem = ({ item }) => (
+        <ReviewListItem itemData={item} navigationRef={navigation} />
+    );
+
+    return (
+        <View>
+            <FlatList
+                style={styles.ReviewList}
+                data={getAllReviews()}
+                renderItem={renderItem}
+                keyExtractor={item => item.id}
+                horizontal={false}
+                showsHorizontalScrollIndicator={false}
+                showsVerticalScrollIndicator={false}
+                numColumns={1}
+                scrollEnabled={false}
+            />
+        </View>
+    );
 }
 
 // declare the stylesheet
@@ -331,5 +372,10 @@ const styles = StyleSheet.create({
         height: 24,
         borderRadius: 8,
         marginLeft: 10,
-    }
+    },
+    ReviewList: {
+        width: "80%",
+        alignSelf: "center",
+        marginTop: 15,
+    },
 });
