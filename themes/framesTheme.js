@@ -96,6 +96,7 @@ export const framesTheme = createTheme({
                 width: "100%",
                 paddingHorizontal: 0,
                 marginVertical: 0,
+                
             },
             inputContainerStyle: {
                 borderWidth: 1,
@@ -114,8 +115,13 @@ export const framesTheme = createTheme({
                 fontWeight: 400,
                 color: themePalette.Black,
                 marginBottom: 8,
-            }
-
+            },
+        },
+        CheckBox: {
+            containerStyle: {
+                height: 15,
+                width: 15,
+            },
         },
     }
 });

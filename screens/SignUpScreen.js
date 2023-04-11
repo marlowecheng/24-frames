@@ -1,5 +1,5 @@
 import { StyleSheet, View } from "react-native";
-import { Text, Input, Button } from "@rneui/themed";
+import { CheckBox, Text, Input, Button } from "@rneui/themed";
 
 export default function SignUpScreen({ navigation }) {
 
@@ -30,7 +30,11 @@ export default function SignUpScreen({ navigation }) {
                     placeholder="Password"
                     secureTextEntry={true}
                 />
-                
+                <View style={styles.tos}>
+                    <CheckBox
+                    />
+                    <Text>I agree to the Terms of Service and Privacy Policy</Text>
+                </View>
             </View>
                 
                 
@@ -60,6 +64,10 @@ const styles = StyleSheet.create({
         fontSize:14,
         fontFamily:"Poppins_600SemiBold",
         marginBottom: 42,
+    },
+    tos: {
+        flex: 1,
+        flexDirection: "row",
     }
 
 });
