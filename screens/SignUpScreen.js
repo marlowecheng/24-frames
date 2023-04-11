@@ -1,36 +1,40 @@
-import { StyleSheet, View, FlatList } from "react-native";
-import { Text, Input } from "@rneui/themed";
+import { StyleSheet, View } from "react-native";
+import { useTheme, Text, Input, Button } from "@rneui/themed";
 
 export default function SignUpScreen({ navigation }) {
-
+    const { framesTheme } = useTheme();
 
     return (
         <View style={styles.container}>
-            <Text h1>
-                Sign up
-            </Text>
-            <Text style>
-                Start your movie journey today.
-            </Text>
             <View>
+                <Text>
+                    Sign up
+                </Text>
+                <Text >
+                    Start your movie journey today.
+                </Text>
                 <View>
-                    <Input
-                        label="Full Name"
-                        placeholder="Full Name"
-                    />
-                </View>
-                <View>
-                    <Input
-                        label="Email"
-                        placeholder="Email"
-                    />
-                </View>
-                <View>
-                    <Input
-                        label="Password"
-                        placeholder="Password"
-                    />
-                </View>
+                <Input
+                    label="Full Name"
+                    placeholder="Full Name"
+                    inputMode="text"
+                    autoCapitalize="words"
+                />
+                <Input
+                    label="Email"
+                    placeholder="Email"
+                    inputMode="email"
+                    autoCapitalize="none"
+                />
+                <Input
+                    label="Password"
+                    placeholder="Password"
+                    secureTextEntry={true}
+                />
+                <Button
+                    title="Sign Up"
+                />
+            </View>
                 
                 
             </View>

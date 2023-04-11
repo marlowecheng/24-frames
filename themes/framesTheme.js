@@ -86,5 +86,5 @@ export const framesTheme = createTheme({
                 backgroundColor: themePalette.White,
             }
         }),
-    },
+    }
 });
