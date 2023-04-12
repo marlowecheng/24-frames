@@ -13,7 +13,7 @@ import { framesTheme } from "./themes/framesTheme";
 
 import WelcomeScreen from "./screens/WelcomeScreen";
 import OnboardingFirstScreen from "./screens/onboarding/OnboardingFirstScreen";
-import OnboardingSecondScreen from "./screens/onboarding/OnbopardingSecondScreen";
+import OnboardingSecondScreen from "./screens/onboarding/OnboardingSecondScreen";
 import OnboardingThirdScreen from "./screens/onboarding/OnboardingThirdScreen";
 import OnboardingFourthScreen from "./screens/onboarding/OnboardingFourthScreen";
 import OnboardingFifthScreen from "./screens/onboarding/OnboardingFifthScreen";
