@@ -1,7 +1,10 @@
-import { StyleSheet, View } from "react-native";
-import { CheckBox, Text, Input, Button } from "@rneui/themed";
+import React, { useState } from 'react';
+import { StyleSheet, View, Linking } from "react-native";
+import { CheckBox, Text, Input, Button, Icon } from "@rneui/themed";
 
 export default function SignUpScreen({ navigation }) {
+    const [checked, setChecked] = React.useState(false);
+    const toggleCheckbox = () => setChecked(!checked);
 
     return (
         <View style={styles.container}>
@@ -21,7 +24,7 @@ export default function SignUpScreen({ navigation }) {
                 />
                 <Input
                     label="Email"
-                    placeholder="Email"
+                    placeholder="Email Address"
                     inputMode="email"
                     autoCapitalize="none"
                 />
@@ -30,11 +33,17 @@ export default function SignUpScreen({ navigation }) {
                     placeholder="Password"
                     secureTextEntry={true}
                 />
-                <View style={styles.tos}>
-                    <CheckBox
-                    />
-                    <Text>I agree to the Terms of Service and Privacy Policy</Text>
-                </View>
+                <CheckBox
+                    checked={checked}
+                    onPress={toggleCheckbox}
+                    title= "I agree to the Terms of Service and Privacy Policy"
+                    iconType="material"
+                    checkedIcon="check-box"
+                    uncheckedIcon="check-box-outline-blank"
+                    checkedColor="#232323"
+                    uncheckedColor="#232323"
+                    size={15}
+                />
             </View>
                 
                 
@@ -52,7 +61,7 @@ const styles = StyleSheet.create({
     },
     contentContainer: {
         marginTop: 102,
-        width: '75%',
+        width: '80%',
         flex: 1,
         flexDirection: 'column',
     },
@@ -65,9 +74,4 @@ const styles = StyleSheet.create({
         fontFamily:"Poppins_600SemiBold",
         marginBottom: 42,
     },
-    tos: {
-        flex: 1,
-        flexDirection: "row",
-    }
-
 });

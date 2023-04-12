@@ -119,9 +119,18 @@ export const framesTheme = createTheme({
         },
         CheckBox: {
             containerStyle: {
-                height: 15,
-                width: 15,
+                backgroundColor: themePalette.Beige,
+                width: "100%",
             },
+            textStyle: {
+                fontWeight: 400,
+                fontFamily: themeFonts.Body,
+                fontSize: 10,
+            },
+            wrapperStyle: {
+                padding: 0,
+                margin: 0,
+            }
         },
     }
 });
