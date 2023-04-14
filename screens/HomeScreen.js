@@ -9,14 +9,31 @@ import { getAllGenres } from "../data/genre-data";
 
 export default function HomeScreen({ navigation }) {
 
+    state = {
+        search: '',
+    };
+    
+    updateSearch = (search) => {
+        this.setState({ search });
+    };
+
+    const { search } = this.state;
+
     // add the three useState for the fetch process
     const [error, setError] = useState(null);
     const [isLoaded, setIsLoaded] = useState(false);
     const [dataResult, setDataResult] = useState([]);
 
+    const getSearchResult = "https://api.themoviedb.org/3/search/multi?api_key=3636477fa6452fd3ef8c3fca44ea59ee&language=en-US&query=" + search + "&page=1&include_adult=false";
+    const encodedURL = encodeURI(getSearchResult)
+
+    console.log(search);
+
+    const getTrending = "https://api.themoviedb.org/3/trending/movie/day?api_key=3636477fa6452fd3ef8c3fca44ea59ee";
+
     // add useEffect for the fetch process
     useEffect(() => {
-      fetch("https://api.themoviedb.org/3/trending/movie/day?api_key=3636477fa6452fd3ef8c3fca44ea59ee")
+      fetch(getTrending)
         .then(res => res.json())
         .then(
           (result) => {
@@ -36,8 +53,8 @@ export default function HomeScreen({ navigation }) {
         <View style={styles.container}>
             <SearchBar
                 placeholder="Search Movies & People"
-                // onChangeText={updateSearch}
-                // value={search}
+                // onChangeText={this.updateSearch}
+                value={search}
                 lightTheme="false"
             />
             <ScrollView>
