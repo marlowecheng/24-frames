@@ -33,34 +33,6 @@ const WelcomeScreen = () => {
 
 
 
-function displayGenreContainer(navigation) {
-
-    const renderItem = ({ item }) => (
-        <GenreListItem itemData={item} navigationRef={navigation} />
-    );
-
-    return (
-        <View>
-            <FlatList
-                style={styles.GenreList}
-                data={getAllGenres()}
-                renderItem={renderItem}
-                keyExtractor={item => item.id}
-                horizontal={false}
-                showsHorizontalScrollIndicator={false}
-                showsVerticalScrollIndicator={false}
-                numColumns={2}
-                scrollEnabled={false}
-            />
-        </View>
-    );
-}
-
-
-
-
-
-
 
 
 
