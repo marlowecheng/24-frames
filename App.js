@@ -74,6 +74,9 @@ export default function App() {
             <Stack.Screen
               name="Onboarding2"
               component={OnboardingSecondScreen}
+              options={{ 
+                title:"Select Genre",
+               }}
             /> 
             <Stack.Screen
               name="Onboarding3"
