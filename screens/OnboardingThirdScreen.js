@@ -97,6 +97,7 @@ const styles = StyleSheet.create({
     width: '100%',
     backgroundColor: '#F5efdf',
     overflow: 'hidden',
+    top: 85,
   },
   progressFill: {
     height: '100%',
@@ -109,6 +110,7 @@ const styles = StyleSheet.create({
     alignSelf: 'flex-start',
     marginLeft: 30,
     marginTop: 15,
+    top: 85,
   },
 });
 
