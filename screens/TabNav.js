@@ -84,7 +84,7 @@ export default function TabNav() {
               name="Results"
               component={ResultScreen}
               options={{
-                title: (route) => route.name,
+                title: (route) => route.genreName,
                 tabBarButton: () => null}}
             /> 
             <Tab.Screen
