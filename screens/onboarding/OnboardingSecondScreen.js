@@ -1,9 +1,9 @@
 import React, { useState, useEffect } from "react";
-import { StyleSheet, View, FlatList } from "react-native";
+import { StyleSheet, View, FlatList, ScrollView } from "react-native";
 import { Text, Button } from "@rneui/themed";
 // import { Button } from "react-native-elements";
 
-import GenreSmallListItem from "../../components/GenreSmallListItem";
+import GenreOnboardItem from "../../components/GenreOnboardItem";
 import { getAllGenres } from "../../data/genre-data";
 
 
@@ -12,11 +12,11 @@ export default function OnboardingSecondScreen({ navigation }) {
     const [selectedList, setSelectedList] = useState();
 
     const renderItem = ({ item }) => (
-        <GenreSmallListItem itemData={item} navigationRef={navigation} />
+        <GenreOnboardItem itemData={item} navigationRef={navigation} />
     );
 
     return (
-        <View style={styles.container}>
+        <ScrollView style={styles.container}>
             <View
                 style={{ 
                     width:400,
@@ -34,7 +34,7 @@ export default function OnboardingSecondScreen({ navigation }) {
             <View>
                 <FlatList
                     style={styles.GenreList}
-                    data={getAllGenres().slice(0,6)}
+                    data={getAllGenres()}
                     renderItem={renderItem}
                     keyExtractor={item => item.id}
                     horizontal={false}
@@ -48,6 +48,7 @@ export default function OnboardingSecondScreen({ navigation }) {
                 style={{ 
                     flex: 1,
                     marginTop: 100,
+                    marginBottom: 100,
                     width:272,
                     alignSelf:"center",
                     borderRadius:8,
@@ -61,7 +62,7 @@ export default function OnboardingSecondScreen({ navigation }) {
                 <View style={styles.progBar}></View>
                 <Text style={{ fontSize:10, marginLeft:5 }}>1/4</Text>
             </View>
-        </View>
+        </ScrollView>
     );
 }
 

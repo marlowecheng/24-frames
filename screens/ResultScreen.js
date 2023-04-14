@@ -8,7 +8,6 @@ import MovieListItem from "../components/MovieListItem";
 export default function HomeScreen({ route, navigation }) {
 
     const { genreId } = route.params;
-    console.log('********* genre id:' + genreId);
 
     // add the three useState for the fetch process
     const [error, setError] = useState(null);

@@ -52,5 +52,6 @@ const styles = StyleSheet.create({
         shadowColor: "#232323",
         borderRadius: 15,
         overflow: "hidden",
+        justifyContent:"center",
     },
 })
