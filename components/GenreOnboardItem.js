@@ -15,15 +15,11 @@ export default function GenreListItem({ itemData }) {
          }}
         >
             <Pressable 
-                style={styles.itemImg}
-                onPress={() => navigation.navigate("Results", {
-                    genreId: itemData.genreId,
-                    genreName: itemData.name
-                })}>
+                style={styles.itemImg}>
                 <Image 
                     width={179}
-                    height={231}
-                    source={itemData.genreImage}
+                    height={70}
+                    source={itemData.genreSmallImage}
                 />
                 <View style={styles.textBox}>
                     <Text h3>{itemData.name}</Text>
@@ -47,10 +43,12 @@ const styles = StyleSheet.create({
         alignItems: "center",
     },
     itemImg: {
+        height: 70,
         raised: true,
         elevation: 2,
         shadowColor: "#232323",
         borderRadius: 15,
         overflow: "hidden",
+        justifyContent:"center",
     },
 })

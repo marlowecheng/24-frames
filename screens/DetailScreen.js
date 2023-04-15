@@ -10,6 +10,8 @@ import { Button } from "react-native-elements";
 import ReviewListItem from "../components/ReviewListItem";
 import { getAllReviews } from "../data/review-data";
 
+import { addToWatchlist } from "../services/ListManager";
+
 export default function DetailScreen({ route, navigation }) {
 
     const { movieId } = route.params;
@@ -168,6 +170,7 @@ function displayDataContainer(error, isLoaded, dataResult, navigation) {
                         <Picker
                             style={[styles.listPicker, {
                             }]}
+                            mode="dropdown"
                             itemStyle={{height: 50, transform:[{scaleX: 0.8},{scaleY: 0.8}]}}
                             selectedValue={selectedList}
                             onValueChange={(itemValue, itemIndex) => 
@@ -178,7 +181,7 @@ function displayDataContainer(error, isLoaded, dataResult, navigation) {
                                     fontSize:10
                                 }}
                                 label="Pick a list."
-                                value="Pick"
+                                // value="Pick"
                             />
                             <Picker.Item
                                 style={{ 
@@ -187,7 +190,7 @@ function displayDataContainer(error, isLoaded, dataResult, navigation) {
                                 label="My Watch List"
                                 value="WatchList"
                             />
-                            <Picker.Item
+                            {/* <Picker.Item
                                 style={{ 
                                     fontSize:10
                                 }}
@@ -200,7 +203,7 @@ function displayDataContainer(error, isLoaded, dataResult, navigation) {
                                 }}
                                 label="Watched"
                                 value="Watched"
-                            />
+                            /> */}
                         </Picker>
                     </View>
                     <View 

@@ -43,7 +43,7 @@ export default function ProfileScreen({ itemData, navigation }) {
                 <Image
                 width={194}
                 height={194}
-                source={require('../assets/user1.png')}
+                source={require('../assets/images/user1.png')}
                 />
                 <Text h3>Gyan Rosling</Text>
             </View> 

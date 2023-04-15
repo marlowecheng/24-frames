@@ -16,13 +16,17 @@ export default function HomeScreen({ route, navigation }) {
 
     const [currId, setCurrId] = useState(null);
 
+
     if(genreId !== currId){
         setCurrId(genreId);
     }
 
+    const fetchUri = "https://api.themoviedb.org/3/discover/movie?api_key=3636477fa6452fd3ef8c3fca44ea59ee&with_genres=" + genreId;
+    console.log(fetchUri);
+
     // add useEffect for the fetch process
     useEffect(() => {
-      fetch("https://api.themoviedb.org/3/discover/movie?api_key=3636477fa6452fd3ef8c3fca44ea59ee&with_genres=" + genreId)
+      fetch(fetchUri)
         .then(res => res.json())
         .then(
           (result) => {
