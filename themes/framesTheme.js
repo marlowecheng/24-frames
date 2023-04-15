@@ -26,9 +26,6 @@ export const framesTheme = createTheme({
                 backgroundColor: themePalette.DarkBlue,
             },
             titleStyle: {
-                fontFamily: "Poppins_600SemiBold",
-                fontWeight: "regular",
-                fontSize: "16",
                 color: themePalette.White
             },
             type: "clear"

@@ -22,7 +22,7 @@ export default function GenreListItem({ itemData }) {
                 <Image 
                     width={179}
                     height={70}
-                    source={itemData.genreImage}
+                    source={itemData.genreSmallImage}
                 />
                 <View style={styles.textBox}>
                     <Text h3>{itemData.name}</Text>

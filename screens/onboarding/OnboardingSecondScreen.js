@@ -1,17 +1,3 @@
-<<<<<<< Updated upstream
-import { StyleSheet, View, FlatList } from "react-native";
-import { Text } from "@rneui/themed";
-
-export default function OnboardingSecondScreen({ navigation }) {
-
-
-    return (
-        <View style={styles.container}>
-            <Text h1>
-                This is the Second Onboarding screen.
-            </Text>
-        </View>
-=======
 import React, { useState, useEffect } from "react";
 import { StyleSheet, View, FlatList, ScrollView } from "react-native";
 import { Text, Button } from "@rneui/themed";
@@ -77,7 +63,6 @@ export default function OnboardingSecondScreen({ navigation }) {
                 <Text style={{ fontSize:10, marginLeft:5 }}>1/4</Text>
             </View>
         </ScrollView>
->>>>>>> Stashed changes
     );
 }
 
