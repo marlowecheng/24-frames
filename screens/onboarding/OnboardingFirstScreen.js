@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { StyleSheet, View, FlatList, TouchableOpacity, Image } from "react-native";
+import { StyleSheet, View, FlatList, TouchableOpacity, Image, ScrollView } from "react-native";
 import { Text, Button } from "@rneui/themed";
 
 
@@ -7,6 +7,7 @@ export default function OnboardingFirstScreen({ navigation }) {
 
 
     return (
+      <ScrollView style={styles.container}>
             <View
                 style={{ 
                     width:400,
@@ -25,7 +26,9 @@ export default function OnboardingFirstScreen({ navigation }) {
                     title={"NEXT"}
                     onPress={() => navigation.navigate('Onboarding2')}
                 />
+                
                 </View>
+                </ScrollView>
     );
 }
 
