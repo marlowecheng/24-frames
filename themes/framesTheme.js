@@ -28,7 +28,13 @@ export const framesTheme = createTheme({
             titleStyle: {
                 color: themePalette.White
             },
-            type: "clear"
+            disabledStyle: {
+                backgroundColor: themePalette.White,
+            },
+            icon: {
+                color: buttonProps.disabled  ? themePalette.White : themePalette.Beige,
+            },
+            type: 'clear'
         }),
         Text: {
             displayTitle: {
@@ -80,7 +86,7 @@ export const framesTheme = createTheme({
                 fontSize:14,
             },
         },
-        SearchBar: (searchBarProps) => ({
+        SearchBar: () => ({
             containerStyle: {
                 backgroundColor: themePalette.Beige,
             },
@@ -116,9 +122,18 @@ export const framesTheme = createTheme({
         },
         CheckBox: {
             containerStyle: {
-                height: 15,
-                width: 15,
+                backgroundColor: themePalette.Beige,
+                width: "100%",
             },
+            textStyle: {
+                fontWeight: 400,
+                fontFamily: themeFonts.Body,
+                fontSize: 10,
+            },
+            wrapperStyle: {
+                padding: 0,
+                margin: 0,
+            }
         },
     }
 });

@@ -70,6 +70,20 @@ const styles = StyleSheet.create({
         flex: 1,
         backgroundColor: "#F5EFDF",
     },
-    MovieList: {},
-    GenreList: {},
+    GenreList: {
+        width: 400,
+        marginTop: 50,
+        flexDirection: "row",
+        flexWrap: "wrap",
+        alignSelf: "center",
+    },
+    progBarWrap: {
+        width:"100%",
+    },
+    progBar: {
+        backgroundColor:"#56BFD9",
+        height:18,
+        width:"25%",
+        marginBottom: 2,
+    }
 });

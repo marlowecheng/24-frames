@@ -36,7 +36,7 @@ export default function ReviewListItem({ itemData }) {
                     <StarRating
                         rating={itemData.stars}
                         color="#F3B646"
-                        starSize={15}
+                        starSize={14}
                         emptyColor="#232323"
                     />
                     <Text
@@ -50,6 +50,7 @@ export default function ReviewListItem({ itemData }) {
         </ListItem>
     )
 }
+
 const styles = StyleSheet.create({
     listItem: {
         width: "70%",
