@@ -1,26 +1,39 @@
-import React from 'react';
-import { View, Text, StyleSheet, ImageBackground, Image, TouchableOpacity } from 'react-native';
-import { useNavigation } from '@react-navigation/native';
+import React, { useState, useEffect } from "react";
+import { StyleSheet, View, FlatList, ScrollView, TouchableOpacity, Image, } from "react-native";
+import { Text, Button } from "@rneui/themed";
 
-const WelcomeScreen = () => {
-    const navigation = useNavigation();
-  return (
-    <View style={styles.container}>
+
+export default function OnboardingThirdScreen({ navigation }) {
+
+
+    return (
+        <ScrollView style={styles.container}>
+            <View>
         <Image source={require('../../assets/images/onb-screenshot-2.png')} style={styles.image} />
-        <View style={styles.bulletCont}>
-        <Text style={styles.bulletItem}>• Find the movie you want to add</Text>
-        <Text style={styles.bulletItem}>• Click the "Add to List" button</Text>
+        <View style={styles.displayTitle}>
+        <Text style={styles.displayTitle}>• Find the movie you want to add</Text>
+        <Text displayTitle>• Click the "Add to List" button</Text>
         <Text style={styles.bulletItem}>• Select the desired list</Text>
         <Text style={styles.bulletItem}>• The movie is now added to your list!</Text>
         </View>
 
 
 
-        <TouchableOpacity
-        style={styles.button}
-        onPress={() => navigation.navigate('Onboarding4')}>
-        <Text style={styles.buttonText}>NEXT</Text>
-      </TouchableOpacity>
+        <View
+                style={{ 
+                    flex: 1,
+                    marginTop: 100,
+                    marginBottom: 100,
+                    width:272,
+                    alignSelf:"center",
+                    borderRadius:8,
+                }}>
+                <Button
+                    title={"NEXT"}
+                    onPress={() => navigation.navigate('Onboarding3')}
+                />
+                </View>
+                <View>
 
       <TouchableOpacity
         style={styles.skipLink}
@@ -28,6 +41,7 @@ const WelcomeScreen = () => {
       >
         <Text style={styles.skipLinkText}>Skip for now</Text>
       </TouchableOpacity>
+      </View>
 
 
 
@@ -38,13 +52,14 @@ const WelcomeScreen = () => {
         
 
     </View>
-  );
-};
+        </ScrollView>
+    );
+}
 
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    alignItems: 'center',
+    // alignItems: 'center',
     backgroundColor: '#F5efdf',
     textAlign: 'left',
   },
@@ -91,7 +106,7 @@ const styles = StyleSheet.create({
     marginBottom: 10,
     width: 350,
   },
-  progressBar: {
+  progBar: {
     marginTop: 20,
     height: 20,
     width: '100%',
@@ -99,12 +114,12 @@ const styles = StyleSheet.create({
     overflow: 'hidden',
     top: 85,
   },
-  progressFill: {
+  progFill: {
     height: '100%',
     backgroundColor: '#56BFD9',
     width: '50%', 
   },
-  progressText: {
+  progText: {
     fontSize: 10,
     textAlign: 'left',
     alignSelf: 'flex-start',
@@ -113,5 +128,3 @@ const styles = StyleSheet.create({
     top: 85,
   },
 });
-
-export default WelcomeScreen;

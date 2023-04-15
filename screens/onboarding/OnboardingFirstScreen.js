@@ -22,10 +22,20 @@ export default function OnboardingFirstScreen({ navigation }) {
                     24 Frames
                 </Text>
                 <Image source={require('../../assets/images/pl-film.png')} style={styles.image} />
+                <View
+                style={{ 
+                    flex: 1,
+                    marginTop: 100,
+                    marginBottom: 100,
+                    width:272,
+                    alignSelf:"center",
+                    borderRadius:8,
+                }}>
                 <Button
                     title={"NEXT"}
                     onPress={() => navigation.navigate('Onboarding2')}
                 />
+                </View>
                 
                 </View>
                 </ScrollView>
