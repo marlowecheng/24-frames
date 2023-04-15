@@ -1,97 +1,87 @@
-import React from 'react';
-import { View, Text, StyleSheet, ImageBackground, Image, TouchableOpacity } from 'react-native';
-import { useNavigation } from '@react-navigation/native';
+import React, { useState, useEffect } from "react";
+import { StyleSheet, View, FlatList, ScrollView, TouchableOpacity, Image} from "react-native";
+import { Text, Button } from "@rneui/themed";
 
-const WelcomeScreen = () => {
-    const navigation = useNavigation();
-  return (
-    <View style={styles.container}>
+
+export default function OnboardingSecondScreen({ navigation }) {
+
+  
+    return (
+      <ScrollView style={styles.container}>
+      <View>
         <Image source={require('../../assets/images/onb-screenshot-3.png')} style={styles.image} />
-    <View style={styles.bulletCont}>
-      <Text style={styles.bulletItem}>• Quickly access your favourite movies by list or genre</Text>
-      <Text style={styles.bulletItem}>• You can easily create custom lists to keep track of your favourite films or ones you want to watch in the future.</Text>
+        <View style={styles.h4}>
+          <Text style={styles.bullet}>• Quickly access your favourite movies by list or genres</Text>
+          <Text style={styles.bullet}>• You can easily create custom lists to keep track of your favourite films or ones you want to watch in the future.</Text>
+        </View>
+
+        <View
+          style={{ 
+            flex: 1,
+            marginTop: 50,
+            marginBottom: 30,
+            width:272,
+            alignSelf:"center",
+            borderRadius:8,
+          }}>
+            <Button
+              title={"NEXT"}
+              onPress={() => navigation.navigate('Onboarding5')}
+            />
+
+            <TouchableOpacity
+              style={styles.skipLink}
+              onPress={() => navigation.navigate('Onboarding5')}
+            >
+              <Text style={styles.skipLinkText}>Skip for now</Text>
+            </TouchableOpacity>
+                  
+
+        </View>
+
+
+        <View style={styles.progBar}>
+          <View style={styles.progFill} />
+        </View>
+        <Text style={styles.progText}>3/4</Text>
+
+
+        
+
       </View>
-      <TouchableOpacity
-        style={styles.button}
-        onPress={() => navigation.navigate('Onboarding5')}
-      >
-        <Text style={styles.buttonText}>NEXT</Text>
-      </TouchableOpacity>
-
-      <TouchableOpacity
-        style={styles.skipLink}
-        onPress={() => navigation.navigate('Onboarding5')}
-      >
-        <Text style={styles.skipLinkText}>Skip for now</Text>
-      </TouchableOpacity>
-    
-
-
-
-      <View style={styles.progressBar}>
-        <View style={styles.progressFill} />
-      </View>
-      <Text style={styles.progressText}>3/4</Text>
-    </View>
-  );
-};
+    </ScrollView>
+    );
+}
 
 const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    alignItems: 'center',
-    // justifyContent: 'center',
-    backgroundColor: '#F5efdf',
-  },
-  headerone: {
-    marginTop: 70,
-    fontSize: 32,
-    fontWeight: 'bold',
-    marginBottom: 10,
-    marginRight: 100,
-  },
-  headertwo: {
-    alignItems: 'center',
-    fontSize: 45,
-    fontWeight: 'bold',
-    marginBottom: 20,
-  },
+    container: {
+        flex: 1,
+        backgroundColor: "#F5EFDF",
+    },
   image: {
     width: '100%',
     height: 300,
     resizeMode: 'contain',
     marginBottom: 20,
-    marginTop: 30,
+    marginTop: 35,
   },
-  tagline: {
-    fontSize: 18,
-    marginBottom: 20,
+  h4: {
+    left: 30,
   },
-  button: {
-    backgroundColor: '#062C3F',
-    paddingHorizontal: 120,
-    paddingVertical: 10,
-    // marginTop: 5,
-    borderRadius: 5,
-    boxShadow: "1px 3px 1px #9E9E9E",
+  bullet: {
+    fontFamily:"Poppins_400Regular",
+    fontWeight:"regular",
+    fontSize:16,
+    width: '85%',
   },
   buttonText: {
     color: '#fff',
     fontSize: 18,
     fontWeight: 'bold',
   },
-  bulletCont: {
-    margin: 30,
-  },
-  bulletItem: {
-    textAlign: 'left',
-    marginBottom: 10,
-    fontSize: 16,
-  },
   skipLink: {
-  
     alignSelf: 'flex-end',
-    marginTop: 20,
+    marginTop: 15,
     marginRight: 30,
   },
   skipLinkText: {
@@ -99,30 +89,22 @@ const styles = StyleSheet.create({
     color: '#56BFD9',
     textDecorationLine: 'underline',
   },
-  progressBar: {
-    marginTop: 20,
-    height: 30,
+  progBar: {
+    height: 20,
     width: '100%',
     backgroundColor: '#F5efdf',
-    // borderRadius: ,
     overflow: 'hidden',
-    top: 55,
   },
-  progressFill: {
-    marginTop: 10,
+  progFill: {
     height: '100%',
     backgroundColor: '#56BFD9',
-    // borderRadius: 10,
-    width: '75%', // Change the width to the percentage of progress
+    width: '50%', 
   },
-  progressText: {
+  progText: {
     fontSize: 10,
     textAlign: 'left',
     alignSelf: 'flex-start',
     marginLeft: 30,
     marginTop: 15,
-    top: 55,
   },
 });
-
-export default WelcomeScreen;
