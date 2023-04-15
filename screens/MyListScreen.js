@@ -4,6 +4,8 @@ import { Text } from "@rneui/themed";
 
 import { Picker } from "@react-native-picker/picker";
 
+import { GENREDATA } from "../data/genre-data";
+
 import MovieListItem from "../components/MovieListItem";
 
 export default function SearchScreen({ navigation }) {
@@ -47,104 +49,19 @@ export default function SearchScreen({ navigation }) {
                     overflow:"hidden",
             }}>
                 <Picker
-                    style={[styles.listPicker, {
-                    }]}
                     itemStyle={{height: 50, transform:[{scaleX: 0.8},{scaleY: 0.8}]}}
                     selectedValue={selectedList}
-                    onValueChange={(itemValue, itemIndex) => 
-                        setSelectedList(itemValue)
-                    }>
-                    <Picker.Item
+                    onValueChange={(itemValue, itemIndex) =>{
+                        navigation.navigate("Results", {genreId: itemValue})
+                    }}>
+                        <Picker.Item
                         style={{ 
                             fontSize:10
                         }}
                         label="Pick a Genre."
                         value="Pick"
-                    />
-                    <Picker.Item
-                        style={{ 
-                            fontSize:10
-                        }}
-                        label="Action"
-                        value="28"
-                    />
-                    <Picker.Item
-                        style={{ 
-                            fontSize:10
-                        }}
-                        label="Adventure"
-                        value="12"
-                    />
-                    <Picker.Item
-                        style={{ 
-                            fontSize:10
-                        }}
-                        label="Animation"
-                        value="16"
-                    />
-                    <Picker.Item
-                        style={{ 
-                            fontSize:10
-                        }}
-                        label="Comedy"
-                        value="35"
-                    />
-                    <Picker.Item
-                        style={{ 
-                            fontSize:10
-                        }}
-                        label="Documentary"
-                        value="99"
-                    />
-                    <Picker.Item
-                        style={{ 
-                            fontSize:10
-                        }}
-                        label="Drama"
-                        value="18"
-                    />
-                    <Picker.Item
-                        style={{ 
-                            fontSize:10
-                        }}
-                        label="Fantasy"
-                        value="14"
-                    />
-                    <Picker.Item
-                        style={{ 
-                            fontSize:10
-                        }}
-                        label="Horror"
-                        value="27"
-                    />
-                    <Picker.Item
-                        style={{ 
-                            fontSize:10
-                        }}
-                        label="Music"
-                        value="10402"
-                    />
-                    <Picker.Item
-                        style={{ 
-                            fontSize:10
-                        }}
-                        label="Romance"
-                        value="10749"
-                    />
-                    <Picker.Item
-                        style={{ 
-                            fontSize:10
-                        }}
-                        label="Sci-Fi"
-                        value="878"
-                    />
-                    <Picker.Item
-                        style={{ 
-                            fontSize:10
-                        }}
-                        label="Western"
-                        value="37"
-                    />
+                        />
+                        { GENREDATA.map((c) => <Picker.Item key={c.genreId} label={c.name} value={c.genreId} style={{ fontSize:10}} />)}
                 </Picker>
             </View>
             <View

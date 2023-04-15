@@ -10,6 +10,11 @@ const themePalette = {
     Black:"#232323",
 }
 
+const themeFonts = {
+    Heading: "Poppins_700Regular",
+    Body: "Poppins_400Regular",
+}
+
 export const framesTheme = createTheme({
     components: {
         Button: (buttonProps) => ({
@@ -21,12 +26,15 @@ export const framesTheme = createTheme({
                 backgroundColor: themePalette.DarkBlue,
             },
             titleStyle: {
-                fontFamily: "Poppins_600SemiBold",
-                fontWeight: "regular",
-                fontSize: "16",
                 color: themePalette.White
             },
-            type: "clear"
+            disabledStyle: {
+                backgroundColor: themePalette.White,
+            },
+            icon: {
+                color: buttonProps.disabled  ? themePalette.White : themePalette.Beige,
+            },
+            type: 'clear'
         }),
         Text: {
             displayTitle: {
@@ -78,7 +86,7 @@ export const framesTheme = createTheme({
                 fontSize:14,
             },
         },
-        SearchBar: (searchBarProps) => ({
+        SearchBar: () => ({
             containerStyle: {
                 backgroundColor: themePalette.Beige,
             },
@@ -86,5 +94,46 @@ export const framesTheme = createTheme({
                 backgroundColor: themePalette.White,
             }
         }),
+        Input: {
+            containerStyle: {
+                width: "100%",
+                paddingHorizontal: 0,
+                marginVertical: 0,
+                
+            },
+            inputContainerStyle: {
+                borderWidth: 1,
+                borderRadius: 5,
+                backgroundColor: themePalette.White,
+                height: 42,
+                paddingLeft: 13,
+            },
+            inputStyle: {
+                fontSize: 10,
+                fontFamily: themeFonts.Body,
+            },
+            labelStyle: {
+                fontSize: 10,
+                fontFamily: themeFonts.Body,
+                fontWeight: 400,
+                color: themePalette.Black,
+                marginBottom: 8,
+            },
+        },
+        CheckBox: {
+            containerStyle: {
+                backgroundColor: themePalette.Beige,
+                width: "100%",
+            },
+            textStyle: {
+                fontWeight: 400,
+                fontFamily: themeFonts.Body,
+                fontSize: 10,
+            },
+            wrapperStyle: {
+                padding: 0,
+                margin: 0,
+            }
+        },
     }
 });

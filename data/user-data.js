@@ -2,8 +2,8 @@ export function getAllUsers(){
     return USERDATA;
 }
 
-export function getUserById(){
-    return USERDATA;
+export function getUserById(id){
+    return USERDATA.find(item => item.id === id);
 }
 
 export const USERDATA = [
@@ -12,7 +12,7 @@ export const USERDATA = [
         userName: "Wood3001",
         userEmail: "wood3001@gmail.com",
         password: "password1",
-        userImage: require('../assets/user1.png'),
+        userImage: require('../assets/images/user1.png'),
         about: "ipsum dolor sit amet, consectetur adipiscing elit. Phasellus sed felis in massa vestibulum egestas. ipsum dolor sit amet, consectetur adipiscing elit. Phasellus sed felis in massa vestibulum egestas. ipsum dolor sit amet, consectetur adipiscing elit.",
         genrePref:[],
         watchList:[],
@@ -23,7 +23,7 @@ export const USERDATA = [
         userName: "Bob Flob",
         userEmail: "bob@flob.com",
         password: "password2",
-        userImage: require('../assets/user2.png'),
+        userImage: require('../assets/images/user2.png'),
         about: "ipsum dolor sit amet, consectetur adipiscing elit. Phasellus sed felis in massa vestibulum egestas. ipsum dolor sit amet, consectetur adipiscing elit. Phasellus sed felis in massa vestibulum egestas. ipsum dolor sit amet, consectetur adipiscing elit.",
         genrePref:[],
         watchList:[],

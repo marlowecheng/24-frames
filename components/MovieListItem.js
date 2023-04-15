@@ -59,14 +59,15 @@ export default function MovieListItem({ itemData }) {
             <View style={styles.textBox}>
                 <Text h3 style={styles.allCaps} numberOfLines={2}>{itemData.title}</Text>
                 <Text style={styles.medPrint} numberOfLines={3}>{dataResult.tagline}</Text>
-                <Text style={styles.smallPrint}
-                        numberOfLines={3}
-                >
-                    {itemData.overview}</Text>
+                <Text   
+                    style={styles.smallPrint}
+                    numberOfLines={3}
+                >{itemData.overview}
+                </Text>
                 <View
                     style={{ 
                         marginTop: 10,
-                        alignSelf: 'center',
+                        alignSelf: "center",
                         width:140,
                     }}>
                     <Text style={{ 
@@ -77,8 +78,8 @@ export default function MovieListItem({ itemData }) {
                     style={{ 
                         marginTop: 5,
                         backgroundColor:"#F3B646",
-                        justifyContent: 'center',
-                        alignSelf: 'center',
+                        justifyContent: "center",
+                        alignSelf: "center",
                         width:150,
                         height: 39,
                         borderRadius:8,
