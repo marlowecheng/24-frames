@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { StyleSheet, View, FlatList, ScrollView } from "react-native";
 import { Text, Button } from "@rneui/themed";
-// import { Button } from "react-native-elements";
 
 import GenreOnboardItem from "../../components/GenreOnboardItem";
 import { getAllGenres } from "../../data/genre-data";
