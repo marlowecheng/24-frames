@@ -28,7 +28,13 @@ export const framesTheme = createTheme({
             titleStyle: {
                 color: themePalette.White
             },
-            type: "clear"
+            disabledStyle: {
+                backgroundColor: themePalette.White,
+            },
+            icon: {
+                color: buttonProps.disabled  ? themePalette.White : themePalette.Beige,
+            },
+            type: 'clear'
         }),
         Text: {
             displayTitle: {
@@ -80,7 +86,7 @@ export const framesTheme = createTheme({
                 fontSize:14,
             },
         },
-        SearchBar: (searchBarProps) => ({
+        SearchBar: () => ({
             containerStyle: {
                 backgroundColor: themePalette.Beige,
             },
