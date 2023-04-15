@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { StyleSheet, View, FlatList, ScrollView } from "react-native";
+import { StyleSheet, View, FlatList, ScrollView, TouchableOpacity, } from "react-native";
 import { Text, Button } from "@rneui/themed";
 
 import GenreOnboardItem from "../../components/GenreOnboardItem";
@@ -22,10 +22,10 @@ export default function OnboardingSecondScreen({ navigation }) {
                     padding:10,
                     alignSelf:"center",
                 }}>
-                <Text h1>
+                <Text h1 style={styles.headerOne}>
                     What's your type?
                 </Text>
-                <Text>
+                <Text subhead>
                     Pick up to 3 of your go-to genres.
                 </Text>
             </View>
@@ -56,10 +56,17 @@ export default function OnboardingSecondScreen({ navigation }) {
                     title={"NEXT"}
                     onPress={() => navigation.navigate('Onboarding3')}
                 />
+                <TouchableOpacity
+                    style={styles.skipLink}
+                    onPress={() => navigation.navigate('Onboarding2')}
+                >
+        <Text style={styles.skipLinkText}>Skip for now</Text>
+      </TouchableOpacity>
             </View>
+            
             <View style={styles.progBarWrap}>
                 <View style={styles.progBar}></View>
-                <Text style={{ fontSize:10, marginLeft:5 }}>1/4</Text>
+                <Text style={styles.progText}>1/4</Text>
             </View>
         </ScrollView>
     );
@@ -77,6 +84,17 @@ const styles = StyleSheet.create({
         flexWrap: "wrap",
         alignSelf: "center",
     },
+    skipLink: {
+  
+        alignSelf: 'flex-end',
+        marginTop: 15,
+        marginRight: 30,
+      },
+      skipLinkText: {
+        fontSize: 12,
+        color: '#56BFD9',
+        textDecorationLine: 'underline',
+      },
     progBarWrap: {
         width:"100%",
     },
@@ -84,6 +102,14 @@ const styles = StyleSheet.create({
         backgroundColor:"#56BFD9",
         height:18,
         width:"25%",
-        marginBottom: 2,
-    }
+        marginBottom: 3,
+    },
+    progText: {
+        fontSize: 10,
+        textAlign: 'left',
+        alignSelf: 'flex-start',
+        marginLeft: 30,
+        marginTop: 15,
+        // top: 55,
+      },
 });
