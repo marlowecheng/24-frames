@@ -59,7 +59,7 @@ export default function OnboardingSecondScreen({ navigation }) {
                 />
                 <TouchableOpacity
                     style={styles.skipLink}
-                    onPress={() => navigation.navigate('Onboarding2')}
+                    onPress={() => navigation.navigate('Onboarding3')}
                 >
         <Text style={styles.skipLinkText}>Skip for now</Text>
       </TouchableOpacity>
