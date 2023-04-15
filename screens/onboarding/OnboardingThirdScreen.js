@@ -6,60 +6,58 @@ import { Text, Button } from "@rneui/themed";
 export default function OnboardingThirdScreen({ navigation }) {
 
 
-    return (
-        <ScrollView style={styles.container}>
-            <View>
+  return (
+    <ScrollView style={styles.container}>
+      <View>
         <Image source={require('../../assets/images/onb-screenshot-2.png')} style={styles.image} />
-        <View style={styles.displayTitle}>
-        <Text style={styles.displayTitle}>• Find the movie you want to add</Text>
-        <Text displayTitle>• Click the "Add to List" button</Text>
-        <Text style={styles.bulletItem}>• Select the desired list</Text>
-        <Text style={styles.bulletItem}>• The movie is now added to your list!</Text>
+        <View style={styles.h4}>
+          <Text style={styles.bullet}>• Find the movie you want to add</Text>
+          <Text style={styles.bullet}>• Click the "Add to List" button</Text>
+          <Text style={styles.bullet}>• Select the desired list</Text>
+          <Text style={styles.bullet}>• The movie is now added to your list!</Text>
+        </View>
+
+        <View
+          style={{ 
+            flex: 1,
+            marginTop: 50,
+            marginBottom: 30,
+            width:272,
+            alignSelf:"center",
+            borderRadius:8,
+          }}>
+            <Button
+              title={"NEXT"}
+              onPress={() => navigation.navigate('Onboarding3')}
+            />
+
+            <TouchableOpacity
+              style={styles.skipLink}
+              onPress={() => navigation.navigate('Onboarding4')}
+            >
+              <Text style={styles.skipLinkText}>Skip for now</Text>
+            </TouchableOpacity>
+                  
+
         </View>
 
 
-
-        <View
-                style={{ 
-                    flex: 1,
-                    marginTop: 100,
-                    marginBottom: 100,
-                    width:272,
-                    alignSelf:"center",
-                    borderRadius:8,
-                }}>
-                <Button
-                    title={"NEXT"}
-                    onPress={() => navigation.navigate('Onboarding3')}
-                />
-                </View>
-                <View>
-
-      <TouchableOpacity
-        style={styles.skipLink}
-        onPress={() => navigation.navigate('Onboarding4')}
-      >
-        <Text style={styles.skipLinkText}>Skip for now</Text>
-      </TouchableOpacity>
-      </View>
+        <View style={styles.progBar}>
+          <View style={styles.progFill} />
+        </View>
+        <Text style={styles.progText}>2/4</Text>
 
 
-
-      <View style={styles.progressBar}>
-        <View style={styles.progressFill} />
-      </View>
-      <Text style={styles.progressText}>2/4</Text>
         
 
-    </View>
-        </ScrollView>
+      </View>
+    </ScrollView>
     );
-}
+  }
 
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    // alignItems: 'center',
     backgroundColor: '#F5efdf',
     textAlign: 'left',
   },
@@ -70,16 +68,13 @@ const styles = StyleSheet.create({
     marginBottom: 20,
     marginTop: 35,
   },
-  tagline: {
-    fontSize: 18,
-    marginBottom: 20,
+  h4: {
+    left: 30,
   },
-  button: {
-    backgroundColor: '#062C3F',
-    paddingHorizontal: 120,
-    paddingVertical: 10,
-    marginTop: 10,
-    borderRadius: 5,
+  bullet: {
+    fontFamily:"Poppins_400Regular",
+    fontWeight:"regular",
+    fontSize:16,
   },
   buttonText: {
     color: '#fff',
@@ -87,7 +82,6 @@ const styles = StyleSheet.create({
     fontWeight: 'bold',
   },
   skipLink: {
-  
     alignSelf: 'flex-end',
     marginTop: 15,
     marginRight: 30,
@@ -97,22 +91,11 @@ const styles = StyleSheet.create({
     color: '#56BFD9',
     textDecorationLine: 'underline',
   },
-  bulletCont: {
-    marginBottom: 20,
-  },
-  bulletItem: {
-    fontSize: 16,
-    textAlign: 'left',
-    marginBottom: 10,
-    width: 350,
-  },
   progBar: {
-    marginTop: 20,
     height: 20,
     width: '100%',
     backgroundColor: '#F5efdf',
     overflow: 'hidden',
-    top: 85,
   },
   progFill: {
     height: '100%',
@@ -125,6 +108,5 @@ const styles = StyleSheet.create({
     alignSelf: 'flex-start',
     marginLeft: 30,
     marginTop: 15,
-    top: 85,
   },
 });
