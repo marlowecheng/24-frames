@@ -1,5 +1,6 @@
 import * as React from "react";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
+import { Text } from "react-native-elements";
 
 import Ionicons from "react-native-vector-icons/Ionicons";
 import HomeIcon from "@mui/icons-material/Home";
@@ -11,10 +12,13 @@ import ProfileScreen from "./ProfileScreen";
 import MoreScreen from "./MoreScreen";
 import ResultScreen from "./ResultScreen";
 import DetailScreen from "./DetailScreen";
+import { margin } from "@mui/system";
 
 const Tab = createBottomTabNavigator();
 
-export default function TabNav() {
+export default function TabNav( route ) {
+
+  // const { genreId } = route.params;
 
     return (
         <Tab.Navigator 
@@ -84,8 +88,20 @@ export default function TabNav() {
               name="Results"
               component={ResultScreen}
               options={{
-                title: (route) => route.genreName,
-                tabBarButton: () => null}}
+                tabBarButton: () => null,
+                title: () => null,
+                headerLeft: () => (
+                  <>
+                    <Text
+                      style={{ 
+                        fontSize: 24,
+                        fontWeight: "bold",
+                        margin: 10,
+                       }}
+                    >Genre Goes Here</Text>
+                  </>
+                )
+              }}
             /> 
             <Tab.Screen
               name="Details"
