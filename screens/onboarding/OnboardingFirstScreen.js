@@ -8,7 +8,7 @@ const WelcomeScreen = () => {
     <View style={styles.container}>
       <Text style={styles.headerone}>Welcome to</Text>
       <Text style={styles.headertwo}>24 Frames</Text>
-      <Image source={require('../assets/pl-film.png')} style={styles.image} />
+      <Image source={require('../../assets/images/pl-film.png')} style={styles.image} />
       <Text style={styles.tagline}>Let us be your personal movie guide</Text>
       <TouchableOpacity
         style={styles.button}

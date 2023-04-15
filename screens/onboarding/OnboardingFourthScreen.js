@@ -6,7 +6,7 @@ const WelcomeScreen = () => {
     const navigation = useNavigation();
   return (
     <View style={styles.container}>
-        <Image source={require('../assets/onb-screenshot-3.png')} style={styles.image} />
+        <Image source={require('../../assets/images/onb-screenshot-3.png')} style={styles.image} />
     <View style={styles.bulletCont}>
       <Text style={styles.bulletItem}>• Quickly access your favourite movies by list or genre</Text>
       <Text style={styles.bulletItem}>• You can easily create custom lists to keep track of your favourite films or ones you want to watch in the future.</Text>

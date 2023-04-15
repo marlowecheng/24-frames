@@ -6,7 +6,7 @@ const WelcomeScreen = () => {
     const navigation = useNavigation();
   return (
     <View style={styles.container}>
-        <Image source={require('../assets/onb-screenshot-2.png')} style={styles.image} />
+        <Image source={require('../../assets/images/onb-screenshot-2.png')} style={styles.image} />
         <View style={styles.bulletCont}>
         <Text style={styles.bulletItem}>• Find the movie you want to add</Text>
         <Text style={styles.bulletItem}>• Click the "Add to List" button</Text>

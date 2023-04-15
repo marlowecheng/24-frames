@@ -7,7 +7,7 @@ const WelcomeScreen = () => {
   return (
     <View style={styles.container}>
       <Text style={styles.header}>Let's get started</Text>
-      <Image source={require('../assets/onb-popcorn.png')} style={styles.image} />
+      <Image source={require('../../assets/images/onb-popcorn.png')} style={styles.image} />
       <TouchableOpacity
         style={styles.button}
         onPress={() => navigation.navigate('HomeScreen')}
