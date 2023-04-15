@@ -21,6 +21,7 @@ export default function OnboardingSecondScreen({ navigation }) {
                     width:400,
                     padding:10,
                     alignSelf:"center",
+                    marginTop: 20,
                 }}>
                 <Text h1 style={styles.headerOne}>
                     What's your type?
@@ -87,8 +88,8 @@ const styles = StyleSheet.create({
     skipLink: {
   
         alignSelf: 'flex-end',
-        marginTop: 15,
-        marginRight: 30,
+        marginTop: 30,
+        marginRight: 10,
       },
       skipLinkText: {
         fontSize: 12,
@@ -109,7 +110,8 @@ const styles = StyleSheet.create({
         textAlign: 'left',
         alignSelf: 'flex-start',
         marginLeft: 30,
-        marginTop: 15,
+        marginTop: 10,
+        marginBottom: 10,
         // top: 55,
       },
 });
