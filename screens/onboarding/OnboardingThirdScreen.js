@@ -28,7 +28,7 @@ export default function OnboardingThirdScreen({ navigation }) {
           }}>
             <Button
               title={"NEXT"}
-              onPress={() => navigation.navigate('Onboarding3')}
+              onPress={() => navigation.navigate('Onboarding4')}
             />
 
             <TouchableOpacity
