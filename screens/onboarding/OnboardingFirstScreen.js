@@ -1,10 +1,9 @@
-import React, { useState, useEffect } from "react";
-import { StyleSheet, View, FlatList, TouchableOpacity, Image, ScrollView } from "react-native";
-import { Text, Button } from "@rneui/themed";
+import React from 'react';
+import { View, Text, StyleSheet, ImageBackground, Image, TouchableOpacity } from 'react-native';
+import { useNavigation } from '@react-navigation/native';
 
-export default function OnboardingFirstScreen({ navigation }) {
-
-const navigation = useNavigation();
+const WelcomeScreen = () => {
+    const navigation = useNavigation();
   return (
     <View style={styles.container}>
       <Text style={styles.headerone}>Welcome to</Text>
@@ -64,3 +63,5 @@ const styles = StyleSheet.create({
     fontWeight: 'bold',
   },
 });
+
+export default WelcomeScreen;

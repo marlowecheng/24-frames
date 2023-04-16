@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { StyleSheet, View, FlatList, ScrollView, TouchableOpacity, } from "react-native";
+import { StyleSheet, View, FlatList, ScrollView } from "react-native";
 import { Text, Button } from "@rneui/themed";
 
 import GenreOnboardItem from "../../components/GenreOnboardItem";
@@ -21,12 +21,11 @@ export default function OnboardingSecondScreen({ navigation }) {
                     width:400,
                     padding:10,
                     alignSelf:"center",
-                    marginTop: 20,
                 }}>
-                <Text h1 style={styles.headerOne}>
+                <Text h1>
                     What's your type?
                 </Text>
-                <Text subhead>
+                <Text>
                     Pick up to 3 of your go-to genres.
                 </Text>
             </View>
@@ -56,17 +55,10 @@ export default function OnboardingSecondScreen({ navigation }) {
                     title={"NEXT"}
                     onPress={() => navigation.navigate('Onboarding3')}
                 />
-                <TouchableOpacity
-                    style={styles.skipLink}
-                    onPress={() => navigation.navigate('Onboarding3')}
-                >
-        <Text style={styles.skipLinkText}>Skip for now</Text>
-      </TouchableOpacity>
             </View>
-            
             <View style={styles.progBarWrap}>
                 <View style={styles.progBar}></View>
-                <Text style={styles.progText}>1/4</Text>
+                <Text style={{ fontSize:10, marginLeft:5 }}>1/4</Text>
             </View>
         </View>
     );
@@ -84,17 +76,6 @@ const styles = StyleSheet.create({
         flexWrap: "wrap",
         alignSelf: "center",
     },
-    skipLink: {
-  
-        alignSelf: 'flex-end',
-        marginTop: 30,
-        marginRight: 10,
-      },
-      skipLinkText: {
-        fontSize: 12,
-        color: '#56BFD9',
-        textDecorationLine: 'underline',
-      },
     progBarWrap: {
         width:"100%",
     },
@@ -102,15 +83,6 @@ const styles = StyleSheet.create({
         backgroundColor:"#56BFD9",
         height:18,
         width:"25%",
-        marginBottom: 3,
-    },
-    progText: {
-        fontSize: 10,
-        textAlign: 'left',
-        alignSelf: 'flex-start',
-        marginLeft: 30,
-        marginTop: 10,
-        marginBottom: 10,
-        // top: 55,
-      },
+        marginBottom: 2,
+    }
 });

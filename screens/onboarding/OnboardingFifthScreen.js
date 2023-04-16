@@ -1,74 +1,74 @@
-import React, { useState, useEffect } from "react";
-import { StyleSheet, View, FlatList, TouchableOpacity, Image, ScrollView } from "react-native";
-import { Text, Button } from "@rneui/themed";
+import React from 'react';
+import { View, Text, StyleSheet, ImageBackground, Image, TouchableOpacity } from 'react-native';
+import { useNavigation } from '@react-navigation/native';
 
+const WelcomeScreen = () => {
+    const navigation = useNavigation();
+  return (
+    <View style={styles.container}>
+      <Text style={styles.header}>Let's get started</Text>
+      <Image source={require('../../assets/images/onb-popcorn.png')} style={styles.image} />
 
-export default function OnboardingFifthScreen({ navigation }) {
-
-
-    return (
-      <ScrollView style={styles.container}>
-        <View
-          style={{ 
-              width:400,
-              padding:10,
-              alignSelf:"center",
-              marginTop: 20,
-          }}>
-        <Text style={styles.headerone}>Let's get started</Text>
-        <Image source={require('../../assets/images/onb-popcorn.png')} style={styles.image} />
-
-        <View
-          style={{ 
+      <View
+        style={{ 
           flex: 1,
         }}
+      >
+        <TouchableOpacity
+          style={styles.button}
+          onPress={() => navigation.navigate('TabNavigator')}
         >
-          <TouchableOpacity
-            style={styles.button}
-            onPress={() => navigation.navigate('TabNavigator')}
-          >
           <Text style={styles.buttonText}>CONTINUE</Text>
-          </TouchableOpacity>
-        </View>
+        </TouchableOpacity>
+      </View>
       
       <View style={styles.progBarWrap}>
         <View style={styles.progBar}></View>
         <Text style={{ fontSize:10, marginLeft:5 }}>4/4</Text>
       </View>
 
-        <View style={styles.progBar}>
-          <View style={styles.progFill} />
-        </View>
-        <Text style={styles.progText}>4/4</Text>
-                
-       </View>
-     </ScrollView>
-    );
-}
+    </View>
+  );
+};
 
 const styles = StyleSheet.create({
-    container: {
-        flex: 1,
-        backgroundColor: "#F5EFDF",
-        textAlign: 'left',
-    },
-    image: {
-      width: '100%',
-      height: 300,
-      resizeMode: 'contain',
-      marginBottom: 20,
-      marginTop: 35,
-    },
-    headerone: {
-      fontSize: 32,
-      fontWeight: 'bold',
-      textAlign: 'center',
-    },
-    buttonText: {
-      color: '#fff',
-      fontSize: 18,
-      fontWeight: 'bold',
-    },
+  container: {
+    flex: 1,
+    alignItems: 'center',
+    // justifyContent: 'center',
+    backgroundColor: '#F5efdf',
+  },
+  header: {
+    marginTop: 70,
+    fontSize: 32,
+    fontWeight: 'bold',
+    // marginBottom: 10,
+    // marginRight: 100,
+  },
+  image: {
+    width: '100%',
+    height: 300,
+    resizeMode: 'contain',
+    marginBottom: 40,
+    marginTop: 40,
+  },
+  tagline: {
+    fontSize: 18,
+    marginBottom: 20,
+  },
+  button: {
+    backgroundColor: '#062C3F',
+    paddingHorizontal: 120,
+    paddingVertical: 10,
+    marginTop: 10,
+    borderRadius: 5,
+    marginBottom: 30,
+  },
+  buttonText: {
+    color: '#fff',
+    fontSize: 18,
+    fontWeight: 'bold',
+  },
   progBarWrap: {
     width:"100%",
   },
@@ -80,5 +80,5 @@ const styles = StyleSheet.create({
   }
 });
 
+export default WelcomeScreen;
  
-
