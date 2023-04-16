@@ -3,13 +3,15 @@ import { View, Text, StyleSheet, ImageBackground, Image, TouchableOpacity } from
 import { useNavigation } from '@react-navigation/native';
 
 const WelcomeScreen = () => {
+
     const navigation = useNavigation();
+
   return (
     <View style={styles.container}>
         <Image source={require('../../assets/images/onb-screenshot-3.png')} style={styles.image} />
-    <View style={styles.bulletCont}>
-      <Text style={styles.bulletItem}>• Quickly access your favourite movies by list or genre</Text>
-      <Text style={styles.bulletItem}>• You can easily create custom lists to keep track of your favourite films or ones you want to watch in the future.</Text>
+      <View style={styles.bulletCont}>
+        <Text style={styles.bulletItem}>• Quickly access your favourite movies by list or genre</Text>
+        <Text style={styles.bulletItem}>• You can easily create custom lists to keep track of your favourite films or ones you want to watch in the future.</Text>
       </View>
       <TouchableOpacity
         style={styles.button}
@@ -24,14 +26,11 @@ const WelcomeScreen = () => {
       >
         <Text style={styles.skipLinkText}>Skip for now</Text>
       </TouchableOpacity>
-    
 
-
-
-      <View style={styles.progressBar}>
-        <View style={styles.progressFill} />
+      <View style={styles.progBarWrap}>
+        <View style={styles.progBar}></View>
+        <Text style={{ fontSize:10, marginLeft:5 }}>3/4</Text>
       </View>
-      <Text style={styles.progressText}>3/4</Text>
     </View>
   );
 };
@@ -89,7 +88,7 @@ const styles = StyleSheet.create({
     fontSize: 16,
   },
   skipLink: {
-  
+    flex: 1,
     alignSelf: 'flex-end',
     marginTop: 20,
     marginRight: 30,
@@ -99,29 +98,14 @@ const styles = StyleSheet.create({
     color: '#56BFD9',
     textDecorationLine: 'underline',
   },
-  progressBar: {
-    marginTop: 20,
-    height: 30,
-    width: '100%',
-    backgroundColor: '#F5efdf',
-    // borderRadius: ,
-    overflow: 'hidden',
-    top: 55,
+  progBarWrap: {
+    width:"100%",
   },
-  progressFill: {
-    marginTop: 10,
-    height: '100%',
-    backgroundColor: '#56BFD9',
-    // borderRadius: 10,
-    width: '75%', // Change the width to the percentage of progress
-  },
-  progressText: {
-    fontSize: 10,
-    textAlign: 'left',
-    alignSelf: 'flex-start',
-    marginLeft: 30,
-    marginTop: 15,
-    top: 55,
+  progBar: {
+      backgroundColor:"#56BFD9",
+      height:18,
+      width:"75%",
+      marginBottom: 2,
   },
 });
 

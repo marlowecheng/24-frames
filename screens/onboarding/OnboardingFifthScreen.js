@@ -8,17 +8,24 @@ const WelcomeScreen = () => {
     <View style={styles.container}>
       <Text style={styles.header}>Let's get started</Text>
       <Image source={require('../../assets/images/onb-popcorn.png')} style={styles.image} />
-      <TouchableOpacity
-        style={styles.button}
-        onPress={() => navigation.navigate('HomeScreen')}
-      >
-        <Text style={styles.buttonText}>CONTINUE</Text>
-      </TouchableOpacity>
 
-      <View style={styles.progressBar}>
-        <View style={styles.progressFill} />
+      <View
+        style={{ 
+          flex: 1,
+        }}
+      >
+        <TouchableOpacity
+          style={styles.button}
+          onPress={() => navigation.navigate('TabNavigator')}
+        >
+          <Text style={styles.buttonText}>CONTINUE</Text>
+        </TouchableOpacity>
       </View>
-      <Text style={styles.progressText}>4/4</Text>
+      
+      <View style={styles.progBarWrap}>
+        <View style={styles.progBar}></View>
+        <Text style={{ fontSize:10, marginLeft:5 }}>4/4</Text>
+      </View>
 
     </View>
   );
@@ -62,28 +69,15 @@ const styles = StyleSheet.create({
     fontSize: 18,
     fontWeight: 'bold',
   },
-  progressBar: {
-    height: 20,
-    width: '100%',
-    backgroundColor: '#F5efdf',
-    // borderRadius: ,
-    overflow: 'hidden',
-    top: 110,
+  progBarWrap: {
+    width:"100%",
   },
-  progressFill: {
-    height: '100%',
-    backgroundColor: '#56BFD9',
-    // borderRadius: 10,
-    width: '100%', // Change the width to the percentage of progress
-  },
-  progressText: {
-    fontSize: 10,
-    textAlign: 'left',
-    alignSelf: 'flex-start',
-    marginLeft: 30,
-    marginTop: 15,
-    top: 110,
-  },
+  progBar: {
+      backgroundColor:"#56BFD9",
+      height:18,
+      width:"100%",
+      marginBottom: 2,
+  }
 });
 
 export default WelcomeScreen;
