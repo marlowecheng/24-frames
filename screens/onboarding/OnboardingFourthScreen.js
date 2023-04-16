@@ -98,7 +98,7 @@ const styles = StyleSheet.create({
   progFill: {
     height: '100%',
     backgroundColor: '#56BFD9',
-    width: '50%', 
+    width: '75%', 
   },
   progText: {
     fontSize: 10,
