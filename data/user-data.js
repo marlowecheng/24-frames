@@ -14,9 +14,10 @@ export const USERDATA = [
         password: "password1",
         userImage: require('../assets/images/user1.png'),
         about: "ipsum dolor sit amet, consectetur adipiscing elit. Phasellus sed felis in massa vestibulum egestas. ipsum dolor sit amet, consectetur adipiscing elit. Phasellus sed felis in massa vestibulum egestas. ipsum dolor sit amet, consectetur adipiscing elit.",
-        genrePref:[],
-        watchList:[],
-        seenList:[],
+        genrePref:["28", "35", "14", "878"],
+        watchList:["438631", "324857", "111"],
+        seenList:["299536", "483", "12133"],
+        reviewList:["12133"],
     },
     {
         id: "2",
@@ -28,5 +29,6 @@ export const USERDATA = [
         genrePref:[],
         watchList:[],
         seenList:[],
+        reviewList:[],
     },
-]
+];

@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
-import { StyleSheet, View, Linking } from "react-native";
-import { CheckBox, Text, Input, Button, Icon, Image } from "@rneui/themed";
+import { StyleSheet, View } from "react-native";
+import { CheckBox, Text, Input, Button, Image } from "@rneui/themed";
 
 export default function SignUpScreen({ navigation }) {
     const [checked, setChecked] = React.useState(false);

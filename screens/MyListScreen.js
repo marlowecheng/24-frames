@@ -2,38 +2,42 @@ import React, { useState, useEffect } from "react";
 import { StyleSheet, View, FlatList, ActivityIndicator, ScrollView } from "react-native";
 import { Text } from "@rneui/themed";
 
+import { getUserById } from "../data/user-data";
+
 import { Picker } from "@react-native-picker/picker";
 
 import { GENREDATA } from "../data/genre-data";
 
-import MovieListItem from "../components/MovieListItem";
+import MovieUserListItem from "../components/MovieUserListItem";
 
 export default function SearchScreen({ navigation }) {
 
+    const currUser = getUserById('1');
+
     const [selectedList, setSelectedList] = useState();
 
-    // add the three useState for the fetch process
-    const [error, setError] = useState(null);
-    const [isLoaded, setIsLoaded] = useState(false);
-    const [dataResult, setDataResult] = useState([]);
+    // // add the three useState for the fetch process
+    // const [error, setError] = useState(null);
+    // const [isLoaded, setIsLoaded] = useState(false);
+    // const [dataResult, setDataResult] = useState([]);
 
-    // add useEffect for the fetch process
-    useEffect(() => {
-      fetch("https://api.themoviedb.org/3/trending/movie/day?api_key=3636477fa6452fd3ef8c3fca44ea59ee")
-        .then(res => res.json())
-        .then(
-          (result) => {
-            // successful load
-            setIsLoaded(true);
-            setDataResult(result);
-          },
-          (error) => {
-            // handle errors here
-            setIsLoaded(true);
-            setError(error);
-          }
-        )
-    }, []);
+    // // add useEffect for the fetch process
+    // useEffect(() => {
+    //   fetch("https://api.themoviedb.org/3/trending/movie/day?api_key=3636477fa6452fd3ef8c3fca44ea59ee")
+    //     .then(res => res.json())
+    //     .then(
+    //       (result) => {
+    //         // successful load
+    //         setIsLoaded(true);
+    //         setDataResult(result);
+    //       },
+    //       (error) => {
+    //         // handle errors here
+    //         setIsLoaded(true);
+    //         setError(error);
+    //       }
+    //     )
+    // }, []);
 
     return (
         <View style={styles.container}>
@@ -114,57 +118,29 @@ export default function SearchScreen({ navigation }) {
                 </Picker>
             </View>
             <ScrollView>
-                {displayDataContainer(error, isLoaded, dataResult, navigation)}
+                {displayDataContainer(currUser, navigation)}
             </ScrollView>
         </View>
     );
 }
 
-function displayDataContainer(error, isLoaded, dataResult, navigation) {
+function displayDataContainer(currUser, navigation) {
 
     const renderItem = ({ item }) => (
-        <MovieListItem itemData={item} navigationRef={navigation} />
+        <MovieUserListItem itemData={item} navigationRef={navigation} />
     );
 
-    if (error) {
-        // show error message   
-        return (
-            <View>
-                <Text>Error: {error.message}</Text>
-            </View>
-        );
-    }
-    
-    else if (!isLoaded) {
-        // show spinner while loading
-        return(
-            <View style={styles.loadingContainer}>
-                <Text>Loading...</Text>
-                <ActivityIndicator size="large" color="#56BFD9"/>
-            </View>
-        );
-    }
-    else if (dataResult.results === undefined) {
-        // no records found
-        return (
-            <View>
-                <Text>Nothing found.</Text>
-            </View>
-        );  
-    }
-    else {
-        return (
-            <View>
-                <FlatList
-                    style={styles.MovieList}
-                    data={dataResult.results}
-                    renderItem={renderItem}
-                    keyExtractor={item => item.id}
-                    scrollEnabled={false}
-                />
-            </View>
-        );
-    } 
+    return (
+        <View>
+            <FlatList
+                style={styles.MovieList}
+                data={currUser.watchList}
+                renderItem={renderItem}
+                keyExtractor={item => item.id}
+                scrollEnabled={false}
+            />
+        </View>
+    );
 }
 
 const styles = StyleSheet.create({

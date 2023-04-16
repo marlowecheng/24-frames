@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
-import { StyleSheet, View, Linking } from "react-native";
-import { CheckBox, Text, Input, Button, Icon, Image } from "@rneui/themed";
+import { StyleSheet, View, } from "react-native";
+import { Text, Input, Button, Image } from "@rneui/themed";
 
 export default function LoginScreen({ navigation }) {
     return (

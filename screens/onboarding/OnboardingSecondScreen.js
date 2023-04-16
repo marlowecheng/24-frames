@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { StyleSheet, View, FlatList, ScrollView } from "react-native";
+import { StyleSheet, View, FlatList } from "react-native";
 import { Text, Button } from "@rneui/themed";
 
 import GenreOnboardItem from "../../components/GenreOnboardItem";

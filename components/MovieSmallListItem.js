@@ -1,10 +1,8 @@
 import React, {useState, useEffect } from "react";
 
-import { StyleSheet, Image, View, Pressable } from "react-native";
-import { Picker } from "@react-native-picker/picker";
-import { ListItem, Text } from "@rneui/themed";
+import { StyleSheet, Image, Pressable } from "react-native";
+import { ListItem } from "@rneui/themed";
 import { useNavigation } from "@react-navigation/native";
-import StarRating from "react-native-star-rating-widget";
 
 export default function MovieListItem({ itemData }) {
 
@@ -21,7 +19,7 @@ export default function MovieListItem({ itemData }) {
 
     // add useEffect for the fetch process
     useEffect(() => {
-      fetch("https://api.themoviedb.org/3/movie/" + itemData.id + "?api_key=3636477fa6452fd3ef8c3fca44ea59ee&language=en-US")
+      fetch("https://api.themoviedb.org/3/movie/" + itemData + "?api_key=3636477fa6452fd3ef8c3fca44ea59ee&language=en-US")
         .then(res => res.json())
         .then(
           (result) => {
@@ -48,12 +46,12 @@ export default function MovieListItem({ itemData }) {
             <Pressable 
                 style={styles.itemImg}
                 onPress={() => navigation.navigate("Details", {
-                    movieId: itemData.id
+                    movieId: dataResult.id
                 })}>
                 <Image 
                     height={231}
                     width={156}
-                    source={{ uri: "http://image.tmdb.org/t/p/w154" + itemData.poster_path }}
+                    source={{ uri: "http://image.tmdb.org/t/p/w154" + dataResult.poster_path }}
                 />
             </Pressable>
         </ListItem>

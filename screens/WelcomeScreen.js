@@ -1,6 +1,5 @@
 import React, { useEffect } from 'react';
-import { StyleSheet, View, Button, Image } from "react-native";
-import { Text } from "@rneui/themed";
+import { StyleSheet, View, Image } from "react-native";
 
 export default function WelcomeScreen({ navigation }) {
 
