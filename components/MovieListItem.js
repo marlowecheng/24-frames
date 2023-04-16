@@ -53,7 +53,7 @@ export default function MovieListItem({ itemData }) {
                 <Image 
                     height={231}
                     width={156}
-                    source={{ uri: "http://image.tmdb.org/t/p/w154" + itemData.poster_path }}
+                    source={{ uri: "http://image.tmdb.org/t/p/w300" + itemData.poster_path }}
                 />
             </Pressable>
             <View style={styles.textBox}>

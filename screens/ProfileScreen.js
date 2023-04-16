@@ -7,32 +7,13 @@ import MovieSmallListItem from "../components/MovieSmallListItem";
 
 export default function ProfileScreen({ navigation }) {
 
-        const [visibleAlert, setVisibleAlert] = useState(false);
-
         const currUser = getUserById('1');
 
-        // add the three useState for the fetch process
-        // const [error, setError] = useState(null);
-        // const [isLoaded, setIsLoaded] = useState(false);
-        // const [dataResult, setDataResult] = useState([]);
-    
-        // add useEffect for the fetch process
-        // useEffect(() => {
-        //   fetch("https://api.themoviedb.org/3/movie/?api_key=3636477fa6452fd3ef8c3fca44ea59ee&language=en-US")
-        //     .then(res => res.json())
-        //     .then(
-        //       (result) => {
-        //         // successful load
-        //         setIsLoaded(true);
-        //         setDataResult(result);
-        //       },
-        //       (error) => {
-        //         // handle errors here
-        //         setIsLoaded(true);
-        //         setError(error);
-        //       }
-        //     )
-        // }, []);
+        const [currId, setCurrId] = useState(null);
+
+        if(currUser !== currId){
+            setCurrId(currUser);
+        }
 
 
     return (
@@ -46,7 +27,7 @@ export default function ProfileScreen({ navigation }) {
                 <Image
                 width={194}
                 height={194}
-                source={currUser.userImage}
+                source={currUser.keyImage}
                 />
                 <Text h3>{currUser.userName}</Text>
             </View> 

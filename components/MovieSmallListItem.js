@@ -51,7 +51,7 @@ export default function MovieListItem({ itemData }) {
                 <Image 
                     height={231}
                     width={156}
-                    source={{ uri: "http://image.tmdb.org/t/p/w154" + dataResult.poster_path }}
+                    source={{ uri: "http://image.tmdb.org/t/p/w300" + dataResult.poster_path }}
                 />
             </Pressable>
         </ListItem>

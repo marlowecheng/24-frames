@@ -1,11 +1,8 @@
-import React, { useState, useEffect } from "react";
-import { StyleSheet, View, FlatList, ActivityIndicator, ScrollView } from "react-native";
-import { Text } from "@rneui/themed";
+import React, { useState } from "react";
 
+import { StyleSheet, View, FlatList, ScrollView } from "react-native";
 import { getUserById } from "../data/user-data";
-
 import { Picker } from "@react-native-picker/picker";
-
 import { GENREDATA } from "../data/genre-data";
 
 import MovieUserListItem from "../components/MovieUserListItem";
@@ -15,29 +12,6 @@ export default function SearchScreen({ navigation }) {
     const currUser = getUserById('1');
 
     const [selectedList, setSelectedList] = useState();
-
-    // // add the three useState for the fetch process
-    // const [error, setError] = useState(null);
-    // const [isLoaded, setIsLoaded] = useState(false);
-    // const [dataResult, setDataResult] = useState([]);
-
-    // // add useEffect for the fetch process
-    // useEffect(() => {
-    //   fetch("https://api.themoviedb.org/3/trending/movie/day?api_key=3636477fa6452fd3ef8c3fca44ea59ee")
-    //     .then(res => res.json())
-    //     .then(
-    //       (result) => {
-    //         // successful load
-    //         setIsLoaded(true);
-    //         setDataResult(result);
-    //       },
-    //       (error) => {
-    //         // handle errors here
-    //         setIsLoaded(true);
-    //         setError(error);
-    //       }
-    //     )
-    // }, []);
 
     return (
         <View style={styles.container}>

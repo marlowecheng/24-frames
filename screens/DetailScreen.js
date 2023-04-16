@@ -3,7 +3,7 @@ import React, { useState, useEffect } from "react";
 import { StyleSheet, View, ScrollView, ActivityIndicator, Image, FlatList } from "react-native";
 import { Text } from "@rneui/themed";
 import { Picker } from "@react-native-picker/picker";
-import StarRating from "react-native-star-rating-widget";
+import StarRating, { StarRatingDisplay } from "react-native-star-rating-widget";
 import { TextInput } from "@react-native-material/core";
 import { Button } from "react-native-elements";
 
@@ -126,9 +126,8 @@ function displayDataContainer(error, isLoaded, dataResult, navigation) {
                             flexDirection:"row",
                             justifyContent:"center",
                          }}>
-                        <StarRating
-                            rating={rating}
-                            onChange={setRating}
+                        <StarRatingDisplay
+                            rating={"4.5"}
                             color="#F3B646"
                             starSize={14}
                         />
