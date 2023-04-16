@@ -21,6 +21,7 @@ import OnboardingFifthScreen from "./screens/onboarding/OnboardingFifthScreen";
 import LoginScreen from "./screens/LoginScreen";
 import SignUpScreen from "./screens/SignUpScreen";
 import TabNav from "./screens/TabNav";
+import HomeScreen from "./screens/HomeScreen";
 
 const Stack = createNativeStackNavigator();
 
@@ -116,6 +117,10 @@ export default function App() {
                 headerShown: false,
               }}
             />
+            <Stack.Screen
+              name="Home"
+              component={HomeScreen}
+              />
            </Stack.Navigator>
         </NavigationContainer>
       </ThemeProvider>
