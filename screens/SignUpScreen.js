@@ -41,13 +41,26 @@ export default function SignUpScreen({ navigation }) {
                         checked={checked}
                         onPress={toggleCheckbox}
                         title= "I agree to the Terms of Service and Privacy Policy"
-                        iconType="material"
-                        checkedIcon="check-box"
-                        uncheckedIcon="check-box-outline-blank"
+                        iconType="ionicon"
+                        checkedIcon="checkbox-outline"
+                        uncheckedIcon="square-outline"
+                        checkedColor="#232323"
+                        uncheckedColor="#232323"
+                        size={16}
+                    />
+                </View>
+                <View style={{width: '100%'}}>
+                <CheckBox
+                        checked={checked}
+                        onPress={toggleCheckbox}
+                        title= "I agree to the Terms of Service and Privacy Policy"
+                        iconType="ionicon"
+                        checkedIcon="checkbox-outline"
+                        uncheckedIcon="square-outline"
                         checkedColor="#232323"
                         uncheckedColor="#232323"
                         size={15}
-                        style={{marginTop: -4}}
+                        style={styles.checkBoxStyle}
                     />
                 </View>
                 <View style={{width: '100%', marginVertical: 0, marginTop: 32, marginBottom: 8}}>
@@ -58,14 +71,14 @@ export default function SignUpScreen({ navigation }) {
                 </View>
                 <View style={styles.footerContainer}>
                     <View style={styles.footerLine}>
-                        <View style={{flex: 1, height: 1, backgroundColor: '#232323'}} />
+                        <View style={{flex: 1, height: .5, backgroundColor: '#232323'}} />
                         <View style={{flex: 1.15, justifyContent: 'center'}}>
                             <Text style={{
                                 textAlign: 'center',
                                 fontSize:14,
                                 fontFamily:"Poppins_600SemiBold",}}>or continue with</Text>
                         </View>
-                        <View style={{flex: 1, height: 1, backgroundColor: '#232323'}} />
+                        <View style={{flex: 1, height: .5, backgroundColor: '#232323'}} />
                     </View>
                     <View style={styles.footerBtnsContainer}>
                         <View style={[styles.footerBtns, styles.dropShadow]}><Image style={{ width:30, height:30}} source={require("../assets/icons/logo_google.png")} /></View>
@@ -115,6 +128,10 @@ const styles = StyleSheet.create({
         width: '100%',
         justifyContent: 'center',
     },
+    checkBoxStyle: {
+        width: '100%',
+        paddingHorizontal: 0,
+    },
     footerContainer: {
         flexDirection: "column",
         alignItems: "center",
@@ -137,7 +154,7 @@ const styles = StyleSheet.create({
         backgroundColor: '#F5EFDF',
         width: 75,
         height: 45,
-        borderWidth: 1,
+        borderWidth: 0.5,
         borderColor: '#232323',
         justifyContent: 'center',
         alignItems: 'center',

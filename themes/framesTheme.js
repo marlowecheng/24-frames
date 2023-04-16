@@ -124,6 +124,9 @@ export const framesTheme = createTheme({
             containerStyle: {
                 backgroundColor: themePalette.Beige,
                 width: "100%",
+                paddingHorizontal: .1,
+                marginHorizontal: .1,
+                alignItems: 'center',
             },
             textStyle: {
                 fontWeight: 400,
