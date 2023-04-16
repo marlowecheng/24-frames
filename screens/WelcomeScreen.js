@@ -7,7 +7,7 @@ export default function WelcomeScreen({ navigation }) {
         useEffect(() => {
             // Simulate a loading delay of 2 seconds
             const timer = setTimeout(() => {
-              navigation.navigate('Onboarding1');
+              navigation.navigate('LogIn');
             }, 1500);
             return () => clearTimeout(timer);
           }, [navigation]);
