@@ -28,15 +28,8 @@ export default function OnboardingFifthScreen({ navigation }) {
           }}>
             <Button
               title={"NEXT"}
-              onPress={() => navigation.navigate('Onboarding4')}
+              onPress={() => navigation.navigate('Home')}
             />
-
-            <TouchableOpacity
-              style={styles.skipLink}
-              onPress={() => navigation.navigate('Onboarding4')}
-            >
-              <Text style={styles.skipLinkText}>Skip for now</Text>
-            </TouchableOpacity>
                   
 
         </View>
@@ -73,16 +66,6 @@ const styles = StyleSheet.create({
       color: '#fff',
       fontSize: 18,
       fontWeight: 'bold',
-    },
-    skipLink: {
-      alignSelf: 'flex-end',
-      marginTop: 15,
-      marginRight: 30,
-    },
-    skipLinkText: {
-      fontSize: 12,
-      color: '#56BFD9',
-      textDecorationLine: 'underline',
     },
     progBar: {
       height: 20,
