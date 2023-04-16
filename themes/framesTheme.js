@@ -98,8 +98,8 @@ export const framesTheme = createTheme({
             containerStyle: {
                 width: "100%",
                 paddingHorizontal: 0,
+                paddingVertical: 0,
                 marginVertical: 0,
-                
             },
             inputContainerStyle: {
                 borderWidth: 1,
