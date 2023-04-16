@@ -15,7 +15,7 @@ export default function OnboardingSecondScreen({ navigation }) {
     );
 
     return (
-        <ScrollView style={styles.container}>
+        <View style={styles.container}>
             <View
                 style={{ 
                     width:400,
@@ -46,8 +46,7 @@ export default function OnboardingSecondScreen({ navigation }) {
             <View
                 style={{ 
                     flex: 1,
-                    marginTop: 100,
-                    marginBottom: 100,
+                    marginTop: 20,
                     width:272,
                     alignSelf:"center",
                     borderRadius:8,
@@ -61,7 +60,7 @@ export default function OnboardingSecondScreen({ navigation }) {
                 <View style={styles.progBar}></View>
                 <Text style={{ fontSize:10, marginLeft:5 }}>1/4</Text>
             </View>
-        </ScrollView>
+        </View>
     );
 }
 
@@ -72,7 +71,7 @@ const styles = StyleSheet.create({
     },
     GenreList: {
         width: 400,
-        marginTop: 50,
+        // marginTop: 50,
         flexDirection: "row",
         flexWrap: "wrap",
         alignSelf: "center",

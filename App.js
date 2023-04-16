@@ -64,15 +64,23 @@ export default function App() {
               name="SignUp"
               options={{ headerShown: false }}
               component={SignUpScreen}
+              options={{
+                headerShown: false,
+              }}
             />
             <Stack.Screen
               name="LogIn"
               component={LoginScreen}
-              options={{ headerShown: false }}
+              options={{
+                headerShown: false,
+              }}
             />
             <Stack.Screen
               name="Onboarding1"
               component={OnboardingFirstScreen}
+              options={{
+                headerShown: false,
+              }}
             /> 
             <Stack.Screen
               name="Onboarding2"
@@ -84,14 +92,23 @@ export default function App() {
             <Stack.Screen
               name="Onboarding3"
               component={OnboardingThirdScreen}
+              options={{ 
+                title:"Add to List",
+               }}
             /> 
             <Stack.Screen
               name="Onboarding4"
               component={OnboardingFourthScreen}
+              options={{ 
+                title:"My Movies",
+               }}
             /> 
             <Stack.Screen
               name="Onboarding5"
               component={OnboardingFifthScreen}
+              options={{ 
+                title:"Get Started",
+               }}
             /> 
             <Stack.Screen
               name="TabNavigator"
