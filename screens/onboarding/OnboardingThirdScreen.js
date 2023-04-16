@@ -16,7 +16,7 @@ const WelcomeScreen = () => {
 
 
 
-        <TouchableOpacity
+      <TouchableOpacity
         style={styles.button}
         onPress={() => navigation.navigate('Onboarding4')}>
         <Text style={styles.buttonText}>NEXT</Text>
@@ -31,10 +31,10 @@ const WelcomeScreen = () => {
 
 
 
-      <View style={styles.progressBar}>
-        <View style={styles.progressFill} />
+      <View style={styles.progBarWrap}>
+        <View style={styles.progBar}></View>
+        <Text style={{ fontSize:10, marginLeft:5 }}>2/4</Text>
       </View>
-      <Text style={styles.progressText}>2/4</Text>
         
 
     </View>
@@ -45,6 +45,7 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     alignItems: 'center',
+    justifyContent: "center",
     backgroundColor: '#F5efdf',
     textAlign: 'left',
   },
@@ -72,7 +73,7 @@ const styles = StyleSheet.create({
     fontWeight: 'bold',
   },
   skipLink: {
-  
+    flex: 1,
     alignSelf: 'flex-end',
     marginTop: 15,
     marginRight: 30,
@@ -91,27 +92,15 @@ const styles = StyleSheet.create({
     marginBottom: 10,
     width: 350,
   },
-  progressBar: {
-    marginTop: 20,
-    height: 20,
-    width: '100%',
-    backgroundColor: '#F5efdf',
-    overflow: 'hidden',
-    top: 85,
+  progBarWrap: {
+    width:"100%",
   },
-  progressFill: {
-    height: '100%',
-    backgroundColor: '#56BFD9',
-    width: '50%', 
-  },
-  progressText: {
-    fontSize: 10,
-    textAlign: 'left',
-    alignSelf: 'flex-start',
-    marginLeft: 30,
-    marginTop: 15,
-    top: 85,
-  },
+  progBar: {
+      backgroundColor:"#56BFD9",
+      height:18,
+      width:"50%",
+      marginBottom: 2,
+  }
 });
 
 export default WelcomeScreen;

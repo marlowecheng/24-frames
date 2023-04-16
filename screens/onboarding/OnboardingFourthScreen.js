@@ -28,8 +28,8 @@ const WelcomeScreen = () => {
       </TouchableOpacity>
 
       <View style={styles.progBarWrap}>
-          <View style={styles.progBar}></View>
-          <Text style={{ fontSize:10, marginLeft:5 }}>3/4</Text>
+        <View style={styles.progBar}></View>
+        <Text style={{ fontSize:10, marginLeft:5 }}>3/4</Text>
       </View>
     </View>
   );
@@ -88,7 +88,7 @@ const styles = StyleSheet.create({
     fontSize: 16,
   },
   skipLink: {
-  
+    flex: 1,
     alignSelf: 'flex-end',
     marginTop: 20,
     marginRight: 30,
@@ -104,7 +104,7 @@ const styles = StyleSheet.create({
   progBar: {
       backgroundColor:"#56BFD9",
       height:18,
-      width:"50%",
+      width:"75%",
       marginBottom: 2,
   },
 });
