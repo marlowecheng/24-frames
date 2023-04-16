@@ -38,14 +38,14 @@ export default function LoginScreen({ navigation }) {
                 </View>
                 <View style={styles.footerContainer}>
                     <View style={styles.footerLine}>
-                        <View style={{flex: 1, height: 1, backgroundColor: '#232323'}} />
+                        <View style={{flex: 1, height: .5, backgroundColor: '#232323'}} />
                         <View style={{flex: 1.15, justifyContent: 'center'}}>
                             <Text style={{
                                 textAlign: 'center',
                                 fontSize:14,
                                 fontFamily:"Poppins_600SemiBold",}}>or continue with</Text>
                         </View>
-                        <View style={{flex: 1, height: 1, backgroundColor: '#232323'}} />
+                        <View style={{flex: 1, height: .5, backgroundColor: '#232323'}} />
                     </View>
                     <View style={styles.footerBtnsContainer}>
                         <View style={[styles.footerBtns, styles.dropShadow]}><Image style={{ width:30, height:30}} source={require("../assets/icons/logo_google.png")} /></View>
@@ -117,7 +117,7 @@ const styles = StyleSheet.create({
         backgroundColor: '#F5EFDF',
         width: 75,
         height: 45,
-        borderWidth: 1,
+        borderWidth: .5,
         borderColor: '#232323',
         justifyContent: 'center',
         alignItems: 'center',
