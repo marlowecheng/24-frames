@@ -59,7 +59,7 @@ export default function SignUpScreen({ navigation }) {
                 <View style={styles.footerContainer}>
                     <View style={styles.footerLine}>
                         <View style={{flex: 1, height: 1, backgroundColor: '#232323'}} />
-                        <View style={{flex: 1.15, justifyContent: 'center', marginBottom: 16}}>
+                        <View style={{flex: 1.15, justifyContent: 'center'}}>
                             <Text style={{
                                 textAlign: 'center',
                                 fontSize:14,
@@ -127,6 +127,7 @@ const styles = StyleSheet.create({
         flexDirection: 'row',
         alignItems: "center",
         justifyContent: 'center',
+        marginBottom: 8,
     },
     footerBtnsContainer: {
         gap: 8,
