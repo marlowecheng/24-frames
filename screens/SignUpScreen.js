@@ -54,7 +54,7 @@ export default function SignUpScreen({ navigation }) {
                     <Button onPress={() => navigation.navigate('Onboarding1')}>SIGN UP</Button>
                 </View>
                 <View style={{alignItems: 'center', width:'100%', marginVertical: 8}}>
-                    <Text style={styles.subhead}>Already a memeber? <Text style={{ color: '#56BFD9' }}>Log-in</Text></Text>
+                    <Text style={styles.subhead}>Already a memeber? <Text style={{ color: '#56BFD9' }} onPress={() => navigation.navigate('LogIn')}>Log-in</Text></Text>
                 </View>
                 <View style={styles.footerContainer}>
                     <View style={styles.footerLine}>
@@ -87,7 +87,7 @@ const styles = StyleSheet.create({
         justifyContent: "center",
         alignItems: "center",
         flexDirection: 'column',
-        paddingVertical: 50,
+        paddingTop: 100,
     },
     contentContainer: {
         //marginTop: 102,
