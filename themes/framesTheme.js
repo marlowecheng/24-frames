@@ -98,8 +98,8 @@ export const framesTheme = createTheme({
             containerStyle: {
                 width: "100%",
                 paddingHorizontal: 0,
+                paddingVertical: 0,
                 marginVertical: 0,
-                
             },
             inputContainerStyle: {
                 borderWidth: 1,
@@ -124,6 +124,9 @@ export const framesTheme = createTheme({
             containerStyle: {
                 backgroundColor: themePalette.Beige,
                 width: "100%",
+                paddingHorizontal: .1,
+                marginHorizontal: .1,
+                alignItems: 'center',
             },
             textStyle: {
                 fontWeight: 400,

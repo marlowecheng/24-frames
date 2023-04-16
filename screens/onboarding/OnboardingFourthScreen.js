@@ -2,7 +2,6 @@ import React, { useState, useEffect } from "react";
 import { StyleSheet, View, FlatList, ScrollView, TouchableOpacity, Image} from "react-native";
 import { Text, Button } from "@rneui/themed";
 
-
 export default function OnboardingSecondScreen({ navigation }) {
 
   
@@ -35,23 +34,14 @@ export default function OnboardingSecondScreen({ navigation }) {
             >
               <Text style={styles.skipLinkText}>Skip for now</Text>
             </TouchableOpacity>
-                  
 
-        </View>
-
-
-        <View style={styles.progBar}>
-          <View style={styles.progFill} />
-        </View>
-        <Text style={styles.progText}>3/4</Text>
-
-
-        
-
+      <View style={styles.progBarWrap}>
+        <View style={styles.progBar}></View>
+        <Text style={{ fontSize:10, marginLeft:5 }}>3/4</Text>
       </View>
-    </ScrollView>
-    );
-}
+    </View>
+  );
+};
 
 const styles = StyleSheet.create({
     container: {
@@ -80,6 +70,7 @@ const styles = StyleSheet.create({
     fontWeight: 'bold',
   },
   skipLink: {
+    flex: 1,
     alignSelf: 'flex-end',
     marginTop: 15,
     marginRight: 30,
@@ -89,22 +80,14 @@ const styles = StyleSheet.create({
     color: '#56BFD9',
     textDecorationLine: 'underline',
   },
+
+  progBarWrap: {
+    width:"100%",
+  },
   progBar: {
-    height: 20,
-    width: '100%',
-    backgroundColor: '#F5efdf',
-    overflow: 'hidden',
-  },
-  progFill: {
-    height: '100%',
-    backgroundColor: '#56BFD9',
-    width: '75%', 
-  },
-  progText: {
-    fontSize: 10,
-    textAlign: 'left',
-    alignSelf: 'flex-start',
-    marginLeft: 30,
-    marginTop: 15,
+      backgroundColor:"#56BFD9",
+      height:18,
+      width:"75%",
+      marginBottom: 2,
   },
 });

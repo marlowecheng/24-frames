@@ -8,39 +8,41 @@ export default function OnboardingFifthScreen({ navigation }) {
 
     return (
       <ScrollView style={styles.container}>
-            <View
-                style={{ 
-                    width:400,
-                    padding:10,
-                    alignSelf:"center",
-                    marginTop: 20,
-                }}>
-                <Text style={styles.headerone}>Let's get started</Text>
-      <Image source={require('../../assets/images/onb-popcorn.png')} style={styles.image} />
-      <View
+        <View
           style={{ 
-            flex: 1,
-            marginTop: 50,
-            marginBottom: 30,
-            width:272,
-            alignSelf:"center",
-            borderRadius:8,
+              width:400,
+              padding:10,
+              alignSelf:"center",
+              marginTop: 20,
           }}>
-            <Button
-              title={"NEXT"}
-              onPress={() => navigation.navigate('Home')}
-            />
-                  
+        <Text style={styles.headerone}>Let's get started</Text>
+        <Image source={require('../../assets/images/onb-popcorn.png')} style={styles.image} />
 
+        <View
+          style={{ 
+          flex: 1,
+        }}
+        >
+          <TouchableOpacity
+            style={styles.button}
+            onPress={() => navigation.navigate('TabNavigator')}
+          >
+          <Text style={styles.buttonText}>CONTINUE</Text>
+          </TouchableOpacity>
         </View>
+      
+      <View style={styles.progBarWrap}>
+        <View style={styles.progBar}></View>
+        <Text style={{ fontSize:10, marginLeft:5 }}>4/4</Text>
+      </View>
 
         <View style={styles.progBar}>
           <View style={styles.progFill} />
         </View>
         <Text style={styles.progText}>4/4</Text>
                 
-                </View>
-                </ScrollView>
+       </View>
+     </ScrollView>
     );
 }
 
@@ -67,22 +69,16 @@ const styles = StyleSheet.create({
       fontSize: 18,
       fontWeight: 'bold',
     },
-    progBar: {
-      height: 20,
-      width: '100%',
-      backgroundColor: '#F5efdf',
-      overflow: 'hidden',
-    },
-    progFill: {
-      height: '100%',
-      backgroundColor: '#56BFD9',
-      width: '100%', 
-    },
-    progText: {
-      fontSize: 10,
-      textAlign: 'left',
-      alignSelf: 'flex-start',
-      marginLeft: 30,
-      marginTop: 15,
-    },
+  progBarWrap: {
+    width:"100%",
+  },
+  progBar: {
+      backgroundColor:"#56BFD9",
+      height:18,
+      width:"100%",
+      marginBottom: 2,
+  }
 });
+
+ 
+

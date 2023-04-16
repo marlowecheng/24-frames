@@ -37,18 +37,20 @@ export default function OnboardingThirdScreen({ navigation }) {
             >
               <Text style={styles.skipLinkText}>Skip for now</Text>
             </TouchableOpacity>
-                  
-
         </View>
+
+      <TouchableOpacity
+        style={styles.button}
+        onPress={() => navigation.navigate('Onboarding4')}>
+        <Text style={styles.buttonText}>NEXT</Text>
+      </TouchableOpacity>
+
 
 
         <View style={styles.progBar}>
           <View style={styles.progFill} />
         </View>
         <Text style={styles.progText}>2/4</Text>
-
-
-        
 
       </View>
     </ScrollView>
@@ -58,6 +60,9 @@ export default function OnboardingThirdScreen({ navigation }) {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
+    alignItems: 'center',
+    justifyContent: "center",
+
     backgroundColor: '#F5efdf',
     textAlign: 'left',
   },
@@ -82,6 +87,7 @@ const styles = StyleSheet.create({
     fontWeight: 'bold',
   },
   skipLink: {
+    flex: 1,
     alignSelf: 'flex-end',
     marginTop: 15,
     marginRight: 30,
@@ -91,22 +97,23 @@ const styles = StyleSheet.create({
     color: '#56BFD9',
     textDecorationLine: 'underline',
   },
-  progBar: {
-    height: 20,
-    width: '100%',
-    backgroundColor: '#F5efdf',
-    overflow: 'hidden',
+
+  bulletCont: {
+    marginBottom: 20,
   },
-  progFill: {
-    height: '100%',
-    backgroundColor: '#56BFD9',
-    width: '50%', 
-  },
-  progText: {
-    fontSize: 10,
+  bulletItem: {
+    fontSize: 16,
     textAlign: 'left',
-    alignSelf: 'flex-start',
-    marginLeft: 30,
-    marginTop: 15,
+    marginBottom: 10,
+    width: 350,
   },
+  progBarWrap: {
+    width:"100%",
+  },
+  progBar: {
+      backgroundColor:"#56BFD9",
+      height:18,
+      width:"50%",
+      marginBottom: 2,
+  }
 });
