@@ -37,17 +37,6 @@ export default function SignUpScreen({ navigation }) {
                         style={{marginBottom: 0,}}
                         renderErrorMessage={false}
                     />
-                    <CheckBox
-                        checked={checked}
-                        onPress={toggleCheckbox}
-                        title= "I agree to the Terms of Service and Privacy Policy"
-                        iconType="ionicon"
-                        checkedIcon="checkbox-outline"
-                        uncheckedIcon="square-outline"
-                        checkedColor="#232323"
-                        uncheckedColor="#232323"
-                        size={16}
-                    />
                 </View>
                 <View style={{width: '100%'}}>
                 <CheckBox
