@@ -1,9 +1,8 @@
 import React from 'react';
-import { View, Text, StyleSheet, ImageBackground, Image, TouchableOpacity } from 'react-native';
-import { useNavigation } from '@react-navigation/native';
+import { View, Text, StyleSheet, Image, TouchableOpacity } from 'react-native';
 
-const WelcomeScreen = () => {
-    const navigation = useNavigation();
+export default function OnboardingFifthScreen({ navigation }) {
+
   return (
     <View style={styles.container}>
       <Text style={styles.header}>Let's get started</Text>
@@ -79,6 +78,4 @@ const styles = StyleSheet.create({
       marginBottom: 2,
   }
 });
-
-export default WelcomeScreen;
  

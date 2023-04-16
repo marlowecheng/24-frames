@@ -1,9 +1,8 @@
 import React from 'react';
-import { View, Text, StyleSheet, ImageBackground, Image, TouchableOpacity } from 'react-native';
-import { useNavigation } from '@react-navigation/native';
+import { View, Text, StyleSheet, Image, TouchableOpacity } from 'react-native';
 
-const WelcomeScreen = () => {
-    const navigation = useNavigation();
+export default function OnboardingFirstScreen({ navigation }) {
+
   return (
     <View style={styles.container}>
       <Text style={styles.headerone}>Welcome to</Text>
@@ -63,5 +62,3 @@ const styles = StyleSheet.create({
     fontWeight: 'bold',
   },
 });
-
-export default WelcomeScreen;

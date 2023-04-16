@@ -1,9 +1,8 @@
 import React from 'react';
-import { View, Text, StyleSheet, ImageBackground, Image, TouchableOpacity } from 'react-native';
-import { useNavigation } from '@react-navigation/native';
+import { View, Text, StyleSheet, Image, TouchableOpacity } from 'react-native';
 
-const WelcomeScreen = () => {
-    const navigation = useNavigation();
+export default function OnboardingThirdScreen({ navigation }) {
+
   return (
     <View style={styles.container}>
         <Image source={require('../../assets/images/onb-screenshot-2.png')} style={styles.image} />
@@ -102,5 +101,3 @@ const styles = StyleSheet.create({
       marginBottom: 2,
   }
 });
-
-export default WelcomeScreen;

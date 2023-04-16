@@ -1,10 +1,7 @@
 import React from 'react';
-import { View, Text, StyleSheet, ImageBackground, Image, TouchableOpacity } from 'react-native';
-import { useNavigation } from '@react-navigation/native';
+import { View, Text, StyleSheet, Image, TouchableOpacity } from 'react-native';
 
-const WelcomeScreen = () => {
-
-    const navigation = useNavigation();
+export default function OnboardingFourthScreen({ navigation }) {
 
   return (
     <View style={styles.container}>
@@ -108,5 +105,3 @@ const styles = StyleSheet.create({
       marginBottom: 2,
   },
 });
-
-export default WelcomeScreen;
