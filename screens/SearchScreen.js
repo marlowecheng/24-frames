@@ -11,10 +11,14 @@ import { getAllGenres } from "../data/genre-data";
 
 export default function SearchScreen({ navigation }) {
 
+    // checks the current user id
     const currUser = getUserById('1');
 
+    // updates the list picker dropdown
     const [selectedList, setSelectedList] = useState();
 
+
+    // render GenreSmallListItem component which contains the cards
     const renderItem = ({ item }) => (
         <GenreSmallListItem itemData={item} navigationRef={navigation} />
     );
@@ -28,6 +32,7 @@ export default function SearchScreen({ navigation }) {
                 lightTheme="false"
             />
             <View>
+                {/* flatlist based on GenreSmallListItem component */}
                 <FlatList
                     style={styles.GenreList}
                     data={currUser.genrePref}
@@ -71,6 +76,7 @@ export default function SearchScreen({ navigation }) {
                     borderRadius:8,
                     overflow:"hidden",
             }}>
+                    {/* picker dropdown based on genre id and name */}
                     <Picker
                         itemStyle={{height: 50, transform:[{scaleX: 0.8},{scaleY: 0.8}]}}
                         selectedValue={selectedList}
