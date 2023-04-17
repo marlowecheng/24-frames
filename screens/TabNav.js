@@ -20,7 +20,9 @@ export default function TabNav( route ) {
 
   // const { genreId } = route.params;
 
+    // think of this as an App.js but only for the TabNavigator pages
     return (
+      // sets the tab navigator style
         <Tab.Navigator 
             initialRouteName="Home"
             screenOptions={{ 
@@ -37,6 +39,7 @@ export default function TabNav( route ) {
               }
             }}
           >
+          {/* sets each tab screen and its title & icon */}
             <Tab.Screen
               name="Home"
               component={HomeScreen}
