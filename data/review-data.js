@@ -1,6 +1,9 @@
+// function to get all reviews
 export function getAllReviews(){
     return REVIEWDATA;
 }
+
+// 2-dimension array of review data
 export const REVIEWDATA = [
     {
         id: "01",
