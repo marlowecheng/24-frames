@@ -63,6 +63,7 @@ export default function OnboardingSecondScreen({ navigation }) {
                     onPress={() => navigation.navigate('Onboarding3')}
                 />
             </View>
+            {/* Here we have a progress bar at the bottom of the screen, by creating an area with a set height, and controlling it by setting a width */}
             <View style={styles.progBarWrap}>
                 <View style={styles.progBar}></View>
                 <Text style={{ fontSize:10, marginLeft:5 }}>1/4</Text>
