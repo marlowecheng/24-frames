@@ -1,3 +1,4 @@
+// makes a function to getAllGenres from the array below
 export function getAllGenres(){
     return GENREDATA;
 }
@@ -10,6 +11,7 @@ export function getGenreByGenreId(genreId){
     return GENREDATA.find(item => item.genreId === genreId);
 }
 
+//holds a multi-dimensional array with genre name, images, and IDs
 export const GENREDATA = [
     {
         id: "01",
