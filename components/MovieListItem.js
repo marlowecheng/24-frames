@@ -94,6 +94,8 @@ export default function MovieListItem({ itemData }) {
                         borderRadius:8,
                         overflow:"hidden",
                     }}>
+                        
+                    {/* shows the picker for which list the user wants to save the movie to */}
                     <Picker
                         style={[styles.listPicker, {
                         }]}
