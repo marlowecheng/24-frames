@@ -1,16 +1,13 @@
 import React, { useEffect } from 'react';
-import { StyleSheet, View, Image } from "react-native";
+import { StyleSheet, View, Button, Image } from "react-native";
 
 export default function WelcomeScreen({ navigation }) {
 
         useEffect(() => {
             // Simulate a loading delay of 2 seconds
+            // once the loading is done 
             const timer = setTimeout(() => {
-<<<<<<< HEAD
               navigation.navigate('SignUp');
-=======
-              navigation.navigate('LogIn');
->>>>>>> main
             }, 1500);
             return () => clearTimeout(timer);
           }, [navigation]);
