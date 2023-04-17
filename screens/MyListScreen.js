@@ -9,8 +9,12 @@ import MovieUserListItem from "../components/MovieUserListItem";
 
 export default function SearchScreen({ navigation }) {
 
+    // my movies screen
+
+    // gets the current user by id
     const currUser = getUserById('1');
 
+    // updates the select list picker dropdown based on new selections
     const [selectedList, setSelectedList] = useState();
 
     return (
@@ -26,6 +30,7 @@ export default function SearchScreen({ navigation }) {
                     borderRadius:8,
                     overflow:"hidden",
             }}>
+                {/* list selection picker dropdown */}
                 <Picker
                     itemStyle={{height: 50, transform:[{scaleX: 0.8},{scaleY: 0.8}]}}
                     selectedValue={selectedList}
@@ -100,11 +105,13 @@ export default function SearchScreen({ navigation }) {
 
 function displayDataContainer(currUser, navigation) {
 
+    // renders movies that the user has saved using MovieUserListItem component
     const renderItem = ({ item }) => (
         <MovieUserListItem itemData={item} navigationRef={navigation} />
     );
 
     return (
+        // returns a flatlist based on the rendered item and its data
         <View>
             <FlatList
                 style={styles.MovieList}
