@@ -96,7 +96,7 @@ function displayDataContainer(error, isLoaded, dataResult, navigation) {
     }
     else {
 
-        // displays the movie list using
+        // displays the movie list using the data from genereId
         return (
             <View>
                 <FlatList
