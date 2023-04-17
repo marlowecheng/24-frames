@@ -1,7 +1,7 @@
 import { StyleSheet, Image, View, Pressable } from "react-native";
 import { ListItem, Text } from "@rneui/themed";
 import { useNavigation } from "@react-navigation/native";
-import StarRating from "react-native-star-rating-widget";
+import { StarRatingDisplay } from "react-native-star-rating-widget";
 
 export default function ReviewListItem({ itemData }) {
 
@@ -36,7 +36,7 @@ export default function ReviewListItem({ itemData }) {
                     style={{ 
                         flexDirection:"column"
                     }}>
-                    <StarRating
+                    <StarRatingDisplay
                         rating={itemData.stars}
                         color="#F3B646"
                         starSize={14}

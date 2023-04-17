@@ -277,6 +277,8 @@ function displayDataContainer(error, isLoaded, dataResult, navigation) {
                                     // value={}
                                     placeholder="Write your thoughts..."
                                     height={80}
+                                    multiline={true}
+                                    textAlignVertical="top"
                                 />
                             </View>
                             <View
