@@ -327,11 +327,13 @@ function displayDataContainer(error, isLoaded, dataResult, navigation) {
 
 function displayReviewContainer(navigation) {
 
+    // uses the ReviewListItem component to display data and potentially navigate to the user profile
     const renderItem = ({ item }) => (
         <ReviewListItem itemData={item} navigationRef={navigation} />
     );
 
     return (
+        // displays a FlatList of reviews using ReviewListItems and review-data from calling getAllReviews()
         <View>
             <FlatList
                 style={styles.ReviewList}
