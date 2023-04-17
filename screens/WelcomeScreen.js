@@ -15,7 +15,8 @@ export default function WelcomeScreen({ navigation }) {
     return (
       // This is what the loading screen will display during the 1.5 seconds
       <View style={styles.container}> 
-      <Image source={require('../assets/images/24Frames_Logo.png')} style={styles.image}resizeMode='contain'/>
+      <Image source={require('../assets/images/24Frames_Logo.png')} style={styles.image} resizeMode='contain'/>
+      {/* Here resizeMode contain allows us to keep the image's aspect ratio so it fits within the dimensions of the container styles  */}
       </View>
     );
   }
