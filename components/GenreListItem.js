@@ -4,8 +4,12 @@ import { useNavigation } from "@react-navigation/native";
 
 export default function GenreListItem({ itemData }) {
 
+    // navigation const to take the user to the Results page after button press
     const navigation = useNavigation();
 
+    // creates a list of genres using data passed from genre-data
+    // creates a button with a background image and a title
+    // pressing on a button takes the user to the result specific to that button
     return (
         <ListItem 
         style={styles.listItem}

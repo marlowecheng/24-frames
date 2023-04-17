@@ -7,11 +7,12 @@ export default function WelcomeScreen({ navigation }) {
         useEffect(() => {
             // Simulate a loading delay of 2 seconds
             const timer = setTimeout(() => {
-              navigation.navigate('Onboarding1');
+              navigation.navigate('SignUp');
             }, 1500);
             return () => clearTimeout(timer);
           }, [navigation]);
         
+          // displays the logo
           return (
             <View style={styles.container}> 
             <Image source={require('../assets/images/24Frames_Logo.png')} style={styles.image}resizeMode='contain'/>
