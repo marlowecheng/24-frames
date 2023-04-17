@@ -7,7 +7,6 @@ import { getUserById } from "../data/user-data";
 import { GENREDATA } from "../data/genre-data";
 
 import GenreSmallListItem from "../components/GenreSmallListItem";
-import { getAllGenres } from "../data/genre-data";
 
 export default function SearchScreen({ navigation }) {
 

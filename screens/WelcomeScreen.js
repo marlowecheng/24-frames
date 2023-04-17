@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react';
-import { StyleSheet, View, Button, Image } from "react-native";
+import { StyleSheet, View, Image } from "react-native";
 
 export default function WelcomeScreen({ navigation }) {
 
