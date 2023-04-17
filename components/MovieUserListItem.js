@@ -6,7 +6,7 @@ import { ListItem, Text } from "@rneui/themed";
 import { useNavigation } from "@react-navigation/native";
 import StarRating from "react-native-star-rating-widget";
 
-export default function MovieListItem({ itemData }) {
+export default function MovieUserListItem({ itemData }) {
 
     const navigation = useNavigation();
 
@@ -21,7 +21,7 @@ export default function MovieListItem({ itemData }) {
 
     // add useEffect for the fetch process
     useEffect(() => {
-      fetch("https://api.themoviedb.org/3/movie/" + itemData.id + "?api_key=3636477fa6452fd3ef8c3fca44ea59ee&language=en-US")
+      fetch("https://api.themoviedb.org/3/movie/" + itemData + "?api_key=3636477fa6452fd3ef8c3fca44ea59ee&language=en-US")
         .then(res => res.json())
         .then(
           (result) => {
@@ -48,21 +48,21 @@ export default function MovieListItem({ itemData }) {
             <Pressable 
                 style={styles.itemImg}
                 onPress={() => navigation.navigate("Details", {
-                    movieId: itemData.id
+                    movieId: dataResult.id
                 })}>
                 <Image 
                     height={231}
                     width={156}
-                    source={{ uri: "http://image.tmdb.org/t/p/w300" + itemData.poster_path }}
+                    source={{ uri: "http://image.tmdb.org/t/p/w300" + dataResult.poster_path }}
                 />
             </Pressable>
             <View style={styles.textBox}>
-                <Text h3 style={styles.allCaps} numberOfLines={2}>{itemData.title}</Text>
+                <Text h3 style={styles.allCaps} numberOfLines={2}>{dataResult.title}</Text>
                 <Text style={styles.medPrint} numberOfLines={3}>{dataResult.tagline}</Text>
                 <Text   
                     style={styles.smallPrint}
                     numberOfLines={3}
-                >{itemData.overview}
+                >{dataResult.overview}
                 </Text>
                 <View
                     style={{ 

@@ -21,6 +21,8 @@ export default function OnboardingThirdScreen({ navigation }) {
         <Text style={styles.buttonText}>NEXT</Text>
       </TouchableOpacity>
 
+
+    {/* Here there is an added button that allows for the user to skip the task, and allows them to move to the next onboarding screen */}
       <TouchableOpacity
         style={styles.skipLink}
         onPress={() => navigation.navigate('Onboarding4')}
@@ -97,6 +99,7 @@ const styles = StyleSheet.create({
   progBar: {
       backgroundColor:"#56BFD9",
       height:18,
+      // There are only 4 steps to the onboarding process, so on the third page we are at 50% completion
       width:"50%",
       marginBottom: 2,
   }
