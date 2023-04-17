@@ -5,11 +5,15 @@ import { getGenreById } from "../data/genre-data";
 
 export default function GenreSmallListItem({ itemData }) {
 
+    // const for navigation
     const navigation = useNavigation();
 
+    // gets the item data from genre-data
     const currGenre = getGenreById(itemData);
 
     return (
+
+        // list item of item data
         <ListItem 
         style={styles.listItem}
         containerStyle={{ 
@@ -17,6 +21,7 @@ export default function GenreSmallListItem({ itemData }) {
             padding:10,
          }}
         >
+            {/* creates the small list of genre cards found on the search page */}
             <Pressable 
                 style={styles.itemImg}
                 onPress={() => navigation.navigate("Results", {

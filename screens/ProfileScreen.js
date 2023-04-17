@@ -7,8 +7,10 @@ import MovieSmallListItem from "../components/MovieSmallListItem";
 
 export default function ProfileScreen({ navigation }) {
 
+        // gets the current user by id
         const currUser = getUserById('1');
 
+        // sets currUser to currId
         const [currId, setCurrId] = useState(null);
 
         if(currUser !== currId){
@@ -17,6 +19,7 @@ export default function ProfileScreen({ navigation }) {
 
 
     return (
+        // displays profile content based on user-data
         <ScrollView style={styles.container}>
             <View
                 style={{ 
@@ -94,13 +97,16 @@ export default function ProfileScreen({ navigation }) {
     );
 }
 
+// displays want to watch movies
 function displayWatchContainer(currUser, navigation) {
 
+    // renders MovieSmallListItem component with its data
     const renderItem = ({ item }) => (
         <MovieSmallListItem itemData={item} navigationRef={navigation} />
     );
 
     return (
+        // generates a flatlist based on the rendered item
         <View>
             <FlatList
                 style={styles.MovieList}
@@ -114,7 +120,7 @@ function displayWatchContainer(currUser, navigation) {
 }
 
 
-
+// displays watched movies
 function displaySeenContainer(currUser, navigation) {
 
     const renderItem = ({ item }) => (
@@ -134,6 +140,7 @@ function displaySeenContainer(currUser, navigation) {
     );
 }
 
+// displays movies that has been reviewed by the user
 function displayReviewContainer(currUser, navigation) {
 
     const renderItem = ({ item }) => (

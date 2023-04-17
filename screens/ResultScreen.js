@@ -7,6 +7,7 @@ import MovieListItem from "../components/MovieListItem";
 
 export default function HomeScreen({ route, navigation }) {
 
+    // grabs the genre ID that's passed from the screen previous to this, and puts it in genreId
     const { genreId } = route.params;
 
     // add the three useState for the fetch process
@@ -16,13 +17,14 @@ export default function HomeScreen({ route, navigation }) {
 
     const [currId, setCurrId] = useState(null);
 
-
+    // checks if genreId is the same as currId, if not, then set the currId to the same as genreId
     if(genreId !== currId){
         setCurrId(genreId);
     }
 
+    // creates the const for fetching API data based on genreId inputted
     const fetchUri = "https://api.themoviedb.org/3/discover/movie?api_key=3636477fa6452fd3ef8c3fca44ea59ee&with_genres=" + genreId;
-    console.log(fetchUri);
+    // console.log(fetchUri);
 
     // add useEffect for the fetch process
     useEffect(() => {
@@ -42,6 +44,7 @@ export default function HomeScreen({ route, navigation }) {
         )
     }, [currId]);
 
+    // displays the search bar
     return (
         <View style={styles.container}>
             <SearchBar
@@ -60,6 +63,7 @@ export default function HomeScreen({ route, navigation }) {
 
 function displayDataContainer(error, isLoaded, dataResult, navigation) {
 
+    // using MovieListItem component, the data will be displayed, and clicking on it will take the user to the specific item
     const renderItem = ({ item }) => (
         <MovieListItem itemData={item} navigationRef={navigation} />
     );
@@ -91,6 +95,8 @@ function displayDataContainer(error, isLoaded, dataResult, navigation) {
         );  
     }
     else {
+
+        // displays the movie list using the data from genereId
         return (
             <View>
                 <FlatList

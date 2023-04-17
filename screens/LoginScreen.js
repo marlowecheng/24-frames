@@ -4,6 +4,7 @@ import { Text, Input, Button, Image } from "@rneui/themed";
 
 export default function LoginScreen({ navigation }) {
     return (
+        // login screen
         <View style={styles.container}>
             <View style={styles.contentContainer}>
                 <View style={styles.headerContainer}>
@@ -14,6 +15,7 @@ export default function LoginScreen({ navigation }) {
                         Please enter your login info to sign in.
                     </Text>
                 </View>
+                {/* input fields for login and password */}
                 <View style={styles.inputFields}>
                     <Input
                         label="Email Address"
@@ -30,12 +32,15 @@ export default function LoginScreen({ navigation }) {
                     />
                 </View>
                 <View style={{alignSelf: 'flex-end'}}><Text style={{ color: '#56BFD9' }}>Forgot password?</Text></View>
+                {/* login button takes the user to onboarding */}
                 <View style={{width: '100%', marginVertical: 0, marginTop: 32, marginBottom: 8}}>
                     <Button onPress={() => navigation.navigate('TabNavigator')}>LOG IN</Button>
                 </View>
                 <View style={{alignItems: 'center', width:'100%', marginVertical: 8}}>
                     <Text style={styles.subhead}>Don't have an account? <Text style={{ color: '#56BFD9' }}onPress={() => navigation.navigate('SignUp')}>Sign up</Text></Text>
                 </View>
+
+                {/* alternate login buttons using socials */}
                 <View style={styles.footerContainer}>
                     <View style={styles.footerLine}>
                         <View style={{flex: 1, height: .5, backgroundColor: '#232323'}} />

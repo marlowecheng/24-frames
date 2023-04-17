@@ -7,6 +7,7 @@ export default function SignUpScreen({ navigation }) {
     const toggleCheckbox = () => setChecked(!checked);
 
     return (
+        // sign up screen
         <View style={styles.container}>
             <View style={styles.contentContainer}>
                 <View style={styles.headerContainer}>
@@ -17,6 +18,8 @@ export default function SignUpScreen({ navigation }) {
                         Start your movie journey today.
                     </Text>
                 </View>
+
+                {/* input fields for name, email, and password */}
                 <View style={styles.inputFields}>
                     <Input
                         label="Full Name"
@@ -39,6 +42,8 @@ export default function SignUpScreen({ navigation }) {
                     />
                 </View>
                 <View style={{width: '100%'}}>
+
+                {/* checkbox for tos & privacy policy */}
                 <CheckBox
                         checked={checked}
                         onPress={toggleCheckbox}
@@ -52,12 +57,16 @@ export default function SignUpScreen({ navigation }) {
                         style={styles.checkBoxStyle}
                     />
                 </View>
+
+                {/* signup button goes to onboarding */}
                 <View style={{width: '100%', marginVertical: 0, marginTop: 32, marginBottom: 8}}>
                     <Button onPress={() => navigation.navigate('Onboarding1')}>SIGN UP</Button>
                 </View>
                 <View style={{alignItems: 'center', width:'100%', marginVertical: 8}}>
                     <Text style={styles.subhead}>Already a memeber? <Text style={{ color: '#56BFD9' }} onPress={() => navigation.navigate('LogIn')}>Log-in</Text></Text>
                 </View>
+
+                {/* alternate sign up options using socials */}
                 <View style={styles.footerContainer}>
                     <View style={styles.footerLine}>
                         <View style={{flex: 1, height: .5, backgroundColor: '#232323'}} />

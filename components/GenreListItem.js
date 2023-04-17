@@ -9,7 +9,6 @@ export default function GenreListItem({ itemData }) {
 
     // creates a list of genres using data passed from genre-data
     // creates a button with a background image and a title
-    // pressing on a button takes the user to the result specific to that button
     return (
         <ListItem 
         style={styles.listItem}
@@ -18,6 +17,10 @@ export default function GenreListItem({ itemData }) {
             padding:10,
          }}
         >
+            {/* creates clickable cards with the genre
+                takes user to the genre list page when clicked
+                passes the genreId into the genre list page
+            */}
             <Pressable 
                 style={styles.itemImg}
                 onPress={() => navigation.navigate("Results", {

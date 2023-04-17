@@ -26,6 +26,7 @@ const Stack = createNativeStackNavigator();
 
 export default function App() {
 
+  // makes fonts globally available
   let [fontsLoaded] = useFonts({
     Poppins_400Regular,
     Poppins_600SemiBold,
@@ -40,10 +41,12 @@ export default function App() {
     );
   }
 
+  // creates the stack navigation for non-tab screens
   return (
     <SafeAreaProvider>
       <ThemeProvider theme={framesTheme}>
         <NavigationContainer ref={navigationRef}> 
+          {/* sets the StackNavigation pages */}
            <Stack.Navigator
             initialRouteName="Welcome"
             screenOptions={{ 
@@ -56,7 +59,7 @@ export default function App() {
             <Stack.Screen
               name="Welcome"
               component={WelcomeScreen}
-              screenOptions={{
+              options={{
                 headerShown: false,
               }}
             /> 
@@ -109,6 +112,8 @@ export default function App() {
                 title:"Get Started",
                }}
             /> 
+
+            {/* contains all the pages for the TabNavigator pages */}
             <Stack.Screen
               name="TabNavigator"
               component={TabNav}

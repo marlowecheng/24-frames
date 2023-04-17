@@ -8,8 +8,10 @@ import StarRating from "react-native-star-rating-widget";
 
 export default function MovieListItem({ itemData }) {
 
+    // creates const for navigation
     const navigation = useNavigation();
 
+    // creates a state for the selectedLIst using useState, setSelectedList is the function that will update it
     const [selectedList, setSelectedList] = useState();
 
     const [rating, setRating] = useState(0);
@@ -37,6 +39,7 @@ export default function MovieListItem({ itemData }) {
         )
     }, []);
 
+    // displays the ListItems as cards
     return (
         <ListItem 
         style={styles.listItem}
@@ -45,6 +48,10 @@ export default function MovieListItem({ itemData }) {
             padding:10,
          }}
         >
+            {/* creates clickable cards with the movie information
+                takes user to the movie details page when clicked
+                passes the movie ID into the details page
+            */}
             <Pressable 
                 style={styles.itemImg}
                 onPress={() => navigation.navigate("Details", {
@@ -56,6 +63,8 @@ export default function MovieListItem({ itemData }) {
                     source={{ uri: "http://image.tmdb.org/t/p/w300" + itemData.poster_path }}
                 />
             </Pressable>
+            
+            {/* displays the movie information based from data fetched from the API */}
             <View style={styles.textBox}>
                 <Text h3 style={styles.allCaps} numberOfLines={2}>{itemData.title}</Text>
                 <Text style={styles.medPrint} numberOfLines={3}>{dataResult.tagline}</Text>
@@ -85,6 +94,8 @@ export default function MovieListItem({ itemData }) {
                         borderRadius:8,
                         overflow:"hidden",
                     }}>
+                        
+                    {/* shows the picker for which list the user wants to save the movie to */}
                     <Picker
                         style={[styles.listPicker, {
                         }]}

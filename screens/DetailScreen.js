@@ -14,24 +14,30 @@ import { addToWatchlist } from "../services/ListManager";
 
 export default function DetailScreen({ route, navigation }) {
 
+    // grabs the movie ID from the function params passed from the previous screen
+    // puts it into movieId const
     const { movieId } = route.params;
     
+    // create states for errors, loaded, and data result
     const [error, setError] = useState(null);
     const [isLoaded, setIsLoaded] = useState(false);
     const [dataResult, setDataResult] = useState([]);
 
+    // create a state for setting the current id using the movie id
     const [currId, setCurrId] = useState(null);
 
     if(movieId !== currId){
         setCurrId(movieId);
     }
 
+    // fetches the current movie
     useEffect(() => {
         fetch("https://api.themoviedb.org/3/movie/" + movieId + "?api_key=3636477fa6452fd3ef8c3fca44ea59ee")
             .then(res => res.json())
             .then(
                 (result) => {
                     // successful load
+                    // set the data result using result
                     setIsLoaded(true);
                     setDataResult(result);
                 },
@@ -59,12 +65,16 @@ export default function DetailScreen({ route, navigation }) {
 
 function displayDataContainer(error, isLoaded, dataResult, navigation) {
 
+    // using the API call, the time var gets the runtime of the movie
     var time = dataResult.runtime;
 
+    // sets the selected list when the user uses the picker to categorize their movie
     const [selectedList, setSelectedList] = useState();
 
+    // sets the rating when user selects the rating
     const [rating, setRating] = useState(0);
 
+    // takes the runtime and makes it into readable hour and minute format
     const runtimeHours = Math.floor(time /60);
     const runtimeMins = time % 60;
 
@@ -106,6 +116,7 @@ function displayDataContainer(error, isLoaded, dataResult, navigation) {
                 <View
                     style={styles.contentWrap}
                 >
+                    {/* header which shows the title, run time, and poster */}
                     <View style={styles.titleWrap}>
                         <Text h1>{dataResult.title}</Text>
                         <Text style={styles.smallPrint}>{dataResult.release_date} {runtimeHours}h {runtimeMins}m</Text>
@@ -120,6 +131,8 @@ function displayDataContainer(error, isLoaded, dataResult, navigation) {
                             justifyContent="center"
                         />
                     </View>
+
+                    {/* shows global star ratings */}
                     <View 
                         style={{ 
                             marginTop: 10,
@@ -166,6 +179,11 @@ function displayDataContainer(error, isLoaded, dataResult, navigation) {
                             borderRadius:8,
                             overflow:"hidden",
                         }}>
+
+                        {/* shows the list picker dropdown and the movie rating
+                            when user updates the picker or the movie rating, the useState is triggered
+                            so the selected options are remembered
+                        */}
                         <Picker
                             style={[styles.listPicker, {
                             }]}
@@ -231,6 +249,8 @@ function displayDataContainer(error, isLoaded, dataResult, navigation) {
                             alignSelf: "center",
                         }}
                     />
+
+                    {/* movie description from the API call */}
                     <View style={styles.descriptionWrap}>
                         <Text h4>Description</Text>
                         <Text style={styles.smallPrint}>{dataResult.overview}</Text>
@@ -247,6 +267,8 @@ function displayDataContainer(error, isLoaded, dataResult, navigation) {
                                 alignSelf: "center",
                             }}
                         />
+
+                        {/* user comments */}
                         <View style={styles.descriptionWrap}>
                             <Text h4>User Reviews</Text>
                             <View style={styles.input}>
@@ -305,11 +327,13 @@ function displayDataContainer(error, isLoaded, dataResult, navigation) {
 
 function displayReviewContainer(navigation) {
 
+    // uses the ReviewListItem component to display data and potentially navigate to the user profile
     const renderItem = ({ item }) => (
         <ReviewListItem itemData={item} navigationRef={navigation} />
     );
 
     return (
+        // displays a FlatList of reviews using ReviewListItems and review-data from calling getAllReviews()
         <View>
             <FlatList
                 style={styles.ReviewList}

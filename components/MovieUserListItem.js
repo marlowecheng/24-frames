@@ -8,6 +8,7 @@ import StarRating from "react-native-star-rating-widget";
 
 export default function MovieUserListItem({ itemData }) {
 
+    // enables navigation
     const navigation = useNavigation();
 
     const [selectedList, setSelectedList] = useState();
@@ -45,6 +46,7 @@ export default function MovieUserListItem({ itemData }) {
             padding:10,
          }}
         >
+            {/* populates image based on the data passed into this from My List Screen */}
             <Pressable 
                 style={styles.itemImg}
                 onPress={() => navigation.navigate("Details", {

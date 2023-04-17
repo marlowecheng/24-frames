@@ -6,6 +6,7 @@ import { useNavigation } from "@react-navigation/native";
 
 export default function MovieListItem({ itemData }) {
 
+    // enables navigation
     const navigation = useNavigation();
 
     const [selectedList, setSelectedList] = useState();
@@ -36,6 +37,7 @@ export default function MovieListItem({ itemData }) {
     }, []);
 
     return (
+        // creates a list item of clickable movie posters that takes user to movie detail page
         <ListItem 
         // style={styles.listItem}
         containerStyle={{ 

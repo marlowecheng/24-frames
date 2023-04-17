@@ -8,6 +8,7 @@ export default function ReviewListItem({ itemData }) {
     const navigation = useNavigation();
 
     return (
+        // creates a list item from review-data
         <ListItem 
         style={styles.listItem}
         containerStyle={{ 
@@ -19,6 +20,7 @@ export default function ReviewListItem({ itemData }) {
                 style={{ 
                     flexDirection:"row"
                 }}>
+                {/* Avatar */}
                 <View
                     style={{ 
                         marginRight: 15,
@@ -29,6 +31,7 @@ export default function ReviewListItem({ itemData }) {
                     source={itemData.userImage}
                     />
                 </View> 
+                {/* stars */}
                 <View
                     style={{ 
                         flexDirection:"column"
@@ -39,6 +42,7 @@ export default function ReviewListItem({ itemData }) {
                         starSize={14}
                         emptyColor="#232323"
                     />
+                    {/* review text */}
                     <Text
                         numberOfLines={5}
                         style={{ 
