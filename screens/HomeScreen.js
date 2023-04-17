@@ -13,10 +13,12 @@ export default function HomeScreen({ navigation }) {
         search: '',
     };
     
+    // updates the search api using user-entered strings
     updateSearch = (search) => {
         this.setState({ search });
     };
 
+    // throws the user-entered string into the search const
     const { search } = this.state;
 
     // add the three useState for the fetch process
@@ -24,11 +26,13 @@ export default function HomeScreen({ navigation }) {
     const [isLoaded, setIsLoaded] = useState(false);
     const [dataResult, setDataResult] = useState([]);
 
+    // putting in the search string into the search API call
     const getSearchResult = "https://api.themoviedb.org/3/search/multi?api_key=3636477fa6452fd3ef8c3fca44ea59ee&language=en-US&query=" + search + "&page=1&include_adult=false";
     const encodedURL = encodeURI(getSearchResult)
 
-    console.log(search);
+    // console.log(search);
 
+    // const for the API call for trending movies
     const getTrending = "https://api.themoviedb.org/3/trending/movie/day?api_key=3636477fa6452fd3ef8c3fca44ea59ee";
 
     // add useEffect for the fetch process
@@ -49,6 +53,8 @@ export default function HomeScreen({ navigation }) {
         )
     }, []);
 
+
+    // shows the search bar
     return (
         <View style={styles.container}>
             <SearchBar
@@ -70,12 +76,13 @@ export default function HomeScreen({ navigation }) {
 
 function displayDataContainer(error, isLoaded, dataResult, navigation) {
 
+    // renders the movie list item
     const renderItem = ({ item }) => (
         <MovieListItem itemData={item} navigationRef={navigation} />
     );
 
     if (error) {
-        // show error message   
+        // if there's an error show error message   
         return (
             <View>
                 <Text>Error: {error.message}</Text>
@@ -84,7 +91,7 @@ function displayDataContainer(error, isLoaded, dataResult, navigation) {
     }
     
     else if (!isLoaded) {
-        // show spinner while loading
+        //if it's loading, show spinner while loading
         return(
             <View style={styles.loadingContainer}>
                 <Text>Loading...</Text>
@@ -93,7 +100,7 @@ function displayDataContainer(error, isLoaded, dataResult, navigation) {
         );
     }
     else if (dataResult.results === undefined) {
-        // no records found
+        // if there's no records found
         return (
             <View>
                 <Text>Nothing found.</Text>
@@ -101,6 +108,7 @@ function displayDataContainer(error, isLoaded, dataResult, navigation) {
         );  
     }
     else {
+        // otherwise, returns the list of movies
         return (
             <View>
                 <FlatList
@@ -117,10 +125,13 @@ function displayDataContainer(error, isLoaded, dataResult, navigation) {
 
 function displayGenreContainer(navigation) {
 
+    // renders the genrelistitem
     const renderItem = ({ item }) => (
         <GenreListItem itemData={item} navigationRef={navigation} />
     );
-
+    
+    // using the GenreListItem component, the flatlist displays a list of genres
+    // the data comes from genre-data
     return (
         <View>
             <FlatList
