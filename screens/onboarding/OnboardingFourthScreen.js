@@ -17,12 +17,14 @@ export default function OnboardingFourthScreen({ navigation }) {
         <Text style={styles.buttonText}>NEXT</Text>
       </TouchableOpacity>
 
+    {/* Here we attach another Skip button that allows the user to skip the task and move onto the next page */}
       <TouchableOpacity
         style={styles.skipLink}
         onPress={() => navigation.navigate('Onboarding5')}
       >
         <Text style={styles.skipLinkText}>Skip for now</Text>
       </TouchableOpacity>
+
 
       <View style={styles.progBarWrap}>
         <View style={styles.progBar}></View>
@@ -101,6 +103,7 @@ const styles = StyleSheet.create({
   progBar: {
       backgroundColor:"#56BFD9",
       height:18,
+      // This is now set to 75% as it is the 3/4
       width:"75%",
       marginBottom: 2,
   },

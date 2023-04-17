@@ -2,14 +2,18 @@ import React, { useState, useEffect } from "react";
 import { StyleSheet, View, FlatList } from "react-native";
 import { Text, Button } from "@rneui/themed";
 
+
+// Here we import the data and components that we need, this allows us to do the API call that we need to call the movie genres needed
 import GenreOnboardItem from "../../components/GenreOnboardItem";
 import { getAllGenres } from "../../data/genre-data";
 
 
 export default function OnboardingSecondScreen({ navigation }) {
 
+    // This variable stores the selected genres in this state
     const [selectedList, setSelectedList] = useState();
 
+    // Uses the GenreOnboardItem from the itemData prop, which allows us to set to value for item
     const renderItem = ({ item }) => (
         <GenreOnboardItem itemData={item} navigationRef={navigation} />
     );
@@ -31,6 +35,9 @@ export default function OnboardingSecondScreen({ navigation }) {
             </View>
             
             <View>
+                {/* Here is where we display the genre list */}
+                {/* The styling is done here for a two column layout */}
+                {/* Using the FlatList copmonent it allows us to display the genres from the getAllGenres() function */}
                 <FlatList
                     style={styles.GenreList}
                     data={getAllGenres()}
@@ -56,6 +63,7 @@ export default function OnboardingSecondScreen({ navigation }) {
                     onPress={() => navigation.navigate('Onboarding3')}
                 />
             </View>
+            {/* Here we have a progress bar at the bottom of the screen, by creating an area with a set height, and controlling it by setting a width */}
             <View style={styles.progBarWrap}>
                 <View style={styles.progBar}></View>
                 <Text style={{ fontSize:10, marginLeft:5 }}>1/4</Text>

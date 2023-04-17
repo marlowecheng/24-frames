@@ -3,20 +3,24 @@ import { StyleSheet, View, Image } from "react-native";
 
 export default function WelcomeScreen({ navigation }) {
 
-    useEffect(() => {
-        // Simulate a loading delay of 2 seconds
-        const timer = setTimeout(() => {
-          navigation.navigate('LogIn');
-        }, 1500);
-        return () => clearTimeout(timer);
-      }, [navigation]);
-    
-      return (
-        <View style={styles.container}> 
-        <Image source={require('../assets/images/24Frames_Logo.png')} style={styles.image}resizeMode='contain'/>
-        </View>
-      );
-    }
+  // Here we set a timer to display the screen for x amount of time, before it automatically moves to the login page
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      navigation.navigate('LogIn');
+    }, 1500);
+    // Here is the timer for 1500, so the delay put on the loading screen is 1.5 seconds before it moves to the next page
+    return () => clearTimeout(timer);
+  }, [navigation]);
+
+    return (
+      // This is what the loading screen will display during the 1.5 seconds
+      <View style={styles.container}> 
+      <Image source={require('../assets/images/24Frames_Logo.png')} style={styles.image} resizeMode='contain'/>
+      {/* Here resizeMode contain allows us to keep the image's aspect ratio so it fits within the dimensions of the container styles  */}
+      </View>
+    );
+  }
+
 
 const styles = StyleSheet.create({
     container: {
