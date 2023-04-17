@@ -1,10 +1,15 @@
 import { StyleSheet, Image, View, Pressable } from "react-native";
 import { ListItem, Text } from "@rneui/themed";
 import { useNavigation } from "@react-navigation/native";
+import { getGenreById } from "../data/genre-data";
 
-export default function GenreListItem({ itemData }) {
+export default function GenreSmallListItem({ itemData }) {
 
     const navigation = useNavigation();
+
+    const currGenre = getGenreById(itemData);
+
+    console.log(currGenre);
 
     return (
         <ListItem 
@@ -17,15 +22,15 @@ export default function GenreListItem({ itemData }) {
             <Pressable 
                 style={styles.itemImg}
                 onPress={() => navigation.navigate("Results", {
-                    genreId: itemData.genreId
+                    genreId: currGenre.genreId
                 })}>
                 <Image 
                     width={179}
                     height={70}
-                    source={itemData.genreSmallImage}
+                    source={currGenre.genreSmallImage}
                 />
                 <View style={styles.textBox}>
-                    <Text h3>{itemData.name}</Text>
+                    <Text h3>{currGenre.name}</Text>
                 </View>
             </Pressable>
         </ListItem>

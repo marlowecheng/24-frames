@@ -1,6 +1,15 @@
 export function getAllGenres(){
     return GENREDATA;
 }
+
+export function getGenreById(id){
+    return GENREDATA.find(item => item.id === id);
+}
+
+export function getGenreByGenreId(genreId){
+    return GENREDATA.find(item => item.genreId === genreId);
+}
+
 export const GENREDATA = [
     {
         id: "01",

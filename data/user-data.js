@@ -14,7 +14,7 @@ export const USERDATA = [
         password: "password1",
         keyImage: require('../assets/images/user1.png'),
         about: "ipsum dolor sit amet, consectetur adipiscing elit. Phasellus sed felis in massa vestibulum egestas. ipsum dolor sit amet, consectetur adipiscing elit. Phasellus sed felis in massa vestibulum egestas. ipsum dolor sit amet, consectetur adipiscing elit.",
-        genrePref:["28", "35", "14", "878"],
+        genrePref:["08", "02", "07", "05"],
         watchList:["438631", "324857", "111"],
         seenList:["299536", "483", "12133"],
         reviewList:["324857", "12133"],
