@@ -3,6 +3,10 @@ export function getAllGenres(){
     return GENREDATA;
 }
 
+export function getGenreById(id){
+    return GENREDATA.find(item => item.id === id);
+}
+
 //holds a multi-dimensional array with genre name, images, and IDs
 export const GENREDATA = [
     {

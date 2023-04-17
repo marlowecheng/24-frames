@@ -3,13 +3,15 @@ import { StyleSheet, View, FlatList } from "react-native";
 import { Text, SearchBar } from "@rneui/themed";
 
 import { Picker } from "@react-native-picker/picker";
-
+import { getUserById } from "../data/user-data";
 import { GENREDATA } from "../data/genre-data";
 
 import GenreSmallListItem from "../components/GenreSmallListItem";
 import { getAllGenres } from "../data/genre-data";
 
 export default function SearchScreen({ navigation }) {
+
+    const currUser = getUserById('1');
 
     const [selectedList, setSelectedList] = useState();
 
@@ -28,7 +30,7 @@ export default function SearchScreen({ navigation }) {
             <View>
                 <FlatList
                     style={styles.GenreList}
-                    data={getAllGenres().slice(0,4)}
+                    data={currUser.genrePref}
                     renderItem={renderItem}
                     keyExtractor={item => item.id}
                     horizontal={false}
