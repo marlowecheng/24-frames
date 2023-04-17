@@ -7,7 +7,7 @@ export function getGenreById(id){
     return GENREDATA.find(item => item.id === id);
 }
 
-//holds a multi-dimensional array with genre name, images, and IDs
+//holds a 2-dimension array with genre name, images, and IDs
 export const GENREDATA = [
     {
         id: "01",
