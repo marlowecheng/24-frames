@@ -31,7 +31,7 @@ export default function LoginScreen({ navigation }) {
                 </View>
                 <View style={{alignSelf: 'flex-end'}}><Text style={{ color: '#56BFD9' }}>Forgot password?</Text></View>
                 <View style={{width: '100%', marginVertical: 0, marginTop: 32, marginBottom: 8}}>
-                    <Button onPress={() => navigation.navigate('Onboarding1')}>LOG IN</Button>
+                    <Button onPress={() => navigation.navigate('TabNavigator')}>LOG IN</Button>
                 </View>
                 <View style={{alignItems: 'center', width:'100%', marginVertical: 8}}>
                     <Text style={styles.subhead}>Don't have an account? <Text style={{ color: '#56BFD9' }}onPress={() => navigation.navigate('SignUp')}>Sign up</Text></Text>

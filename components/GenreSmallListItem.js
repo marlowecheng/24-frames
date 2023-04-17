@@ -9,8 +9,6 @@ export default function GenreSmallListItem({ itemData }) {
 
     const currGenre = getGenreById(itemData);
 
-    console.log(currGenre);
-
     return (
         <ListItem 
         style={styles.listItem}

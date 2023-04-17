@@ -114,18 +114,12 @@ const styles = StyleSheet.create({
     container: {
         flex: 1,
         backgroundColor: "#F5EFDF",
+        paddingBottom:70,
     },
     MovieList: {
         width: 400,
         height: "100%",
         alignSelf: "center",
         backgroundColor: "#F5EFDF",
-        marginBottom: 10,
-    },
-    GenreList: {
-        width: 400,
-        flexDirection: "row",
-        flexWrap: "wrap",
-        alignSelf: "center",
     },
 });

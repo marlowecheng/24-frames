@@ -6,7 +6,7 @@ export default function WelcomeScreen({ navigation }) {
   // Here we set a timer to display the screen for x amount of time, before it automatically moves to the login page
   useEffect(() => {
     const timer = setTimeout(() => {
-      navigation.navigate('LogIn');
+      navigation.navigate('SignUp');
     }, 1500);
     // Here is the timer for 1500, so the delay put on the loading screen is 1.5 seconds before it moves to the next page
     return () => clearTimeout(timer);

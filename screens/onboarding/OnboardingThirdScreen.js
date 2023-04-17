@@ -7,19 +7,17 @@ export default function OnboardingThirdScreen({ navigation }) {
     <View style={styles.container}>
         <Image source={require('../../assets/images/onb-screenshot-2.png')} style={styles.image} />
         <View style={styles.bulletCont}>
-        <Text style={styles.bulletItem}>• Find the movie you want to add</Text>
-        <Text style={styles.bulletItem}>• Click the "Add to List" button</Text>
-        <Text style={styles.bulletItem}>• Select the desired list</Text>
-        <Text style={styles.bulletItem}>• The movie is now added to your list!</Text>
+          <Text style={styles.bulletItem}>• Find the movie you want to add</Text>
+          <Text style={styles.bulletItem}>• Click the "Add to List" button</Text>
+          <Text style={styles.bulletItem}>• Select the desired list</Text>
+          <Text style={styles.bulletItem}>• The movie is now added to your list!</Text>
         </View>
 
-
-
-      <TouchableOpacity
-        style={styles.button}
-        onPress={() => navigation.navigate('Onboarding4')}>
-        <Text style={styles.buttonText}>NEXT</Text>
-      </TouchableOpacity>
+        <TouchableOpacity
+          style={styles.button}
+          onPress={() => navigation.navigate('Onboarding4')}>
+          <Text style={styles.buttonText}>NEXT</Text>
+        </TouchableOpacity>
 
 
     {/* Here there is an added button that allows for the user to skip the task, and allows them to move to the next onboarding screen */}
