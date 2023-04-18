@@ -1,10 +1,35 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { StyleSheet, View } from "react-native";
 import { CheckBox, Text, Input, Button, Image } from "@rneui/themed";
+import { auth } from '../firebase';
 
 export default function SignUpScreen({ navigation }) {
+
     const [checked, setChecked] = React.useState(false);
     const toggleCheckbox = () => setChecked(!checked);
+
+    const [fullName, setFullname] = useState('')
+    const [email, setEmail] = useState('')
+    const [password, setPassword] = useState('')
+
+    useEffect(() => {
+        const unsubscribe = auth.onAuthStateChanged(user => {
+            if (user) {
+                navigation.navigate("TabNavigator")
+            }
+        })
+        return unsubscribe
+    }, [])
+
+    const handleSignUp = () => {
+        auth
+            .createUserWithEmailAndPassword(email, password)
+            .then(userCredentials => {
+                const user = userCredentials.user;
+                console.log('Registered With: ', user.email);
+            })
+            .catch(error => alert(error.message))
+    }
 
     return (
         // sign up screen
@@ -26,12 +51,16 @@ export default function SignUpScreen({ navigation }) {
                         placeholder="Full Name"
                         inputMode="text"
                         autoCapitalize="words"
+                        value={fullName}
+                        onChangeText={text => setFullname(text)}
                     />
                     <Input
                         label="Email Address"
                         placeholder="Email Address"
                         inputMode="email"
                         autoCapitalize="none"
+                        value={email}
+                        onChangeText={text => setEmail(text)}
                     />
                     <Input
                         label="Password"
@@ -39,6 +68,8 @@ export default function SignUpScreen({ navigation }) {
                         secureTextEntry={true}
                         style={{marginBottom: 0,}}
                         renderErrorMessage={false}
+                        value={password}
+                        onChangeText={text => setPassword(text)}
                     />
                 </View>
                 <View style={{width: '100%'}}>
@@ -60,7 +91,7 @@ export default function SignUpScreen({ navigation }) {
 
                 {/* signup button goes to onboarding */}
                 <View style={{width: '100%', marginVertical: 0, marginTop: 32, marginBottom: 8}}>
-                    <Button onPress={() => navigation.navigate('Onboarding1')}>SIGN UP</Button>
+                    <Button onPress={handleSignUp}>SIGN UP</Button>
                 </View>
                 <View style={{alignItems: 'center', width:'100%', marginVertical: 8}}>
                     <Text style={styles.subhead}>Already a memeber? <Text style={{ color: '#56BFD9' }} onPress={() => navigation.navigate('LogIn')}>Log-in</Text></Text>

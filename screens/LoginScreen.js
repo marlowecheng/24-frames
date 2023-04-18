@@ -1,8 +1,32 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { StyleSheet, View, } from "react-native";
 import { Text, Input, Button, Image } from "@rneui/themed";
+import { auth } from '../firebase';
 
 export default function LoginScreen({ navigation }) {
+
+    const [email, setEmail] = useState('')
+    const [password, setPassword] = useState('')
+
+    useEffect(() => {
+        const unsubscribe = auth.onAuthStateChanged(user => {
+            if (user) {
+                navigation.navigate("TabNavigator")
+            }
+        })
+        return unsubscribe
+    }, [])
+
+    const handleLogIn = () => {
+        auth
+            .signInWithEmailAndPassword(email, password)
+            .then(userCredentials => {
+                const user = userCredentials.user;
+                console.log('Logged In With: ', user.email);
+            })
+            .catch(error => alert(error.message))
+    }
+
     return (
         // login screen
         <View style={styles.container}>
@@ -22,6 +46,8 @@ export default function LoginScreen({ navigation }) {
                         placeholder="Email Address"
                         inputMode="email"
                         autoCapitalize="none"
+                        value={email}
+                        onChangeText={text => setEmail(text)}
                     />
                     <Input
                         label="Password"
@@ -29,12 +55,14 @@ export default function LoginScreen({ navigation }) {
                         secureTextEntry={true}
                         style={{marginBottom: 0}}
                         renderErrorMessage={false}
+                        value={password}
+                        onChangeText={text => setPassword(text)}
                     />
                 </View>
                 <View style={{alignSelf: 'flex-end'}}><Text style={{ color: '#56BFD9' }}>Forgot password?</Text></View>
                 {/* login button takes the user to onboarding */}
                 <View style={{width: '100%', marginVertical: 0, marginTop: 32, marginBottom: 8}}>
-                    <Button onPress={() => navigation.navigate('TabNavigator')}>LOG IN</Button>
+                    <Button onPress={handleLogIn}>LOG IN</Button>
                 </View>
                 <View style={{alignItems: 'center', width:'100%', marginVertical: 8}}>
                     <Text style={styles.subhead}>Don't have an account? <Text style={{ color: '#56BFD9' }}onPress={() => navigation.navigate('SignUp')}>Sign up</Text></Text>
