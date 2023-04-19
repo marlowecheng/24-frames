@@ -15,7 +15,7 @@ export default function SignUpScreen({ navigation }) {
     useEffect(() => {
         const unsubscribe = auth.onAuthStateChanged(user => {
             if (user) {
-                navigation.navigate("TabNavigator")
+                navigation.navigate("Onboarding1")
             }
         })
         return unsubscribe
