@@ -17,7 +17,6 @@ export default function ProfileScreen({ navigation }) {
             setCurrId(currUser);
         }
 
-
     return (
         // displays profile content based on user-data
         <ScrollView style={styles.container}>
